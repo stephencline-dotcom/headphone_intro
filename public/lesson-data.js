@@ -200,48 +200,48 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "sound",
+    id: "sound-start",
     section: "sound",
     shortLabel: "SOUND",
-    visual: "placeholder-sound",
-    spokenInstruction: "Let's check our sound.",
-    interactionType: "none"
+    visual: "volume-sound",
+    spokenInstruction: "Now let's learn the sound buttons on our Chromebook.",
+    interactionType: "volume-test"
   },
 
   {
-    id: "quieter",
+    id: "volume-quieter",
     section: "volume",
     shortLabel: "QUIETER",
-    visual: "placeholder-quieter",
-    spokenInstruction: "Let's learn how to make the sound quieter.",
-    interactionType: "none"
+    visual: "volume-down",
+    spokenInstruction: "Find the quieter button. Press it to make the sound softer.",
+    interactionType: "volume-test"
   },
 
   {
-    id: "louder",
+    id: "volume-louder",
     section: "volume",
     shortLabel: "LOUDER",
-    visual: "placeholder-louder",
-    spokenInstruction: "Let's learn how to make the sound louder.",
-    interactionType: "none"
+    visual: "volume-up",
+    spokenInstruction: "Find the louder button. Press it to make the sound louder.",
+    interactionType: "volume-test"
   },
 
   {
-    id: "mute",
+    id: "volume-mute",
     section: "volume",
     shortLabel: "MUTE",
-    visual: "placeholder-mute",
-    spokenInstruction: "Let's learn how to turn the sound off.",
-    interactionType: "none"
+    visual: "volume-mute",
+    spokenInstruction: "Press mute. The sound should stop.",
+    interactionType: "volume-test"
   },
 
   {
-    id: "unmute",
+    id: "volume-unmute",
     section: "volume",
     shortLabel: "SOUND ON",
-    visual: "placeholder-unmute",
-    spokenInstruction: "Let's learn how to turn the sound back on.",
-    interactionType: "none"
+    visual: "volume-unmute",
+    spokenInstruction: "Press the sound button again to turn your sound back on.",
+    interactionType: "volume-test"
   },
 
   {

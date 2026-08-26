@@ -187,3 +187,74 @@ lessonStage.addEventListener("click", (event) => {
 
   check.classList.add("sound-test-played");
 });
+
+/* ===== Volume-key practice sound ===== */
+
+async function playVolumePracticeSound() {
+  const AudioContext =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+  if (!AudioContext) {
+    return;
+  }
+
+  const audioContext = new AudioContext();
+
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  oscillator.type = "sine";
+  oscillator.frequency.value = 440;
+
+  gain.gain.value = 0.18;
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start();
+
+  gain.gain.setValueAtTime(
+    0.18,
+    audioContext.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioContext.currentTime + 6
+  );
+
+  oscillator.stop(
+    audioContext.currentTime + 6
+  );
+
+  setTimeout(() => {
+    audioContext.close().catch(() => {});
+  }, 6300);
+}
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const button =
+    event.target.closest(".volume-test-button");
+
+  if (!button) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(currentState.currentStep);
+
+  if (step?.interactionType !== "volume-test") {
+    return;
+  }
+
+  playVolumePracticeSound();
+});

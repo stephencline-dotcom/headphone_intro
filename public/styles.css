@@ -2529,3 +2529,105 @@ body:not(.presentation-shell)
   top: 58%;
   transform: translateY(-50%);
 }
+
+/* ===== Chromebook volume lesson ===== */
+
+.volume-photo-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 760px;
+  max-height: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-keyboard-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.volume-highlight {
+  display: none;
+  fill: rgba(255, 220, 60, 0.08);
+  stroke: #f1b82d;
+  stroke-width: 18;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 7px rgba(241, 184, 45, 0.35));
+}
+
+.volume-photo-stage[data-volume="down"]
+  .volume-highlight-down {
+  display: block;
+}
+
+.volume-photo-stage[data-volume="up"]
+  .volume-highlight-up {
+  display: block;
+}
+
+.volume-photo-stage[data-volume="mute"]
+  .volume-highlight-mute,
+.volume-photo-stage[data-volume="unmute"]
+  .volume-highlight-mute {
+  display: block;
+}
+
+.volume-test-button {
+  position: absolute;
+  right: 3%;
+  bottom: 5%;
+
+  min-width: 110px;
+  min-height: 72px;
+  padding: 8px 16px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(23, 32, 51, 0.16);
+
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 2px;
+
+  font-size: 30px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.volume-test-button span {
+  font-size: 12px;
+}
+
+/* ===== Volume keys: fixed keyboard-image highlights ===== */
+
+.volume-highlight {
+  fill: rgba(255, 220, 60, 0.05);
+  stroke: #f1b82d;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 4px rgba(241, 184, 45, 0.35));
+}
+
+.volume-photo-stage[data-volume="down"]
+  .volume-highlight-down {
+  display: block;
+}
+
+.volume-photo-stage[data-volume="up"]
+  .volume-highlight-up {
+  display: block;
+}
+
+.volume-photo-stage[data-volume="mute"]
+  .volume-highlight-mute,
+.volume-photo-stage[data-volume="unmute"]
+  .volume-highlight-mute {
+  display: block;
+}

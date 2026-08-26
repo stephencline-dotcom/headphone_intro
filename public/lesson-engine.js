@@ -27,6 +27,64 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("volume-")) {
+      const mode = step.visual.replace("volume-", "");
+
+      visual.innerHTML = `
+        <div class="volume-photo-stage" data-volume="${mode}">
+          <svg
+            class="volume-keyboard-svg"
+            viewBox="0 0 1011 377"
+            role="img"
+            aria-label="Classroom Chromebook keyboard"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <image
+              href="/assets/images/mute.png"
+              x="0"
+              y="0"
+              width="1011"
+              height="377"
+            ></image>
+
+            <rect
+              class="volume-highlight volume-highlight-mute"
+              x="663"
+              y="19"
+              width="80"
+              height="39"
+              rx="9"
+            ></rect>
+
+            <rect
+              class="volume-highlight volume-highlight-down"
+              x="748"
+              y="19"
+              width="80"
+              height="39"
+              rx="9"
+            ></rect>
+
+            <rect
+              class="volume-highlight volume-highlight-up"
+              x="833"
+              y="19"
+              width="80"
+              height="39"
+              rx="9"
+            ></rect>
+          </svg>
+
+          <button class="volume-test-button" type="button">
+            🔊
+            <span>PLAY</span>
+          </button>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("position-")) {
       const mode = step.visual.replace("position-", "");
 
