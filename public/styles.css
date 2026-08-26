@@ -126,3 +126,94 @@ button {
 .status-dot-offline {
   background: #9aa4b2;
 }
+
+.classroom-controls {
+  width: min(760px, 90vw);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.control-toggle {
+  min-height: 88px;
+  padding: 16px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(23, 32, 51, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  cursor: pointer;
+}
+
+.control-toggle span {
+  display: grid;
+  gap: 4px;
+}
+
+.control-toggle strong {
+  font-size: 18px;
+}
+
+.control-toggle small {
+  font-size: 13px;
+  color: #5f6b7a;
+}
+
+.control-toggle input {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
+.teacher-freeze-armed .freeze-toggle {
+  outline: 4px solid #f2b84b;
+}
+
+.freeze-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 248, 252, 0.96);
+  padding: 24px;
+}
+
+.freeze-overlay.is-visible {
+  display: flex;
+}
+
+.freeze-message {
+  width: min(560px, 90vw);
+  padding: clamp(28px, 6vh, 60px);
+  border-radius: 32px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(23, 32, 51, 0.18);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.freeze-stop {
+  font-size: clamp(80px, 14vw, 150px);
+  line-height: 1;
+}
+
+.freeze-message strong {
+  font-size: clamp(42px, 7vw, 76px);
+}
+
+.freeze-message span {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .classroom-controls {
+    grid-template-columns: 1fr;
+  }
+}
