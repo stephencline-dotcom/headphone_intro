@@ -27,6 +27,79 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("position-")) {
+      const mode = step.visual.replace("position-", "");
+
+      visual.innerHTML = `
+        <div class="position-visual" data-position="${mode}">
+          <div class="position-head" aria-hidden="true">
+            <div class="position-face">
+              <div class="position-eyes">● ●</div>
+            </div>
+
+            <div class="position-headphones position-headphones-ears">
+              <span class="position-band"></span>
+              <span class="position-pad position-pad-left"></span>
+              <span class="position-pad position-pad-right"></span>
+            </div>
+
+            <div class="position-headphones position-headphones-neck">
+              <span class="position-neck-band"></span>
+              <span class="position-neck-pad position-neck-pad-left"></span>
+              <span class="position-neck-pad position-neck-pad-right"></span>
+            </div>
+          </div>
+
+          <div class="position-symbol position-teacher-symbol" aria-hidden="true">
+            👩‍🏫
+          </div>
+
+          <div class="position-symbol position-chromebook-symbol" aria-hidden="true">
+            💻
+          </div>
+
+          <div class="position-symbol position-stop-symbol" aria-hidden="true">
+            STOP
+          </div>
+
+          <div class="position-symbol position-go-symbol" aria-hidden="true">
+            GO
+          </div>
+
+          <div class="neck-routine" aria-hidden="true">
+            <div class="neck-routine-item">
+              <span class="neck-routine-icon">👀</span>
+              <strong>LOOK</strong>
+            </div>
+
+            <div class="neck-routine-item">
+              <span class="neck-routine-icon">👂</span>
+              <strong>LISTEN</strong>
+            </div>
+
+            <div class="neck-routine-item">
+              <span class="neck-routine-icon">🙌</span>
+              <strong>HANDS DOWN</strong>
+            </div>
+          </div>
+
+          <div class="ears-routine" aria-hidden="true">
+            <span class="ears-routine-icon">💻</span>
+            <strong>WORK</strong>
+          </div>
+
+          <div class="position-practice-symbols" aria-hidden="true">
+            <span>🎧</span>
+            <span>↕</span>
+            <span>👩‍🏫</span>
+            <span>💻</span>
+          </div>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("plug-")) {
       const mode = step.visual.replace("plug-", "");
 

@@ -1988,3 +1988,544 @@ body:not(.presentation-shell)
     transform-origin: center;
   }
 }
+
+/* ===== NECK / EARS classroom routine ===== */
+
+.position-visual {
+  position: relative;
+  width: min(700px, 95%);
+  height: min(460px, 95%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.position-head {
+  position: relative;
+  width: 260px;
+  height: 330px;
+}
+
+.position-face {
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 220px;
+  border-radius: 48% 48% 46% 46%;
+  background: #f3c89f;
+  border: 5px solid #27364a;
+}
+
+.position-eyes {
+  position: absolute;
+  top: 88px;
+  width: 100%;
+  text-align: center;
+  word-spacing: 48px;
+  color: #27364a;
+  font-size: 20px;
+}
+
+.position-headphones {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.position-band {
+  position: absolute;
+  left: 38px;
+  top: 0;
+  width: 184px;
+  height: 155px;
+  border: 20px solid #168bd2;
+  border-bottom: 0;
+  border-radius: 110px 110px 0 0;
+}
+
+.position-pad {
+  position: absolute;
+  top: 128px;
+  width: 48px;
+  height: 94px;
+  border-radius: 24px;
+  background: #168bd2;
+  border: 8px solid #27364a;
+}
+
+.position-pad-left {
+  left: 15px;
+}
+
+.position-pad-right {
+  right: 15px;
+}
+
+.position-neck-band {
+  position: absolute;
+  left: 49px;
+  bottom: 14px;
+  width: 162px;
+  height: 100px;
+  border: 18px solid #168bd2;
+  border-top: 0;
+  border-radius: 0 0 90px 90px;
+}
+
+.position-neck-pad {
+  position: absolute;
+  bottom: 68px;
+  width: 50px;
+  height: 78px;
+  border-radius: 24px;
+  background: #168bd2;
+  border: 8px solid #27364a;
+}
+
+.position-neck-pad-left {
+  left: 27px;
+}
+
+.position-neck-pad-right {
+  right: 27px;
+}
+
+.position-symbol {
+  position: absolute;
+  display: none;
+  place-items: center;
+}
+
+.position-teacher-symbol,
+.position-chromebook-symbol {
+  right: 7%;
+  top: 32%;
+  font-size: clamp(76px, 10vw, 130px);
+}
+
+.position-stop-symbol,
+.position-go-symbol {
+  left: 6%;
+  top: 35%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.position-stop-symbol {
+  background: #e85050;
+  color: #ffffff;
+}
+
+.position-go-symbol {
+  background: #45a86b;
+  color: #ffffff;
+}
+
+.position-practice-symbols {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 44px);
+  font-size: clamp(62px, 9vw, 110px);
+}
+
+/* NECK states */
+.position-visual[data-position="neck"]
+  .position-headphones-neck,
+.position-visual[data-position="look"]
+  .position-headphones-neck,
+.position-visual[data-position="stop"]
+  .position-headphones-neck {
+  display: block;
+}
+
+/* EARS states */
+.position-visual[data-position="ears"]
+  .position-headphones-ears,
+.position-visual[data-position="listen"]
+  .position-headphones-ears,
+.position-visual[data-position="go"]
+  .position-headphones-ears {
+  display: block;
+}
+
+/* Teacher cue */
+.position-visual[data-position="neck"]
+  .position-teacher-symbol,
+.position-visual[data-position="look"]
+  .position-teacher-symbol {
+  display: grid;
+}
+
+/* Chromebook cue */
+.position-visual[data-position="ears"]
+  .position-chromebook-symbol,
+.position-visual[data-position="listen"]
+  .position-chromebook-symbol {
+  display: grid;
+}
+
+/* STOP cue */
+.position-visual[data-position="stop"]
+  .position-stop-symbol {
+  display: grid;
+}
+
+/* GO cue */
+.position-visual[data-position="go"]
+  .position-go-symbol {
+  display: grid;
+}
+
+/* Final practice */
+.position-visual[data-position="practice"]
+  .position-head {
+  display: none;
+}
+
+.position-visual[data-position="practice"]
+  .position-practice-symbols {
+  display: flex;
+}
+
+/* ===== NECK / EARS routine cues ===== */
+
+.neck-routine,
+.ears-routine {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+
+.neck-routine {
+  right: 2%;
+  top: 16%;
+  width: 235px;
+  gap: 12px;
+}
+
+.neck-routine-item {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 64px;
+  padding: 8px 12px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(23, 32, 51, 0.10);
+}
+
+.neck-routine-icon {
+  font-size: 38px;
+  line-height: 1;
+  text-align: center;
+}
+
+.neck-routine-item strong {
+  font-size: 18px;
+  color: #27364a;
+}
+
+.ears-routine {
+  right: 7%;
+  top: 31%;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 28px;
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.12);
+
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+
+  gap: 5px;
+}
+
+.ears-routine-icon {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.ears-routine strong {
+  font-size: 22px;
+  color: #27364a;
+}
+
+/* Every NECK state reinforces the same routine */
+.position-visual[data-position="neck"]
+  .neck-routine,
+.position-visual[data-position="stop"]
+  .neck-routine {
+  display: grid;
+}
+
+/* EARS always means Chromebook work/listening time */
+.position-visual[data-position="ears"]
+  .ears-routine,
+.position-visual[data-position="listen"]
+  .ears-routine,
+.position-visual[data-position="go"]
+  .ears-routine {
+  display: grid;
+}
+
+/* Hide the older single teacher/chromebook cues
+   now that the routine cards communicate the meaning */
+.position-visual[data-position="neck"]
+  .position-teacher-symbol,
+.position-visual[data-position="ears"]
+  .position-chromebook-symbol,
+.position-visual[data-position="listen"]
+  .position-chromebook-symbol {
+  display: none;
+}
+
+/* ===== FINAL NECK position layout ===== */
+
+/* Arrange character on left and routine cards on right */
+.position-visual[data-position="neck"],
+.position-visual[data-position="stop"] {
+  position: relative;
+  justify-content: flex-start;
+}
+
+.position-visual[data-position="neck"] .position-head,
+.position-visual[data-position="stop"] .position-head {
+  position: relative;
+  margin-left: 25px;
+  margin-right: 0;
+  width: 280px;
+  height: 350px;
+}
+
+/* Visible human neck */
+.position-visual[data-position="neck"] .position-head::after,
+.position-visual[data-position="stop"] .position-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 225px;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 82px;
+  background: #f3c89f;
+  border-left: 5px solid #27364a;
+  border-right: 5px solid #27364a;
+  z-index: 2;
+}
+
+/* Face stays in front */
+.position-face {
+  z-index: 3;
+}
+
+/* Visible ears make it obvious headphones are NOT on the ears */
+.position-face::before,
+.position-face::after {
+  content: "";
+  position: absolute;
+  top: 88px;
+  width: 30px;
+  height: 52px;
+  background: #f3c89f;
+  border: 5px solid #27364a;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.position-face::before {
+  left: -20px;
+}
+
+.position-face::after {
+  right: -20px;
+}
+
+/* Headphones around neck */
+.position-headphones-neck {
+  z-index: 1;
+}
+
+/*
+  Band is an upside-down U behind the neck.
+  It should visually disappear behind the neck/head.
+*/
+.position-neck-band {
+  position: absolute;
+  left: 44px;
+  bottom: 62px;
+  width: 192px;
+  height: 112px;
+
+  border: 18px solid #168bd2;
+  border-bottom: 0;
+  border-radius: 100px 100px 0 0;
+
+  z-index: 0;
+}
+
+/* Ear cups rest BELOW the visible ears */
+.position-neck-pad {
+  position: absolute;
+  bottom: 38px;
+  width: 52px;
+  height: 78px;
+
+  border-radius: 24px;
+  background: #168bd2;
+  border: 8px solid #27364a;
+
+  z-index: 4;
+}
+
+.position-neck-pad-left {
+  left: 14px;
+}
+
+.position-neck-pad-right {
+  right: 14px;
+}
+
+/*
+  LOOK / LISTEN / HANDS DOWN sits between
+  the character and the large NECK lesson word.
+*/
+.neck-routine {
+  position: absolute;
+  display: none;
+
+  left: 330px;
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 230px;
+  gap: 10px;
+
+  pointer-events: none;
+}
+
+.position-visual[data-position="neck"] .neck-routine,
+.position-visual[data-position="stop"] .neck-routine {
+  display: grid;
+}
+
+.neck-routine-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 62px;
+  padding: 8px 12px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  box-shadow: 0 6px 18px rgba(23, 32, 51, 0.10);
+}
+
+.neck-routine-icon {
+  font-size: 34px;
+  line-height: 1;
+  text-align: center;
+}
+
+.neck-routine-item strong {
+  font-size: 17px;
+  color: #27364a;
+}
+
+
+/* ===== EARS position: headphones cover the ears ===== */
+
+.position-visual[data-position="ears"] .position-pad,
+.position-visual[data-position="listen"] .position-pad,
+.position-visual[data-position="go"] .position-pad {
+  top: 112px;
+  width: 58px;
+  height: 104px;
+  border-radius: 28px;
+  z-index: 5;
+}
+
+.position-visual[data-position="ears"] .position-pad-left,
+.position-visual[data-position="listen"] .position-pad-left,
+.position-visual[data-position="go"] .position-pad-left {
+  left: 4px;
+}
+
+.position-visual[data-position="ears"] .position-pad-right,
+.position-visual[data-position="listen"] .position-pad-right,
+.position-visual[data-position="go"] .position-pad-right {
+  right: 4px;
+}
+
+/* ===== STOP screen cleanup ===== */
+
+.position-visual[data-position="stop"]
+  .position-stop-symbol {
+  display: grid;
+
+  left: 360px;
+  top: 12px;
+
+  width: 105px;
+  height: 105px;
+
+  border-radius: 50%;
+  background: #e85050;
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 900;
+
+  z-index: 6;
+
+  box-shadow:
+    0 6px 18px rgba(23, 32, 51, 0.16);
+}
+
+/* Drop the routine cards slightly lower on STOP
+   so the STOP cue has its own space */
+.position-visual[data-position="stop"]
+  .neck-routine {
+  top: 57%;
+}
+
+/* ===== STOP screen final positioning ===== */
+
+.position-visual[data-position="stop"]
+  .position-stop-symbol {
+  left: 535px;
+  top: 42px;
+
+  width: 92px;
+  height: 92px;
+
+  font-size: 22px;
+  z-index: 7;
+}
+
+/* Keep routine cards centered and unobstructed */
+.position-visual[data-position="stop"]
+  .neck-routine {
+  left: 330px;
+  top: 58%;
+  transform: translateY(-50%);
+}

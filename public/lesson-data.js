@@ -137,29 +137,65 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "neck",
+    id: "position-neck-teach",
     section: "positions",
     shortLabel: "NECK",
-    visual: "placeholder-neck",
-    spokenInstruction: "Headphones on your neck means listen to your teacher.",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
     interactionType: "none"
   },
 
   {
-    id: "ears",
+    id: "position-ears-teach",
     section: "positions",
     shortLabel: "EARS",
-    visual: "placeholder-ears",
-    spokenInstruction: "Headphones on your ears means listen to your Chromebook.",
+    visual: "position-ears",
+    spokenInstruction: "When it is time to work and listen to your Chromebook, gently move your headphones from your neck to your ears.",
     interactionType: "none"
   },
 
   {
-    id: "positions-practice",
+    id: "position-stop-practice",
+    section: "positions",
+    shortLabel: "STOP",
+    visual: "position-stop",
+    spokenInstruction: "Stop! Move your headphones to your neck and look at your teacher.",
+    interactionType: "none"
+  },
+
+  {
+    id: "position-neck-practice",
+    section: "positions",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Check yourself. Headphones on your neck. Look, listen, hands down.",
+    interactionType: "none"
+  },
+
+  {
+    id: "position-go-practice",
+    section: "positions",
+    shortLabel: "GO",
+    visual: "position-go",
+    spokenInstruction: "Go! Move your headphones to your ears and get ready to listen.",
+    interactionType: "none"
+  },
+
+  {
+    id: "position-ears-practice",
+    section: "positions",
+    shortLabel: "EARS",
+    visual: "position-ears",
+    spokenInstruction: "Check yourself. Headphones on your ears. Ready to work.",
+    interactionType: "none"
+  },
+
+  {
+    id: "position-practice",
     section: "positions",
     shortLabel: "PRACTICE",
-    visual: "placeholder-positions-practice",
-    spokenInstruction: "Let's practice ears and neck.",
+    visual: "position-practice",
+    spokenInstruction: "Let's practice. Remember: ears for Chromebook time, neck for teacher time.",
     interactionType: "none"
   },
 
