@@ -147,10 +147,7 @@ window.addEventListener("pagehide", releaseTeacherSession);
 
 classroom.subscribe(renderTeacher);
 
-classroom.fetchState()
-  .then(() => {
-    classroom.connect();
-  })
+window.HeadphoneClassroomBootstrap.initialize()
   .catch((error) => {
     console.error(error);
 

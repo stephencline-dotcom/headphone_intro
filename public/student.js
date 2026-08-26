@@ -81,11 +81,14 @@ function interceptFrozenInteraction(event) {
   );
 });
 
-classroom.subscribe(renderStudent);
+statusBar.innerHTML = `
+  <span class="status-dot status-dot-offline"></span>
+  Connecting to Teacher
+`;
 
-classroom.fetchState()
+window.HeadphoneClassroomBootstrap.initialize()
   .then(() => {
-    classroom.connect();
+    classroom.subscribe(renderStudent);
   })
   .catch((error) => {
     console.error(error);
