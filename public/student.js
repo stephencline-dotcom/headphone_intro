@@ -1,10 +1,13 @@
 "use strict";
 
-const lesson = window.HEADPHONE_HEROES_LESSON;
 const classroom = window.HeadphoneClassroom;
+const lessonEngine = window.HeadphoneLessonEngine;
 
-const cardTitle = document.querySelector(".placeholder-card h2");
-const statusBar = document.querySelector(".status-bar");
+const lessonStage =
+  document.getElementById("student-lesson-stage");
+
+const statusBar =
+  document.querySelector(".status-bar");
 
 const freezeOverlay = document.createElement("div");
 freezeOverlay.className = "freeze-overlay";
@@ -24,8 +27,10 @@ let currentState = classroom.getState();
 function renderStudent(state) {
   currentState = state;
 
-  const step = lesson[state.currentStep] || lesson[0];
-  cardTitle.textContent = step.shortLabel;
+  lessonEngine.renderStudentStep(
+    lessonStage,
+    state.currentStep
+  );
 
   document.body.classList.toggle(
     "student-freeze-armed",
