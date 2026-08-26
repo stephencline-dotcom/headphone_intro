@@ -1,0 +1,123 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #f4f8fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100dvh;
+  overflow: hidden;
+  background: #f4f8fc;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  width: 100%;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(14px, 2vw, 28px);
+  gap: clamp(12px, 2vh, 22px);
+}
+
+.app-header {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 52px);
+}
+
+.app-header p {
+  margin: 6px 0 0;
+  font-size: clamp(16px, 2vw, 22px);
+}
+
+.student-stage,
+.teacher-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-card,
+.teacher-status {
+  width: min(760px, 90vw);
+  padding: clamp(24px, 5vh, 54px);
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(23, 32, 51, 0.12);
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: clamp(72px, 12vw, 150px);
+  line-height: 1;
+}
+
+.placeholder-card h2 {
+  margin: 16px 0 0;
+  font-size: clamp(28px, 4vw, 48px);
+}
+
+.teacher-panel {
+  flex-direction: column;
+  gap: 24px;
+}
+
+.teacher-status {
+  display: grid;
+  gap: 10px;
+  font-size: clamp(18px, 2vw, 24px);
+}
+
+.teacher-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.teacher-controls button {
+  min-width: 140px;
+  min-height: 56px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.status-bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #36a269;
+}
