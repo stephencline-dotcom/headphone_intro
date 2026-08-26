@@ -331,3 +331,36 @@ function leaveTeacherSession() {
 window.addEventListener("pagehide", leaveTeacherSession);
 
 startTeacherHeartbeat();
+
+const openPresentationButton =
+  document.getElementById("open-presentation-button");
+
+const copyStudentLinkButton =
+  document.getElementById("copy-student-link-button");
+
+const classroomLinkStatus =
+  document.getElementById("classroom-link-status");
+
+openPresentationButton.addEventListener("click", () => {
+  window.open(
+    `${window.location.origin}/present`,
+    "_blank",
+    "noopener"
+  );
+});
+
+copyStudentLinkButton.addEventListener("click", async () => {
+  const studentUrl = `${window.location.origin}/student`;
+
+  try {
+    await navigator.clipboard.writeText(studentUrl);
+    classroomLinkStatus.textContent = "Student link copied";
+  } catch (error) {
+    console.error("Unable to copy student link.", error);
+    classroomLinkStatus.textContent = studentUrl;
+  }
+
+  setTimeout(() => {
+    classroomLinkStatus.textContent = "";
+  }, 2500);
+});

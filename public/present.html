@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphone Heroes - Presentation</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="app-shell presentation-shell">
+    <header class="app-header">
+      <h1>Headphone Heroes</h1>
+    </header>
+
+    <section
+      id="presentation-lesson-stage"
+      class="student-stage"
+      aria-live="polite">
+    </section>
+
+    <nav class="presentation-controls" aria-label="Lesson controls">
+      <button id="presentation-teacher" type="button">
+        Teacher Controls
+      </button>
+
+      <div class="presentation-step-controls">
+        <button id="presentation-back" type="button">
+          Back
+        </button>
+
+        <button id="presentation-next" type="button">
+          Next
+        </button>
+      </div>
+    </nav>
+  </main>
+
+  <script src="/lesson-data.js"></script>
+  <script src="/lesson-engine.js"></script>
+  <script src="/classroom-state.js"></script>
+  <script src="/classroom-bootstrap.js"></script>
+  <script src="/present.js"></script>
+</body>
+</html>

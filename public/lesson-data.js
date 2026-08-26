@@ -5,18 +5,56 @@ window.HEADPHONE_HEROES_LESSON = [
     id: "welcome",
     section: "welcome",
     shortLabel: "WELCOME",
-    visual: "placeholder-welcome",
-    spokenInstruction: "Welcome to Headphone Heroes.",
+    visual: "welcome",
+    spokenInstruction: "Welcome to Headphone Heroes! Today we will learn how to use our headphones.",
     interactionType: "none"
   },
+
   {
-    id: "parts",
+    id: "parts-intro",
     section: "parts",
-    shortLabel: "PARTS",
-    visual: "placeholder-parts",
-    spokenInstruction: "Let's learn the parts of our headphones.",
+    shortLabel: "HEADPHONES",
+    visual: "headphones-full",
+    spokenInstruction: "These are your headphones. Let's learn their important parts.",
     interactionType: "none"
   },
+
+  {
+    id: "parts-headband",
+    section: "parts",
+    shortLabel: "HEADBAND",
+    visual: "headphones-headband",
+    spokenInstruction: "This is the headband. Point to the headband on your headphones.",
+    interactionType: "none"
+  },
+
+  {
+    id: "parts-earpads",
+    section: "parts",
+    shortLabel: "EAR PADS",
+    visual: "headphones-earpads",
+    spokenInstruction: "These are the ear pads. Point to the soft parts that cover your ears.",
+    interactionType: "none"
+  },
+
+  {
+    id: "parts-cord",
+    section: "parts",
+    shortLabel: "CORD",
+    visual: "headphones-cord",
+    spokenInstruction: "This is the cord. Point to the cord on your headphones.",
+    interactionType: "none"
+  },
+
+  {
+    id: "parts-plug",
+    section: "parts",
+    shortLabel: "PLUG",
+    visual: "headphones-plug",
+    spokenInstruction: "This is the plug. Point to the plug on your headphones.",
+    interactionType: "none"
+  },
+
   {
     id: "fit",
     section: "fit",
@@ -25,14 +63,16 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's learn how to make our headphones fit.",
     interactionType: "none"
   },
+
   {
     id: "plug",
     section: "plug",
-    shortLabel: "PLUG",
+    shortLabel: "PLUG IN",
     visual: "placeholder-plug",
     spokenInstruction: "Let's learn how to plug in our headphones.",
     interactionType: "none"
   },
+
   {
     id: "neck",
     section: "positions",
@@ -41,6 +81,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Headphones on your neck means listen to your teacher.",
     interactionType: "none"
   },
+
   {
     id: "ears",
     section: "positions",
@@ -49,6 +90,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Headphones on your ears means listen to your Chromebook.",
     interactionType: "none"
   },
+
   {
     id: "positions-practice",
     section: "positions",
@@ -57,6 +99,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's practice ears and neck.",
     interactionType: "none"
   },
+
   {
     id: "sound",
     section: "sound",
@@ -65,6 +108,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's check our sound.",
     interactionType: "none"
   },
+
   {
     id: "quieter",
     section: "volume",
@@ -73,6 +117,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's learn how to make the sound quieter.",
     interactionType: "none"
   },
+
   {
     id: "louder",
     section: "volume",
@@ -81,6 +126,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's learn how to make the sound louder.",
     interactionType: "none"
   },
+
   {
     id: "mute",
     section: "volume",
@@ -89,6 +135,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's learn how to turn the sound off.",
     interactionType: "none"
   },
+
   {
     id: "unmute",
     section: "volume",
@@ -97,6 +144,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's learn how to turn the sound back on.",
     interactionType: "none"
   },
+
   {
     id: "stop",
     section: "routine",
@@ -105,6 +153,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "When your teacher says stop or the timer rings, headphones go to your neck.",
     interactionType: "none"
   },
+
   {
     id: "review",
     section: "review",
@@ -113,6 +162,7 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "Let's practice everything we learned.",
     interactionType: "none"
   },
+
   {
     id: "hero",
     section: "complete",

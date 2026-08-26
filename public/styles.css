@@ -826,3 +826,711 @@ button {
     min-height: 40px;
   }
 }
+
+/* ===== Welcome + Headphone Parts ===== */
+
+.welcome-visual {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+}
+
+.welcome-headphones {
+  font-size: clamp(130px, 19vw, 230px);
+  line-height: 1;
+}
+
+.welcome-stars {
+  font-size: clamp(24px, 4vw, 42px);
+  letter-spacing: 14px;
+  color: #e4aa26;
+}
+
+.headphone-photo-stage {
+  position: relative;
+  width: min(700px, 90%);
+  height: min(390px, 95%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headphone-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: #f8fbfe;
+  border: 3px dashed #b9c9da;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.headphone-placeholder-icon {
+  font-size: clamp(120px, 18vw, 220px);
+  line-height: 1;
+}
+
+.headphone-photo-placeholder small {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #718096;
+}
+
+.part-highlight {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  border: 6px solid #f1b82d;
+  background: rgba(255, 220, 88, 0.18);
+  box-shadow: 0 0 0 8px rgba(241, 184, 45, 0.12);
+}
+
+.headphone-photo-stage[data-highlight="headband"]
+  .part-headband {
+  display: block;
+  width: 46%;
+  height: 30%;
+  top: 13%;
+  left: 27%;
+  border-radius: 50% 50% 24% 24%;
+}
+
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpads {
+  display: block;
+  width: 62%;
+  height: 42%;
+  top: 38%;
+  left: 19%;
+  border-radius: 28px;
+}
+
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord {
+  display: block;
+  width: 18%;
+  height: 48%;
+  top: 48%;
+  left: 63%;
+  border-radius: 30px;
+}
+
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  display: block;
+  width: 18%;
+  height: 16%;
+  right: 5%;
+  bottom: 4%;
+  border-radius: 24px;
+}
+
+.headphone-photo-stage[data-highlight="all-parts"]
+  .part-highlight {
+  display: block;
+}
+
+.headphone-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 24px;
+}
+
+/* ===== PARTS real-photo sizing and alignment fix ===== */
+
+.lesson-screen {
+  width: min(1100px, 94vw);
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: clamp(20px, 3vw, 42px);
+}
+
+.lesson-visual {
+  width: 100%;
+  height: min(500px, 64vh);
+  max-height: 500px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.lesson-label {
+  margin: 0;
+  align-self: center;
+  justify-self: start;
+  font-size: clamp(42px, 5vw, 70px);
+  text-align: left;
+}
+
+.headphone-photo-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 720px;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+.headphone-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 0;
+}
+
+/* Reset old placeholder-based highlight geometry */
+.part-highlight {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  border: 5px solid #f1b82d;
+  background: rgba(255, 220, 88, 0.10);
+  box-shadow: 0 0 0 6px rgba(241, 184, 45, 0.10);
+}
+
+/*
+  These coordinates are tuned for classroom-headphones.png.
+  They can be fine-adjusted after visual review.
+*/
+
+.headphone-photo-stage[data-highlight="headband"]
+  .part-headband {
+  display: block;
+  left: 15%;
+  top: 3%;
+  width: 48%;
+  height: 44%;
+  border-radius: 50% 50% 24% 24%;
+}
+
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpads {
+  display: block;
+  left: 10%;
+  top: 31%;
+  width: 58%;
+  height: 43%;
+  border-radius: 32px;
+}
+
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord {
+  display: block;
+  left: 10%;
+  top: 61%;
+  width: 74%;
+  height: 30%;
+  border-radius: 40px;
+}
+
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  display: block;
+  right: 8%;
+  bottom: 7%;
+  width: 22%;
+  height: 18%;
+  border-radius: 24px;
+}
+
+.headphone-photo-stage[data-highlight="all-parts"]
+  .part-headband,
+.headphone-photo-stage[data-highlight="all-parts"]
+  .part-earpads,
+.headphone-photo-stage[data-highlight="all-parts"]
+  .part-cord,
+.headphone-photo-stage[data-highlight="all-parts"]
+  .part-plug {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .lesson-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .lesson-label {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .lesson-visual {
+    height: min(430px, 58vh);
+  }
+}
+
+/* ===== Refined PARTS highlights for classroom-headphones.png ===== */
+
+/* HEADBAND — tighter around the upper black bands */
+.headphone-photo-stage[data-highlight="headband"]
+  .part-headband {
+  display: block;
+  left: 24%;
+  top: 5%;
+  width: 36%;
+  height: 34%;
+  border-radius: 50% 50% 35% 35%;
+}
+
+/* EAR PADS — highlight each pad separately */
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-left {
+  display: block;
+  left: 24%;
+  top: 37%;
+  width: 18%;
+  height: 32%;
+  border-radius: 48%;
+}
+
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-right {
+  display: block;
+  left: 47%;
+  top: 31%;
+  width: 18%;
+  height: 34%;
+  border-radius: 48%;
+}
+
+/* CORD — tighter around the coiled cord */
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord {
+  display: block;
+  left: 22%;
+  top: 68%;
+  width: 61%;
+  height: 19%;
+  border-radius: 50px;
+}
+
+/* PLUG — focus on the actual plug at lower right */
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  display: block;
+  right: 14%;
+  bottom: 8%;
+  width: 14%;
+  height: 12%;
+  border-radius: 20px;
+}
+
+/* ===== Final alignment pass for real classroom headphone photo ===== */
+
+/* EAR PADS — tighter around each actual padded ear cup */
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-left {
+  display: block;
+  left: 26%;
+  top: 38%;
+  width: 15%;
+  height: 29%;
+  border-radius: 50%;
+}
+
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-right {
+  display: block;
+  left: 48%;
+  top: 33%;
+  width: 16%;
+  height: 31%;
+  border-radius: 50%;
+}
+
+/* CORD — two connected highlight areas */
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord-coil {
+  display: block;
+  left: 18%;
+  top: 69%;
+  width: 55%;
+  height: 18%;
+  border-radius: 50%;
+}
+
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord-lead {
+  display: block;
+  left: 64%;
+  top: 70%;
+  width: 23%;
+  height: 17%;
+  border-radius: 50%;
+}
+
+/* PLUG — moved directly over the plug body/tip */
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  display: block;
+  left: 66%;
+  top: 75%;
+  width: 15%;
+  height: 11%;
+  right: auto;
+  bottom: auto;
+  border-radius: 22px;
+}
+
+/* ===== Classroom links + presentation view ===== */
+
+.classroom-links-panel {
+  background: #ffffff;
+  border: 1px solid rgba(45, 87, 140, 0.08);
+  box-shadow: 0 8px 22px rgba(23, 32, 51, 0.08);
+  border-radius: 18px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.classroom-links-panel > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.classroom-links-panel strong {
+  font-size: 15px;
+}
+
+.classroom-links-panel small {
+  font-size: 11px;
+  color: #5f6b7a;
+}
+
+.classroom-link-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.classroom-link-actions button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#open-presentation-button {
+  background: #dfeaf9;
+  color: #163d65;
+}
+
+#copy-student-link-button {
+  background: #edf1f6;
+  color: #334056;
+}
+
+.classroom-link-status {
+  grid-column: 1 / -1;
+  min-height: 14px;
+  text-align: right;
+  font-size: 11px;
+  color: #4d5a70;
+}
+
+.presentation-shell {
+  padding-bottom: 12px;
+}
+
+.presentation-shell .student-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.presentation-waiting {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-height: 700px) {
+  .classroom-links-panel {
+    padding: 7px 10px;
+  }
+
+  .classroom-link-actions button {
+    min-height: 36px;
+    padding: 6px 10px;
+  }
+}
+
+/* ===== EAR PADS precision alignment ===== */
+
+/* Front/left ear pad — circle the black padded rim, not the blue housing */
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-left {
+  display: block;
+  left: 31%;
+  top: 39%;
+  width: 12%;
+  height: 25%;
+  border-radius: 50%;
+}
+
+/* Rear/right ear pad — tighten around the black padded rim */
+.headphone-photo-stage[data-highlight="earpads"]
+  .part-earpad-right {
+  display: block;
+  left: 49%;
+  top: 35%;
+  width: 13%;
+  height: 27%;
+  border-radius: 50%;
+}
+
+/* ===== CORD single-oval highlight ===== */
+
+.headphone-photo-stage[data-highlight="cord"]
+  .part-cord {
+  display: block;
+  left: 18%;
+  top: 64%;
+  width: 70%;
+  height: 27%;
+  border-radius: 50%;
+}
+
+/* ===== Home + Teacher Login ===== */
+
+.home-shell,
+.login-shell {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #f4f8fc;
+}
+
+.home-card,
+.login-card {
+  width: min(620px, 92vw);
+  padding: clamp(28px, 5vw, 52px);
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 0 12px 34px rgba(23, 32, 51, 0.12);
+  text-align: center;
+}
+
+.home-icon,
+.login-icon {
+  font-size: clamp(70px, 10vw, 110px);
+  line-height: 1;
+}
+
+.home-card h1,
+.login-card h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(34px, 5vw, 52px);
+}
+
+.home-card p {
+  margin: 0 0 30px;
+  font-size: clamp(17px, 2vw, 22px);
+  color: #526078;
+}
+
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.home-button {
+  min-height: 78px;
+  padding: 18px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.teacher-home-button {
+  background: #dfeaf9;
+  color: #163d65;
+}
+
+.student-home-button {
+  background: #d9f3e4;
+  color: #163d29;
+}
+
+#teacher-login-form {
+  margin-top: 24px;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+#teacher-login-form label {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#teacher-password {
+  width: 100%;
+  min-height: 58px;
+  padding: 10px 16px;
+  border: 2px solid #c8d4e2;
+  border-radius: 14px;
+  font-size: 22px;
+}
+
+#teacher-password:focus {
+  outline: 4px solid rgba(45, 126, 224, 0.18);
+  border-color: #2d7ee0;
+}
+
+#teacher-login-form button {
+  min-height: 58px;
+  border: 0;
+  border-radius: 14px;
+  background: #dfeaf9;
+  color: #163d65;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-message {
+  min-height: 22px;
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  color: #b33a3a;
+}
+
+.login-back-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: #526078;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .home-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Presentation navigation ===== */
+
+.presentation-shell {
+  position: relative;
+}
+
+.presentation-controls {
+  flex: 0 0 auto;
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.presentation-controls button {
+  min-width: 150px;
+  min-height: 52px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#presentation-back {
+  background: #edf1f6;
+  color: #334056;
+}
+
+#presentation-next {
+  background: #dfeaf9;
+  color: #163d65;
+}
+
+.presentation-controls button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-height: 700px) {
+  .presentation-controls button {
+    min-height: 42px;
+    padding: 7px 16px;
+    font-size: 15px;
+  }
+}
+
+/* ===== PLUG precision alignment ===== */
+
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  display: block;
+  left: 58%;
+  top: 74%;
+  width: 15%;
+  height: 12%;
+  right: auto;
+  bottom: auto;
+  border-radius: 22px;
+}
+
+.presentation-controls {
+  align-items: center;
+}
+
+.presentation-step-controls {
+  display: flex;
+  gap: 14px;
+}
+
+#presentation-teacher {
+  background: #edf1f6;
+  color: #334056;
+}
+
+/* ===== PLUG final fine adjustment ===== */
+
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  left: 57%;
+  top: 77%;
+  width: 19%;
+  height: 12%;
+}
+
+/* ===== PLUG final alignment ===== */
+
+.headphone-photo-stage[data-highlight="plug"]
+  .part-plug {
+  left: 57%;
+  top: 79%;
+  width: 19%;
+  height: 15%;
+}

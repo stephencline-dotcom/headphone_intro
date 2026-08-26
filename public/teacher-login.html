@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphone Heroes - Teacher Sign In</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-card">
+      <div class="login-icon" aria-hidden="true">🎧</div>
+
+      <h1>Teacher Sign In</h1>
+
+      <form id="teacher-login-form">
+        <label for="teacher-password">Password</label>
+
+        <input
+          id="teacher-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          autofocus
+          required
+        >
+
+        <button type="submit">
+          Sign In
+        </button>
+
+        <p id="login-message" class="login-message"></p>
+      </form>
+
+      <a class="login-back-link" href="/">
+        Back to Home
+      </a>
+    </section>
+  </main>
+
+  <script src="/teacher-login.js"></script>
+</body>
+</html>

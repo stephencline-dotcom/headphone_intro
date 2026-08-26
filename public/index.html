@@ -7,23 +7,25 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <main class="app-shell">
-    <header class="app-header">
+  <main class="home-shell">
+    <section class="home-card">
+      <div class="home-icon" aria-hidden="true">🎧</div>
+
       <h1>Headphone Heroes</h1>
-    </header>
+      <p>Learn how to use your headphones!</p>
 
-    <section id="student-lesson-stage" class="student-stage" aria-live="polite"></section>
+      <div class="home-actions">
+        <a class="home-button teacher-home-button"
+           href="/teacher-login">
+          Teacher
+        </a>
 
-    <footer class="status-bar">
-      <span class="status-dot"></span>
-      Student Screen
-    </footer>
+        <a class="home-button student-home-button"
+           href="/student">
+          Student
+        </a>
+      </div>
+    </section>
   </main>
-
-  <script src="/lesson-data.js"></script>
-  <script src="/lesson-engine.js"></script>
-  <script src="/classroom-state.js"></script>
-  <script src="/classroom-bootstrap.js"></script>
-  <script src="/student.js"></script>
 </body>
 </html>
