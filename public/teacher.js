@@ -8,33 +8,15 @@ const controls = document.querySelector(".teacher-controls");
 const backButton = controls.querySelector("button:first-child");
 const nextButton = controls.querySelector("button:last-child");
 
-const controlPanel = document.createElement("div");
-controlPanel.className = "classroom-controls";
-controlPanel.innerHTML = `
-  <label class="control-toggle">
-    <span>
-      <strong>Teacher Control</strong>
-      <small>Teacher controls the lesson pace</small>
-    </span>
-    <input id="teacher-control-toggle" type="checkbox">
-  </label>
-
-  <label class="control-toggle freeze-toggle">
-    <span>
-      <strong>Freeze Screen</strong>
-      <small>Student screens wait for teacher</small>
-    </span>
-    <input id="freeze-toggle" type="checkbox">
-  </label>
-`;
-
-statusCard.insertAdjacentElement("afterend", controlPanel);
-
 const teacherControlToggle =
   document.getElementById("teacher-control-toggle");
 
 const freezeToggle =
   document.getElementById("freeze-toggle");
+
+const teacherConnectionText =
+  document.getElementById("teacher-connection-text");
+
 
 backButton.disabled = false;
 nextButton.disabled = false;
@@ -62,6 +44,13 @@ function renderTeacher(state) {
     "teacher-freeze-armed",
     state.freezeScreenArmed
   );
+
+  if (teacherConnectionText) {
+    teacherConnectionText.textContent =
+      state.teacherPresent
+        ? "Teacher Connected"
+        : "Connecting...";
+  }
 }
 
 backButton.addEventListener("click", async () => {

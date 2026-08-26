@@ -14,49 +14,87 @@
     </header>
 
     <section class="teacher-panel">
-      <div class="teacher-status">
-        <strong>Foundation Ready</strong>
-        <span>Classroom controls will be added next.</span>
-      </div>
 
-      <section class="settings-panel">
-        <h2>Saved Settings</h2>
+      <div class="teacher-dashboard">
 
-        <label class="control-toggle">
-          <span>
-            <strong>Teacher Control Default</strong>
-            <small>Start future lessons in teacher-controlled mode</small>
-          </span>
-          <input id="default-teacher-control" type="checkbox">
-        </label>
+        <div class="teacher-dashboard-top">
+          <div class="teacher-status">
+            <strong>Loading...</strong>
+            <span>Connecting to classroom...</span>
+          </div>
 
-        <label class="control-toggle">
-          <span>
-            <strong>Spoken Directions</strong>
-            <small>Use spoken lesson directions by default</small>
-          </span>
-          <input id="spoken-directions-setting" type="checkbox">
-        </label>
-
-        <div id="settings-save-status" class="settings-save-status">
-          Loading saved settings...
+          <div class="teacher-connection-card">
+            <span class="teacher-connection-dot"></span>
+            <div>
+              <strong>Classroom</strong>
+              <span id="teacher-connection-text">Connecting...</span>
+            </div>
+          </div>
         </div>
-      </section>
 
-      <div class="lesson-actions">
-        <button id="start-lesson-button" type="button">
-          Start Lesson
-        </button>
+        <div class="teacher-dashboard-middle">
+          <div class="classroom-controls">
+            <label class="control-toggle">
+              <span>
+                <strong>Teacher Control</strong>
+                <small>Teacher controls the lesson pace</small>
+              </span>
+              <input id="teacher-control-toggle" type="checkbox">
+            </label>
 
-        <button id="reset-lesson-button" type="button">
-          Reset Lesson
-        </button>
+            <label class="control-toggle freeze-toggle">
+              <span>
+                <strong>Freeze Screen</strong>
+                <small>Student screens wait for teacher</small>
+              </span>
+              <input id="freeze-toggle" type="checkbox">
+            </label>
+          </div>
+
+          <section class="settings-panel">
+            <h2>Saved Settings</h2>
+
+            <label class="control-toggle">
+              <span>
+                <strong>Teacher Control Default</strong>
+                <small>Start future lessons in teacher-controlled mode</small>
+              </span>
+              <input id="default-teacher-control" type="checkbox">
+            </label>
+
+            <label class="control-toggle">
+              <span>
+                <strong>Spoken Directions</strong>
+                <small>Use spoken lesson directions by default</small>
+              </span>
+              <input id="spoken-directions-setting" type="checkbox">
+            </label>
+
+            <div id="settings-save-status" class="settings-save-status">
+              Loading saved settings...
+            </div>
+          </section>
+        </div>
+
+        <div class="teacher-dashboard-bottom">
+          <div class="lesson-actions">
+            <button id="start-lesson-button" type="button">
+              Start Lesson
+            </button>
+
+            <button id="reset-lesson-button" type="button">
+              Reset Lesson
+            </button>
+          </div>
+
+          <div class="teacher-controls">
+            <button type="button" disabled>Back</button>
+            <button type="button" disabled>Next</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="teacher-controls">
-        <button type="button" disabled>Back</button>
-        <button type="button" disabled>Next</button>
-      </div>
     </section>
 
     <footer class="status-bar">
