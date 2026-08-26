@@ -106,6 +106,45 @@ freezeToggle.addEventListener("change", async () => {
   });
 });
 
+let teacherReleaseStarted = false;
+
+function releaseTeacherSession() {
+  if (teacherReleaseStarted) {
+    return;
+  }
+
+  teacherReleaseStarted = true;
+
+  const state = classroom.getState();
+
+  if (!state.freezeScreenArmed) {
+    return;
+  }
+
+  const payload = JSON.stringify({
+    freezeScreenArmed: false
+  });
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(
+      "/api/classroom-release",
+      new Blob([payload], { type: "application/json" })
+    );
+    return;
+  }
+
+  fetch("/api/classroom-release", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: payload,
+    keepalive: true
+  }).catch(() => {});
+}
+
+window.addEventListener("pagehide", releaseTeacherSession);
+
 classroom.subscribe(renderTeacher);
 
 classroom.fetchState()

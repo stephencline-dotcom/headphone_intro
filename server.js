@@ -51,6 +51,16 @@ app.post("/api/classroom-state", (req, res) => {
   res.json(classroomState);
 });
 
+app.post("/api/classroom-release", (req, res) => {
+  classroomState.freezeScreenArmed = false;
+  broadcastState();
+
+  res.json({
+    released: true,
+    classroomState
+  });
+});
+
 app.get("/api/classroom-events", (req, res) => {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");
