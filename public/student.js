@@ -105,3 +105,85 @@ window.HeadphoneClassroomBootstrap.initialize()
       Waiting for Teacher
     `;
   });
+
+/* ===== Headphone sound test ===== */
+
+async function playHeadphoneTestSound() {
+  const AudioContext =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+  if (!AudioContext) {
+    console.warn("Web Audio is not available.");
+    return;
+  }
+
+  const audioContext = new AudioContext();
+
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+
+  const masterGain = audioContext.createGain();
+  masterGain.connect(audioContext.destination);
+
+  const now = audioContext.currentTime;
+
+  masterGain.gain.setValueAtTime(0.0001, now);
+  masterGain.gain.exponentialRampToValueAtTime(
+    0.35,
+    now + 0.03
+  );
+  masterGain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    now + 1.15
+  );
+
+  const firstTone = audioContext.createOscillator();
+  firstTone.type = "sine";
+  firstTone.frequency.setValueAtTime(523.25, now);
+  firstTone.connect(masterGain);
+  firstTone.start(now);
+  firstTone.stop(now + 0.5);
+
+  const secondTone = audioContext.createOscillator();
+  secondTone.type = "sine";
+  secondTone.frequency.setValueAtTime(659.25, now + 0.52);
+  secondTone.connect(masterGain);
+  secondTone.start(now + 0.52);
+  secondTone.stop(now + 1.05);
+
+  setTimeout(() => {
+    audioContext.close().catch(() => {});
+  }, 1400);
+}
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const currentStep =
+    lessonEngine.getStep(currentState.currentStep);
+
+  if (
+    currentStep?.interactionType !== "sound-test"
+  ) {
+    return;
+  }
+
+  const check =
+    event.target.closest(".plug-check-svg");
+
+  if (!check) {
+    return;
+  }
+
+  playHeadphoneTestSound();
+
+  check.classList.remove("sound-test-played");
+
+  void check.getBoundingClientRect();
+
+  check.classList.add("sound-test-played");
+});

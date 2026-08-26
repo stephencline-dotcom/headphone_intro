@@ -27,6 +27,118 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("plug-")) {
+      const mode = step.visual.replace("plug-", "");
+
+      if (mode === "look-left") {
+        visual.innerHTML = `
+          <div class="plug-photo-stage plug-look-left-stage">
+            <img
+              class="plug-photo"
+              src="/assets/images/left_plug.jpg"
+              alt="Chromebook keyboard showing the left side"
+            >
+            <div class="plug-left-arrow" aria-hidden="true">←</div>
+          </div>
+        `;
+
+        return visual;
+      }
+
+      if (mode === "find") {
+        visual.innerHTML = `
+          <div class="plug-photo-stage plug-side-stage">
+            <svg
+              class="plug-side-svg"
+              viewBox="0 0 4080 3060"
+              role="img"
+              aria-label="Left side of classroom Chromebook"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <image
+                href="/assets/images/side.jpg"
+                x="0"
+                y="0"
+                width="4080"
+                height="3060"
+              ></image>
+
+              <ellipse
+                class="plug-port-svg-ring"
+                cx="3150"
+                cy="1875"
+                rx="145"
+                ry="120"
+              ></ellipse>
+            </svg>
+          </div>
+        `;
+
+        return visual;
+      }
+
+      if (mode === "hold") {
+        visual.innerHTML = `
+          <div class="plug-photo-stage">
+            <img
+              class="plug-photo"
+              src="/assets/images/classroom-headphones.png"
+              alt="Classroom headphones"
+            >
+            <div class="plug-headphone-highlight" aria-hidden="true"></div>
+          </div>
+        `;
+
+        return visual;
+      }
+
+      if (mode === "push" || mode === "check") {
+        visual.innerHTML = `
+          <div class="plug-photo-stage plug-side-stage" data-plug="${mode}">
+            <svg
+              class="plug-side-svg"
+              viewBox="0 0 4080 3060"
+              role="img"
+              aria-label="Left side of classroom Chromebook"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <image
+                href="/assets/images/side.jpg"
+                x="0"
+                y="0"
+                width="4080"
+                height="3060"
+              ></image>
+
+              <ellipse
+                class="plug-port-svg-ring"
+                cx="3150"
+                cy="1875"
+                rx="145"
+                ry="120"
+              ></ellipse>
+
+              <text
+                class="plug-direction-svg"
+                x="2550"
+                y="1930"
+                text-anchor="middle"
+              >→</text>
+
+              <text
+                class="plug-check-svg"
+                x="3500"
+                y="1150"
+                text-anchor="middle"
+              >✓</text>
+            </svg>
+          </div>
+        `;
+
+        return visual;
+      }
+    }
+
     if (step.visual.startsWith("fit-")) {
       const mode = step.visual.replace("fit-", "");
 

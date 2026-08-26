@@ -83,15 +83,6 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "fit-ears",
-    section: "fit",
-    shortLabel: "EARS",
-    visual: "fit-ears",
-    spokenInstruction: "Put the headphones on. The soft ear pads should cover your ears.",
-    interactionType: "none"
-  },
-
-  {
     id: "fit-ready",
     section: "fit",
     shortLabel: "JUST RIGHT",
@@ -101,12 +92,48 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "plug",
+    id: "plug-look-left",
     section: "plug",
-    shortLabel: "PLUG IN",
-    visual: "placeholder-plug",
-    spokenInstruction: "Let's learn how to plug in our headphones.",
+    shortLabel: "LOOK LEFT",
+    visual: "plug-look-left",
+    spokenInstruction: "Look at the left side of your Chromebook.",
     interactionType: "none"
+  },
+
+  {
+    id: "plug-find",
+    section: "plug",
+    shortLabel: "FIND",
+    visual: "plug-find",
+    spokenInstruction: "Find the round headphone hole on the left side of your Chromebook.",
+    interactionType: "none"
+  },
+
+  {
+    id: "plug-hold",
+    section: "plug",
+    shortLabel: "PLUG",
+    visual: "plug-hold",
+    spokenInstruction: "Hold the headphone plug. Hold the plug, not the cord.",
+    interactionType: "none"
+  },
+
+  {
+    id: "plug-push",
+    section: "plug",
+    shortLabel: "PUSH",
+    visual: "plug-push",
+    spokenInstruction: "Line up the plug and gently push it all the way in.",
+    interactionType: "none"
+  },
+
+  {
+    id: "plug-check",
+    section: "plug",
+    shortLabel: "CHECK",
+    visual: "plug-check",
+    spokenInstruction: "Check that the headphone plug is pushed all the way in. Tap the green check to test your headphones.",
+    interactionType: "sound-test"
   },
 
   {
