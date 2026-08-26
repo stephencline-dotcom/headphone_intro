@@ -27,6 +27,29 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("party-")) {
+      const mode = step.visual.replace("party-", "");
+
+      visual.innerHTML = `
+        <div class="volume-party" data-party="${mode}">
+          <div class="party-stage">
+            <div class="party-character party-character-one">★</div>
+            <div class="party-character party-character-two">●</div>
+            <div class="party-character party-character-three">♪</div>
+            <div class="party-character party-character-four">★</div>
+            <div class="party-character party-character-five">♫</div>
+          </div>
+
+          <button class="party-play-button" type="button">
+            <span class="party-speaker">🔊</span>
+            <strong>PLAY</strong>
+          </button>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("volume-")) {
       const mode = step.visual.replace("volume-", "");
 

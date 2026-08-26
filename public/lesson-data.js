@@ -245,6 +245,87 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
+    id: "party-start",
+    section: "volume-party",
+    shortLabel: "VOLUME PARTY",
+    visual: "party-normal",
+    spokenInstruction: "Let's practice our volume buttons with a Volume Party!",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-louder-do",
+    section: "volume-party",
+    shortLabel: "LOUDER",
+    visual: "party-normal",
+    spokenInstruction: "Make the music louder. Press the louder button on your Chromebook.",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-louder-see",
+    section: "volume-party",
+    shortLabel: "LOUDER!",
+    visual: "party-fast",
+    spokenInstruction: "Louder! The party moves faster!",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-quieter-do",
+    section: "volume-party",
+    shortLabel: "QUIETER",
+    visual: "party-fast",
+    spokenInstruction: "Make the music quieter. Press the quieter button on your Chromebook.",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-quieter-see",
+    section: "volume-party",
+    shortLabel: "QUIETER",
+    visual: "party-slow",
+    spokenInstruction: "Quieter. The party moves slower.",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-mute-do",
+    section: "volume-party",
+    shortLabel: "MUTE",
+    visual: "party-slow",
+    spokenInstruction: "Mute the music. Press the mute button.",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-mute-see",
+    section: "volume-party",
+    shortLabel: "MUTE",
+    visual: "party-stop",
+    spokenInstruction: "Mute means no sound. The party stops!",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-unmute-do",
+    section: "volume-party",
+    shortLabel: "SOUND ON",
+    visual: "party-stop",
+    spokenInstruction: "Turn the sound back on.",
+    interactionType: "party-sound"
+  },
+
+  {
+    id: "party-unmute-see",
+    section: "volume-party",
+    shortLabel: "GO!",
+    visual: "party-normal",
+    spokenInstruction: "The sound is back. The party can move again!",
+    interactionType: "party-sound"
+  },
+
+  {
     id: "stop",
     section: "routine",
     shortLabel: "STOP",

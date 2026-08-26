@@ -2631,3 +2631,349 @@ body:not(.presentation-shell)
   .volume-highlight-mute {
   display: block;
 }
+
+/* ===== Volume Party ===== */
+
+.volume-party {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.party-stage {
+  position: absolute;
+  inset: 5% 8% 18%;
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0%,
+      #eef7ff 70%,
+      #e3f0fb 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 3px rgba(45, 126, 224, 0.08);
+}
+
+.party-character {
+  position: absolute;
+  display: grid;
+  place-items: center;
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 18px rgba(23, 32, 51, 0.15);
+
+  font-size: 42px;
+  font-weight: 900;
+
+  animation-name: headphone-party-bounce;
+  animation-duration: 2.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.party-character-one {
+  left: 8%;
+  top: 16%;
+  animation-delay: -0.3s;
+}
+
+.party-character-two {
+  left: 28%;
+  top: 55%;
+  animation-delay: -1.1s;
+}
+
+.party-character-three {
+  left: 47%;
+  top: 20%;
+  animation-delay: -0.7s;
+}
+
+.party-character-four {
+  left: 66%;
+  top: 58%;
+  animation-delay: -1.6s;
+}
+
+.party-character-five {
+  left: 82%;
+  top: 22%;
+  animation-delay: -0.9s;
+}
+
+@keyframes headphone-party-bounce {
+  0% {
+    transform:
+      translateY(0)
+      rotate(-8deg)
+      scale(0.92);
+  }
+
+  100% {
+    transform:
+      translateY(85px)
+      rotate(10deg)
+      scale(1.08);
+  }
+}
+
+/* Normal */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-duration: 2.2s;
+}
+
+/* Louder = faster */
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-duration: 0.8s;
+}
+
+/* Quieter = slower */
+.volume-party[data-party="slow"]
+  .party-character {
+  animation-duration: 4.2s;
+}
+
+/* Mute = stopped */
+.volume-party[data-party="stop"]
+  .party-character {
+  animation-play-state: paused;
+}
+
+.party-play-button {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+
+  min-width: 130px;
+  min-height: 64px;
+
+  padding: 8px 20px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.16);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  cursor: pointer;
+}
+
+.party-speaker {
+  font-size: 30px;
+}
+
+.party-play-button strong {
+  font-size: 16px;
+}
+
+/* ===== Volume Party gentle movement ===== */
+
+.party-stage {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #ffffff 0%,
+      #f4f9fd 58%,
+      #eaf4fb 100%
+    );
+}
+
+.party-character {
+  animation-name: headphone-party-gentle;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes headphone-party-gentle {
+  0% {
+    transform:
+      translateY(-12px)
+      rotate(-4deg)
+      scale(0.96);
+  }
+
+  100% {
+    transform:
+      translateY(38px)
+      rotate(4deg)
+      scale(1.04);
+  }
+}
+
+/* Normal music */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-duration: 2.8s;
+}
+
+/* Louder = noticeably quicker, but still calm */
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-duration: 1.35s;
+}
+
+/* Quieter = slow gentle floating */
+.volume-party[data-party="slow"]
+  .party-character {
+  animation-duration: 5s;
+}
+
+/* Mute = completely still */
+.volume-party[data-party="stop"]
+  .party-character {
+  animation-play-state: paused;
+}
+
+.party-play-button.is-playing {
+  background: #e8f5ee;
+}
+
+/* ===== Stronger Volume Party movement contrast ===== */
+
+/* Normal */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-duration: 2.6s;
+  --party-distance: 34px;
+  --party-scale-start: 0.96;
+  --party-scale-end: 1.04;
+}
+
+/* LOUDER = clearly faster and more energetic */
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-duration: 0.75s;
+  --party-distance: 76px;
+  --party-scale-start: 0.90;
+  --party-scale-end: 1.12;
+}
+
+/* QUIETER = much slower and smaller movement */
+.volume-party[data-party="slow"]
+  .party-character {
+  animation-duration: 6.5s;
+  --party-distance: 16px;
+  --party-scale-start: 0.99;
+  --party-scale-end: 1.01;
+}
+
+/* MUTE = completely frozen */
+.volume-party[data-party="stop"]
+  .party-character {
+  animation-play-state: paused;
+}
+
+@keyframes headphone-party-gentle {
+  0% {
+    transform:
+      translateY(calc(var(--party-distance, 34px) * -0.25))
+      rotate(-4deg)
+      scale(var(--party-scale-start, 0.96));
+  }
+
+  100% {
+    transform:
+      translateY(var(--party-distance, 34px))
+      rotate(4deg)
+      scale(var(--party-scale-end, 1.04));
+  }
+}
+
+/* ===== Volume Party: stronger level differences ===== */
+
+/* MUTE = completely frozen */
+.volume-party[data-party="stop"]
+  .party-character {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Very quiet */
+.volume-party[data-party="very-slow"]
+  .party-character {
+  animation-duration: 8s;
+  --party-distance: 10px;
+  --party-rotate: 1deg;
+  --party-scale-start: 0.995;
+  --party-scale-end: 1.005;
+}
+
+/* Quiet */
+.volume-party[data-party="slow"]
+  .party-character {
+  animation-duration: 5.5s;
+  --party-distance: 20px;
+  --party-rotate: 2deg;
+  --party-scale-start: 0.985;
+  --party-scale-end: 1.015;
+}
+
+/* Normal */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-duration: 2.8s;
+  --party-distance: 38px;
+  --party-rotate: 4deg;
+  --party-scale-start: 0.96;
+  --party-scale-end: 1.04;
+}
+
+/* Loud */
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-duration: 1.15s;
+  --party-distance: 72px;
+  --party-rotate: 7deg;
+  --party-scale-start: 0.92;
+  --party-scale-end: 1.10;
+}
+
+/* Very loud */
+.volume-party[data-party="very-fast"]
+  .party-character {
+  animation-duration: 0.55s;
+  --party-distance: 105px;
+  --party-rotate: 10deg;
+  --party-scale-start: 0.88;
+  --party-scale-end: 1.15;
+}
+
+@keyframes headphone-party-gentle {
+  0% {
+    transform:
+      translateY(calc(var(--party-distance, 38px) * -0.25))
+      rotate(calc(var(--party-rotate, 4deg) * -1))
+      scale(var(--party-scale-start, 0.96));
+  }
+
+  100% {
+    transform:
+      translateY(var(--party-distance, 38px))
+      rotate(var(--party-rotate, 4deg))
+      scale(var(--party-scale-end, 1.04));
+  }
+}

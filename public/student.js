@@ -258,3 +258,65 @@ lessonStage.addEventListener("click", (event) => {
 
   playVolumePracticeSound();
 });
+
+/* ===== Volume Party music ===== */
+
+let partyMusic = null;
+
+function stopVolumePartySound() {
+  if (!partyMusic) {
+    return;
+  }
+
+  partyMusic.pause();
+  partyMusic.currentTime = 0;
+  partyMusic = null;
+}
+
+async function playVolumePartySound() {
+  stopVolumePartySound();
+
+  partyMusic = new Audio("/assets/music/music.mp3");
+  partyMusic.loop = true;
+  partyMusic.volume = 0.45;
+
+  try {
+    await partyMusic.play();
+  } catch (error) {
+    console.error("Unable to play Volume Party music.", error);
+  }
+}
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const button =
+    event.target.closest(".party-play-button");
+
+  if (!button) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(currentState.currentStep);
+
+  if (step?.interactionType !== "party-sound") {
+    return;
+  }
+
+  if (partyMusic && !partyMusic.paused) {
+    stopVolumePartySound();
+
+    button.classList.remove("is-playing");
+    button.querySelector("strong").textContent = "PLAY";
+
+    return;
+  }
+
+  playVolumePartySound();
+
+  button.classList.add("is-playing");
+  button.querySelector("strong").textContent = "STOP";
+});
