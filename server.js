@@ -113,7 +113,7 @@ app.post("/api/classroom-state", (req, res) => {
   } = req.body;
 
   if (Number.isInteger(currentStep)) {
-    classroomState.currentStep = Math.max(0, Math.min(2, currentStep));
+    classroomState.currentStep = Math.max(0, currentStep);
   }
 
   if (typeof teacherControlEnabled === "boolean") {
