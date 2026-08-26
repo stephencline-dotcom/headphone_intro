@@ -121,3 +121,8 @@ button {
   border-radius: 50%;
   background: #36a269;
 }
+
+
+.status-dot-offline {
+  background: #9aa4b2;
+}
