@@ -99,6 +99,26 @@ app.post("/api/classroom-release", (req, res) => {
   });
 });
 
+app.post("/api/classroom-start", (req, res) => {
+  classroomState.freezeScreenArmed = false;
+  classroomState.teacherControlEnabled = true;
+  classroomState.currentStep = 0;
+
+  broadcastState();
+
+  res.json(classroomState);
+});
+
+app.post("/api/classroom-reset", (req, res) => {
+  // Always release Freeze before resetting lesson state.
+  classroomState.freezeScreenArmed = false;
+  classroomState.currentStep = 0;
+
+  broadcastState();
+
+  res.json(classroomState);
+});
+
 app.get("/api/classroom-events", (req, res) => {
   res.setHeader("Content-Type", "text/event-stream");
   res.setHeader("Cache-Control", "no-cache");

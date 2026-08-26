@@ -245,3 +245,45 @@ spokenDirectionsSetting.addEventListener(
 );
 
 loadPersistentSettings();
+
+const startLessonButton =
+  document.getElementById("start-lesson-button");
+
+const resetLessonButton =
+  document.getElementById("reset-lesson-button");
+
+async function runClassroomAction(endpoint) {
+  const response = await fetch(endpoint, {
+    method: "POST"
+  });
+
+  if (!response.ok) {
+    throw new Error(`Classroom action failed: ${endpoint}`);
+  }
+
+  return response.json();
+}
+
+startLessonButton.addEventListener("click", async () => {
+  try {
+    startLessonButton.disabled = true;
+
+    await runClassroomAction("/api/classroom-start");
+  } catch (error) {
+    console.error("Unable to start lesson.", error);
+  } finally {
+    startLessonButton.disabled = false;
+  }
+});
+
+resetLessonButton.addEventListener("click", async () => {
+  try {
+    resetLessonButton.disabled = true;
+
+    await runClassroomAction("/api/classroom-reset");
+  } catch (error) {
+    console.error("Unable to reset lesson.", error);
+  } finally {
+    resetLessonButton.disabled = false;
+  }
+});
