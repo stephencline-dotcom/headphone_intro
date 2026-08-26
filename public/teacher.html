@@ -19,6 +19,30 @@
         <span>Classroom controls will be added next.</span>
       </div>
 
+      <section class="settings-panel">
+        <h2>Saved Settings</h2>
+
+        <label class="control-toggle">
+          <span>
+            <strong>Teacher Control Default</strong>
+            <small>Start future lessons in teacher-controlled mode</small>
+          </span>
+          <input id="default-teacher-control" type="checkbox">
+        </label>
+
+        <label class="control-toggle">
+          <span>
+            <strong>Spoken Directions</strong>
+            <small>Use spoken lesson directions by default</small>
+          </span>
+          <input id="spoken-directions-setting" type="checkbox">
+        </label>
+
+        <div id="settings-save-status" class="settings-save-status">
+          Loading saved settings...
+        </div>
+      </section>
+
       <div class="teacher-controls">
         <button type="button" disabled>Back</button>
         <button type="button" disabled>Next</button>

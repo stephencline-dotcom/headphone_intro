@@ -4,6 +4,12 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const {
+  getSettings,
+  saveSettings,
+  getStorageMode
+} = require("./settings-store");
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -22,6 +28,38 @@ function broadcastState() {
     client.write(payload);
   }
 }
+
+app.get("/api/settings", async (req, res) => {
+  try {
+    const settings = await getSettings();
+
+    res.json({
+      settings,
+      storageMode: getStorageMode()
+    });
+  } catch (error) {
+    console.error("Unable to load settings:", error);
+    res.status(500).json({
+      error: "Unable to load settings."
+    });
+  }
+});
+
+app.post("/api/settings", async (req, res) => {
+  try {
+    const settings = await saveSettings(req.body);
+
+    res.json({
+      settings,
+      storageMode: getStorageMode()
+    });
+  } catch (error) {
+    console.error("Unable to save settings:", error);
+    res.status(500).json({
+      error: "Unable to save settings."
+    });
+  }
+});
 
 app.get("/api/classroom-state", (req, res) => {
   res.json(classroomState);

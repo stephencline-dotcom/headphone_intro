@@ -159,3 +159,92 @@ classroom.fetchState()
       <span>Unable to reach classroom state.</span>
     `;
   });
+
+const defaultTeacherControl =
+  document.getElementById("default-teacher-control");
+
+const spokenDirectionsSetting =
+  document.getElementById("spoken-directions-setting");
+
+const settingsSaveStatus =
+  document.getElementById("settings-save-status");
+
+let settingsSaveTimer = null;
+
+async function loadPersistentSettings() {
+  try {
+    const response = await fetch("/api/settings");
+
+    if (!response.ok) {
+      throw new Error("Unable to load saved settings.");
+    }
+
+    const result = await response.json();
+
+    defaultTeacherControl.checked =
+      result.settings.teacherControlDefault;
+
+    spokenDirectionsSetting.checked =
+      result.settings.spokenDirectionsEnabled;
+
+    settingsSaveStatus.textContent =
+      result.storageMode === "postgres"
+        ? "Saved in persistent database"
+        : "Saved locally for development";
+  } catch (error) {
+    console.error(error);
+    settingsSaveStatus.textContent =
+      "Unable to load saved settings";
+  }
+}
+
+async function savePersistentSettings() {
+  clearTimeout(settingsSaveTimer);
+
+  settingsSaveStatus.textContent = "Saving...";
+
+  settingsSaveTimer = setTimeout(async () => {
+    try {
+      const response = await fetch("/api/settings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          teacherControlDefault:
+            defaultTeacherControl.checked,
+
+          spokenDirectionsEnabled:
+            spokenDirectionsSetting.checked
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to save settings.");
+      }
+
+      const result = await response.json();
+
+      settingsSaveStatus.textContent =
+        result.storageMode === "postgres"
+          ? "Saved in persistent database"
+          : "Saved locally for development";
+    } catch (error) {
+      console.error(error);
+      settingsSaveStatus.textContent =
+        "Save failed";
+    }
+  }, 250);
+}
+
+defaultTeacherControl.addEventListener(
+  "change",
+  savePersistentSettings
+);
+
+spokenDirectionsSetting.addEventListener(
+  "change",
+  savePersistentSettings
+);
+
+loadPersistentSettings();
