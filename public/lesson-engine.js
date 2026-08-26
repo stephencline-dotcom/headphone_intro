@@ -27,6 +27,38 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("fit-")) {
+      const mode = step.visual.replace("fit-", "");
+
+      visual.innerHTML = `
+        <div class="fit-photo-stage" data-fit="${mode}">
+          <img
+            class="fit-headphone-photo"
+            src="/assets/images/classroom-headphones.png"
+            alt="Blue classroom headphones"
+          >
+
+          <div class="fit-rail fit-rail-left" aria-hidden="true"></div>
+          <div class="fit-rail fit-rail-right" aria-hidden="true"></div>
+
+          <div class="fit-arrow fit-arrow-left" aria-hidden="true">
+            <span></span>
+          </div>
+
+          <div class="fit-arrow fit-arrow-right" aria-hidden="true">
+            <span></span>
+          </div>
+
+          <div class="fit-ear-cue fit-ear-cue-left" aria-hidden="true"></div>
+          <div class="fit-ear-cue fit-ear-cue-right" aria-hidden="true"></div>
+
+          <div class="fit-ready-check" aria-hidden="true">✓</div>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("headphones-")) {
       const highlight =
         step.visual.replace("headphones-", "");

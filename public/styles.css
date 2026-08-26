@@ -1534,3 +1534,124 @@ button {
   width: 19%;
   height: 15%;
 }
+
+/* ===== FIT lesson ===== */
+
+.fit-photo-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 720px;
+  max-height: 500px;
+  margin: 0 auto;
+}
+
+.fit-headphone-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.fit-arrow,
+.fit-ear-cue,
+.fit-ready-check,
+.fit-rail {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+
+/* Highlight the metal adjustment rails */
+.fit-photo-stage[data-fit="bigger"] .fit-rail,
+.fit-photo-stage[data-fit="smaller"] .fit-rail {
+  display: block;
+  border: 4px solid #f1b82d;
+  background: rgba(255, 220, 88, 0.12);
+  border-radius: 18px;
+}
+
+.fit-rail-left {
+  left: 26%;
+  top: 24%;
+  width: 8%;
+  height: 28%;
+}
+
+.fit-rail-right {
+  left: 54%;
+  top: 19%;
+  width: 8%;
+  height: 27%;
+}
+
+/* Movement arrows */
+.fit-photo-stage[data-fit="bigger"] .fit-arrow,
+.fit-photo-stage[data-fit="smaller"] .fit-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 92px;
+  border-radius: 26px;
+  background: rgba(241, 184, 45, 0.16);
+  color: #d89c09;
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.fit-arrow-left {
+  left: 13%;
+  top: 28%;
+}
+
+.fit-arrow-right {
+  left: 67%;
+  top: 25%;
+}
+
+.fit-photo-stage[data-fit="bigger"] .fit-arrow span::before {
+  content: "↓";
+}
+
+.fit-photo-stage[data-fit="smaller"] .fit-arrow span::before {
+  content: "↑";
+}
+
+/* EARS */
+.fit-photo-stage[data-fit="ears"] .fit-ear-cue {
+  display: block;
+  border: 5px solid #f1b82d;
+  background: rgba(255, 220, 88, 0.10);
+  border-radius: 50%;
+}
+
+.fit-ear-cue-left {
+  left: 31%;
+  top: 39%;
+  width: 12%;
+  height: 25%;
+}
+
+.fit-ear-cue-right {
+  left: 49%;
+  top: 35%;
+  width: 13%;
+  height: 27%;
+}
+
+/* JUST RIGHT */
+.fit-photo-stage[data-fit="ready"] .fit-ready-check {
+  display: grid;
+  place-items: center;
+  right: 12%;
+  top: 18%;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #d9f3e4;
+  color: #218653;
+  font-size: 64px;
+  font-weight: 900;
+}

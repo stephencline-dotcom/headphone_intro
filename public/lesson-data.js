@@ -56,11 +56,47 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "fit",
+    id: "fit-intro",
     section: "fit",
     shortLabel: "FIT",
-    visual: "placeholder-fit",
-    spokenInstruction: "Let's learn how to make our headphones fit.",
+    visual: "fit-intro",
+    spokenInstruction: "Now let's make our headphones fit just right.",
+    interactionType: "none"
+  },
+
+  {
+    id: "fit-bigger",
+    section: "fit",
+    shortLabel: "BIGGER",
+    visual: "fit-bigger",
+    spokenInstruction: "Hold the ear cups and gently slide them down to make your headphones bigger.",
+    interactionType: "none"
+  },
+
+  {
+    id: "fit-smaller",
+    section: "fit",
+    shortLabel: "SMALLER",
+    visual: "fit-smaller",
+    spokenInstruction: "Gently slide the ear cups up to make your headphones smaller.",
+    interactionType: "none"
+  },
+
+  {
+    id: "fit-ears",
+    section: "fit",
+    shortLabel: "EARS",
+    visual: "fit-ears",
+    spokenInstruction: "Put the headphones on. The soft ear pads should cover your ears.",
+    interactionType: "none"
+  },
+
+  {
+    id: "fit-ready",
+    section: "fit",
+    shortLabel: "JUST RIGHT",
+    visual: "fit-ready",
+    spokenInstruction: "Adjust your headphones until they feel comfortable and stay on your ears.",
     interactionType: "none"
   },
 
