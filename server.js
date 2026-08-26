@@ -16,8 +16,12 @@ app.use(express.static(path.join(__dirname, "public")));
 const classroomState = {
   currentStep: 0,
   teacherControlEnabled: true,
-  freezeScreenArmed: false
+  freezeScreenArmed: false,
+  teacherPresent: false
 };
+
+let teacherLastSeen = 0;
+const TEACHER_STALE_MS = 15000;
 
 const clients = new Set();
 
@@ -59,6 +63,42 @@ app.post("/api/settings", async (req, res) => {
       error: "Unable to save settings."
     });
   }
+});
+
+app.post("/api/teacher-heartbeat", (req, res) => {
+  teacherLastSeen = Date.now();
+
+  if (!classroomState.teacherPresent) {
+    classroomState.teacherPresent = true;
+    broadcastState();
+  }
+
+  res.json({
+    ok: true,
+    teacherPresent: true
+  });
+});
+
+app.post("/api/teacher-leave", (req, res) => {
+  teacherLastSeen = 0;
+
+  const changed =
+    classroomState.teacherPresent ||
+    classroomState.freezeScreenArmed;
+
+  classroomState.teacherPresent = false;
+
+  // A missing teacher must never leave students frozen.
+  classroomState.freezeScreenArmed = false;
+
+  if (changed) {
+    broadcastState();
+  }
+
+  res.json({
+    released: true,
+    classroomState
+  });
 });
 
 app.get("/api/classroom-state", (req, res) => {
@@ -138,6 +178,26 @@ app.get("/api/classroom-events", (req, res) => {
 app.get("/teacher", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "teacher.html"));
 });
+
+setInterval(() => {
+  if (!classroomState.teacherPresent) {
+    return;
+  }
+
+  const teacherIsStale =
+    Date.now() - teacherLastSeen > TEACHER_STALE_MS;
+
+  if (!teacherIsStale) {
+    return;
+  }
+
+  console.log("Teacher heartbeat lost. Releasing classroom freeze.");
+
+  classroomState.teacherPresent = false;
+  classroomState.freezeScreenArmed = false;
+
+  broadcastState();
+}, 5000);
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Headphone Intro running on port ${PORT}`);

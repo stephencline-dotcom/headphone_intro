@@ -143,8 +143,6 @@ function releaseTeacherSession() {
   }).catch(() => {});
 }
 
-window.addEventListener("pagehide", releaseTeacherSession);
-
 classroom.subscribe(renderTeacher);
 
 window.HeadphoneClassroomBootstrap.initialize()
@@ -287,3 +285,60 @@ resetLessonButton.addEventListener("click", async () => {
     resetLessonButton.disabled = false;
   }
 });
+
+let teacherHeartbeatTimer = null;
+
+async function sendTeacherHeartbeat() {
+  try {
+    await fetch("/api/teacher-heartbeat", {
+      method: "POST"
+    });
+  } catch (error) {
+    console.warn("Teacher heartbeat failed.", error);
+  }
+}
+
+function startTeacherHeartbeat() {
+  sendTeacherHeartbeat();
+
+  if (teacherHeartbeatTimer) {
+    clearInterval(teacherHeartbeatTimer);
+  }
+
+  teacherHeartbeatTimer = setInterval(
+    sendTeacherHeartbeat,
+    5000
+  );
+}
+
+function leaveTeacherSession() {
+  if (teacherHeartbeatTimer) {
+    clearInterval(teacherHeartbeatTimer);
+    teacherHeartbeatTimer = null;
+  }
+
+  const body = "{}";
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(
+      "/api/teacher-leave",
+      new Blob([body], {
+        type: "application/json"
+      })
+    );
+    return;
+  }
+
+  fetch("/api/teacher-leave", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body,
+    keepalive: true
+  }).catch(() => {});
+}
+
+window.addEventListener("pagehide", leaveTeacherSession);
+
+startTeacherHeartbeat();

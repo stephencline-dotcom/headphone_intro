@@ -42,10 +42,17 @@ function renderStudent(state) {
     freezeOverlay.setAttribute("aria-hidden", "true");
   }
 
-  statusBar.innerHTML = `
-    <span class="status-dot"></span>
-    Connected to Teacher
-  `;
+  if (state.teacherPresent) {
+    statusBar.innerHTML = `
+      <span class="status-dot"></span>
+      Teacher Connected
+    `;
+  } else {
+    statusBar.innerHTML = `
+      <span class="status-dot status-dot-offline"></span>
+      Waiting for Teacher
+    `;
+  }
 }
 
 function interceptFrozenInteraction(event) {
