@@ -1,6 +1,10 @@
 "use strict";
 
-window.HEADPHONE_HEROES_LESSON = [
+window.HEADPHONE_HEROES_LESSONS = {
+  full: {
+    id: "full",
+    title: "Full Lesson",
+    lesson: [
   {
     id: "welcome",
     section: "welcome",
@@ -432,4 +436,431 @@ window.HEADPHONE_HEROES_LESSON = [
     spokenInstruction: "You are a Headphone Hero!",
     interactionType: "none"
   }
-];
+]
+  },
+
+  "review-2": {
+    id: "review-2",
+    title: "Week 2 Review",
+    lesson: [
+      {
+        id: "review2-welcome",
+        section: "review-opening",
+        shortLabel: "REMEMBER?",
+        visual: "headphones-full",
+        spokenInstruction: "Welcome back, Headphone Heroes! Let's remember what we learned about our headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-parts",
+        section: "review-opening",
+        shortLabel: "PARTS",
+        visual: "review-parts",
+        spokenInstruction: "Remember the important parts: headband, ear pads, cord, and plug.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-fit",
+        section: "review-opening",
+        shortLabel: "FIT",
+        visual: "review-fit",
+        spokenInstruction: "Remember how our headphones change size. Slide down to make them bigger and up to make them smaller.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-neck",
+        section: "review-opening",
+        shortLabel: "NECK",
+        visual: "position-neck",
+        spokenInstruction: "Headphones on your neck means look, listen, and hands down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-ears",
+        section: "review-opening",
+        shortLabel: "EARS",
+        visual: "position-ears",
+        spokenInstruction: "Headphones on your ears means you are ready to work and listen to your Chromebook.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-sound",
+        section: "review-opening",
+        shortLabel: "SOUND BUTTONS",
+        visual: "review-sound",
+        spokenInstruction: "Remember these sound buttons: mute, quieter, and louder.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-ready",
+        section: "review-opening",
+        shortLabel: "READY?",
+        visual: "review-ready",
+        spokenInstruction: "Great remembering! Now let's show what we know.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-intro",
+        section: "mystery-parts",
+        shortLabel: "MYSTERY PART",
+        visual: "mystery-intro",
+        spokenInstruction: "Mystery Part! Look carefully. Which part of the headphones is glowing?",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-headband",
+        section: "mystery-parts",
+        shortLabel: "WHAT PART?",
+        visual: "mystery-headband",
+        spokenInstruction: "Look at the glowing part. Point to that same part on your headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-headband-answer",
+        section: "mystery-parts",
+        shortLabel: "HEADBAND",
+        visual: "mystery-headband-reveal",
+        spokenInstruction: "Headband! Great remembering.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-earpads",
+        section: "mystery-parts",
+        shortLabel: "WHAT PART?",
+        visual: "mystery-earpads",
+        spokenInstruction: "Look at the glowing parts. Point to those same parts on your headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-earpads-answer",
+        section: "mystery-parts",
+        shortLabel: "EAR PADS",
+        visual: "mystery-earpads-reveal",
+        spokenInstruction: "Ear pads! Great remembering.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-cord",
+        section: "mystery-parts",
+        shortLabel: "WHAT PART?",
+        visual: "mystery-cord",
+        spokenInstruction: "Look at the glowing part. Point to that same part on your headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-cord-answer",
+        section: "mystery-parts",
+        shortLabel: "CORD",
+        visual: "mystery-cord-reveal",
+        spokenInstruction: "Cord! Great remembering.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-plug",
+        section: "mystery-parts",
+        shortLabel: "WHAT PART?",
+        visual: "mystery-plug",
+        spokenInstruction: "Look at the glowing part. Point to that same part on your headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-mystery-plug-answer",
+        section: "mystery-parts",
+        shortLabel: "PLUG",
+        visual: "mystery-plug-reveal",
+        spokenInstruction: "Plug! You remembered all four parts.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-after-mystery-neck",
+        section: "routine-reset",
+        shortLabel: "NECK",
+        visual: "position-neck",
+        spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-size-intro",
+        section: "size-challenge",
+        shortLabel: "SIZE CHALLENGE",
+        visual: "size-intro",
+        spokenInstruction: "Size Challenge! Look carefully and decide what the headphones need.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-size-bigger-question",
+        section: "size-challenge",
+        shortLabel: "WHAT SHOULD WE DO?",
+        visual: "size-bigger-question",
+        spokenInstruction: "These headphones are too small. Think quietly. What should we do?",
+        interactionType: "size-choice",
+        correctAnswer: "bigger"
+      },
+
+      {
+        id: "review2-size-bigger-answer",
+        section: "size-challenge",
+        shortLabel: "BIGGER",
+        visual: "size-bigger-answer",
+        spokenInstruction: "Bigger! Slide the ear cups down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-size-smaller-question",
+        section: "size-challenge",
+        shortLabel: "WHAT SHOULD WE DO?",
+        visual: "size-smaller-question",
+        spokenInstruction: "These headphones are too big. Think quietly. What should we do?",
+        interactionType: "size-choice",
+        correctAnswer: "smaller"
+      },
+
+      {
+        id: "review2-size-smaller-answer",
+        section: "size-challenge",
+        shortLabel: "SMALLER",
+        visual: "size-smaller-answer",
+        spokenInstruction: "Smaller! Slide the ear cups up.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-after-size-neck",
+        section: "routine-reset",
+        shortLabel: "NECK",
+        visual: "position-neck",
+        spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-intro",
+        section: "teacher-says",
+        shortLabel: "TEACHER SAYS",
+        visual: "teacher-says-intro",
+        spokenInstruction: "Teacher Says! Only move your headphones when Teacher Says.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-ears-1",
+        section: "teacher-says",
+        shortLabel: "TEACHER SAYS",
+        visual: "teacher-says-ears",
+        spokenInstruction: "Teacher says: headphones on your ears.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-neck-1",
+        section: "teacher-says",
+        shortLabel: "TEACHER SAYS",
+        visual: "teacher-says-neck",
+        spokenInstruction: "Teacher says: headphones on your neck.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-wait-1",
+        section: "teacher-says",
+        shortLabel: "WAIT!",
+        visual: "teacher-says-wait",
+        spokenInstruction: "Wait! Teacher did not say to move. Stay where you are.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-ears-2",
+        section: "teacher-says",
+        shortLabel: "TEACHER SAYS",
+        visual: "teacher-says-ears",
+        spokenInstruction: "Teacher says: headphones on your ears.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-wait-2",
+        section: "teacher-says",
+        shortLabel: "WAIT!",
+        visual: "teacher-says-wait",
+        spokenInstruction: "Wait! Do not move yet.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-neck-2",
+        section: "teacher-says",
+        shortLabel: "TEACHER SAYS",
+        visual: "teacher-says-neck",
+        spokenInstruction: "Teacher says: headphones on your neck. Look, listen, hands down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-teacher-says-finish",
+        section: "teacher-says",
+        shortLabel: "NICE LISTENING!",
+        visual: "teacher-says-finish",
+        spokenInstruction: "Nice listening! You followed Teacher Says.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-plug-detective-intro",
+        section: "plug-detective",
+        shortLabel: "PLUG DETECTIVE",
+        visual: "plug-detective-intro",
+        spokenInstruction: "Plug Detective! Can you remember where the headphone plug goes?",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-plug-find",
+        section: "plug-detective",
+        shortLabel: "FIND IT",
+        visual: "plug-detective-find",
+        spokenInstruction: "Look carefully. Find the headphone hole. Think first, then tap it.",
+        interactionType: "plug-find-choice"
+      },
+
+      {
+        id: "review2-plug-reveal",
+        section: "plug-detective",
+        shortLabel: "THERE IT IS!",
+        visual: "plug-detective-reveal",
+        spokenInstruction: "There it is! That round hole is for our headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-plug-part",
+        section: "plug-detective",
+        shortLabel: "FIND YOUR PLUG",
+        visual: "headphones-plug",
+        spokenInstruction: "Find the plug on your headphones.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-plug-do",
+        section: "plug-detective",
+        shortLabel: "PLUG IT IN",
+        visual: "plug-detective-reveal",
+        spokenInstruction: "Gently plug your headphones all the way into the headphone hole.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-plug-test",
+        section: "plug-detective",
+        shortLabel: "TEST IT",
+        visual: "plug-check",
+        spokenInstruction: "Tap the green check to test your headphones.",
+        interactionType: "sound-test"
+      },
+
+      {
+        id: "review2-after-plug-neck",
+        section: "routine-reset",
+        shortLabel: "NECK",
+        visual: "position-neck",
+        spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-rescue-intro",
+        section: "volume-rescue",
+        shortLabel: "VOLUME RESCUE",
+        visual: "rescue-intro",
+        spokenInstruction: "Volume Rescue! Solve four sound problems to become a Volume Hero.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-rescue-quieter",
+        section: "volume-rescue",
+        shortLabel: "MISSION 1",
+        visual: "rescue-quieter",
+        spokenInstruction: "Whoa! This sound is too loud. Which button will help?",
+        interactionType: "rescue-choice",
+        correctAnswer: "down",
+        missionNumber: 1
+      },
+
+      {
+        id: "review2-rescue-louder",
+        section: "volume-rescue",
+        shortLabel: "MISSION 2",
+        visual: "rescue-louder",
+        spokenInstruction: "Oh no! We can barely hear it. Which button will help?",
+        interactionType: "rescue-choice",
+        correctAnswer: "up",
+        missionNumber: 2
+      },
+
+      {
+        id: "review2-rescue-mute",
+        section: "volume-rescue",
+        shortLabel: "MISSION 3",
+        visual: "rescue-mute",
+        spokenInstruction: "Shhh! Our friend is sleeping. Which button makes the sound stop?",
+        interactionType: "rescue-choice",
+        correctAnswer: "mute",
+        missionNumber: 3
+      },
+
+      {
+        id: "review2-rescue-sound-on",
+        section: "volume-rescue",
+        shortLabel: "MISSION 4",
+        visual: "rescue-sound-on",
+        spokenInstruction: "The party is ready, but there is no sound. Which button brings the sound back?",
+        interactionType: "rescue-choice",
+        correctAnswer: "mute",
+        missionNumber: 4
+      },
+
+      {
+        id: "review2-rescue-finish",
+        section: "volume-rescue",
+        shortLabel: "VOLUME HERO!",
+        visual: "rescue-finish",
+        spokenInstruction: "Mission complete! You are a Volume Hero!",
+        interactionType: "none"
+      },
+
+      {
+        id: "review2-after-rescue-neck",
+        section: "routine-reset",
+        shortLabel: "NECK",
+        visual: "position-neck",
+        spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+        interactionType: "none"
+      }
+    ]
+  }
+};
+
+window.HEADPHONE_HEROES_LESSON =
+  window.HEADPHONE_HEROES_LESSONS.full.lesson;
+

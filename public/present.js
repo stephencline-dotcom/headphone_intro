@@ -2,7 +2,6 @@
 
 const classroom = window.HeadphoneClassroom;
 const lessonEngine = window.HeadphoneLessonEngine;
-const lesson = window.HEADPHONE_HEROES_LESSON;
 
 const lessonStage =
   document.getElementById("presentation-lesson-stage");
@@ -23,14 +22,16 @@ function renderPresentation(state) {
 
   lessonEngine.renderStudentStep(
     lessonStage,
-    state.currentStep
+    state.currentStep,
+    state.lessonId || "full"
   );
 
   backButton.disabled =
     state.currentStep <= 0;
 
   nextButton.disabled =
-    state.currentStep >= lesson.length - 1;
+    state.currentStep >=
+    lessonEngine.getStepCount(state.lessonId || "full") - 1;
 }
 
 async function updateStep(nextStep) {
@@ -75,7 +76,9 @@ backButton.addEventListener("click", async () => {
 nextButton.addEventListener("click", async () => {
   if (
     currentState.currentStep >=
-    lesson.length - 1
+    lessonEngine.getStepCount(
+      currentState.lessonId || "full"
+    ) - 1
   ) {
     return;
   }

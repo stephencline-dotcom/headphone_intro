@@ -3184,3 +3184,1810 @@ body:not(.presentation-shell)
 .party-play-button.is-playing strong {
   color: #ffffff !important;
 }
+
+/* ===== Lesson selector ===== */
+
+.lesson-selector-panel {
+  background: #ffffff;
+  border: 1px solid rgba(45, 87, 140, 0.08);
+  box-shadow: 0 8px 22px rgba(23, 32, 51, 0.08);
+  border-radius: 18px;
+
+  padding: 10px 14px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 14px;
+}
+
+.lesson-selector-panel > div {
+  display: grid;
+  gap: 3px;
+}
+
+.lesson-selector-panel strong {
+  font-size: 15px;
+}
+
+.lesson-selector-panel small {
+  font-size: 11px;
+  color: #5f6b7a;
+}
+
+#lesson-selector {
+  width: 100%;
+  min-height: 40px;
+
+  padding: 7px 12px;
+
+  border: 2px solid #d5deea;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #27364a;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ===== Week 2 quick review ===== */
+
+.review-parts-visual,
+.review-fit-visual,
+.review-sound-visual,
+.review-ready-visual {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.review-parts-visual,
+.review-fit-visual,
+.review-sound-visual {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-parts-visual img,
+.review-fit-visual img {
+  width: 100%;
+  height: 100%;
+  max-height: 390px;
+  object-fit: contain;
+}
+
+.review-parts-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.review-parts-row span {
+  padding: 7px 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(23, 32, 51, 0.10);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.review-fit-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.review-fit-arrows div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-fit-arrows span {
+  font-size: 50px;
+  color: #d89c09;
+  line-height: 1;
+}
+
+.review-fit-arrows strong {
+  font-size: 18px;
+}
+
+.review-sound-visual svg {
+  width: 100%;
+  max-height: 330px;
+}
+
+.review-sound-key {
+  fill: rgba(255, 220, 60, 0.05);
+  stroke: #f1b82d;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.review-sound-icons {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  font-size: 48px;
+}
+
+.review-ready-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+  font-size: clamp(110px, 16vw, 190px);
+}
+
+.review-ready-check {
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d9f3e4;
+  color: #218653;
+  font-size: 82px;
+  font-weight: 900;
+}
+
+/* ===== Week 2 Mystery Part ===== */
+
+.mystery-intro-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+.mystery-intro-visual img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.mystery-question {
+  position: absolute;
+  left: 6%;
+  top: 10%;
+
+  width: 105px;
+  height: 105px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #ffd93d;
+  color: #654800;
+
+  font-size: 72px;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.16);
+}
+
+.mystery-stars {
+  position: absolute;
+  right: 7%;
+  bottom: 10%;
+
+  font-size: 34px;
+  letter-spacing: 8px;
+
+  color: #e4aa26;
+}
+
+.mystery-photo-stage
+  .part-highlight {
+  border-color: #ffd21f;
+
+  background:
+    rgba(255, 220, 55, 0.08);
+
+  box-shadow:
+    0 0 0 5px rgba(255, 210, 31, 0.14),
+    0 0 24px 8px rgba(255, 210, 31, 0.28);
+
+  animation:
+    mystery-glow 1.25s ease-in-out infinite alternate;
+}
+
+@keyframes mystery-glow {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.25);
+  }
+}
+
+.mystery-question-badge,
+.mystery-answer-check {
+  position: absolute;
+
+  right: 7%;
+  top: 8%;
+
+  width: 88px;
+  height: 88px;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 58px;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.16);
+}
+
+.mystery-question-badge {
+  background: #ffd93d;
+  color: #654800;
+}
+
+.mystery-answer-check {
+  display: none;
+
+  background: #d9f3e4;
+  color: #218653;
+}
+
+.mystery-photo-stage[data-reveal="true"]
+  .mystery-question-badge {
+  display: none;
+}
+
+.mystery-photo-stage[data-reveal="true"]
+  .mystery-answer-check {
+  display: grid;
+}
+
+/* ===== Mystery Part thinking cue ===== */
+
+.mystery-thumbs-cue {
+  position: absolute;
+  right: 2%;
+  bottom: 5%;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  box-shadow:
+    0 7px 20px rgba(23, 32, 51, 0.14);
+
+  pointer-events: none;
+}
+
+.mystery-think-icon,
+.mystery-thumb-icon {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.mystery-cue-arrow {
+  font-size: 24px;
+  font-weight: 900;
+  color: #66758a;
+}
+
+.mystery-thumbs-cue strong {
+  font-size: 14px;
+  color: #27364a;
+}
+
+/* Once the answer is revealed, remove the thinking cue */
+.mystery-photo-stage[data-reveal="true"]
+  .mystery-thumbs-cue {
+  display: none;
+}
+
+/* ===== Mystery Part thinking cue: above headphones ===== */
+
+.mystery-photo-stage {
+  padding-top: 72px;
+  box-sizing: border-box;
+}
+
+.mystery-thumbs-cue {
+  left: 50%;
+  right: auto;
+  top: 4px;
+  bottom: auto;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 8px 18px;
+
+  white-space: nowrap;
+}
+
+.mystery-think-icon,
+.mystery-thumb-icon {
+  font-size: 36px;
+}
+
+.mystery-thumbs-cue strong {
+  font-size: 15px;
+}
+
+/* Keep the mystery ? in the upper-right without competing
+   with the centered thinking cue */
+.mystery-question-badge {
+  top: 4px;
+  right: 4%;
+}
+
+/* ===== Mystery Part: lock question/reveal geometry ===== */
+
+/* Question and reveal must use identical stage geometry */
+.mystery-photo-stage {
+  position: relative !important;
+  width: min(760px, 92vw) !important;
+  height: min(500px, 64vh) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Never resize the headphone between question and reveal */
+.mystery-photo-stage .headphone-photo {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  transform: none !important;
+}
+
+/* Reveal state must NOT alter image geometry */
+.mystery-photo-stage[data-reveal="true"] .headphone-photo,
+.mystery-photo-stage[data-reveal="false"] .headphone-photo {
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+}
+
+/* Keep overlays in the exact same coordinate system */
+.mystery-photo-stage .part-highlight {
+  position: absolute !important;
+}
+
+/* Thinking cue floats above without affecting layout */
+.mystery-thumbs-cue {
+  position: absolute !important;
+  left: 50% !important;
+  top: -54px !important;
+  transform: translateX(-50%) !important;
+  z-index: 20;
+}
+
+/* Question/reveal badges occupy the same location */
+.mystery-question-badge,
+.mystery-answer-check {
+  position: absolute !important;
+  right: 3% !important;
+  top: 2% !important;
+  z-index: 20;
+}
+
+/* ===== Week 2 Size Challenge ===== */
+
+.size-challenge-intro,
+.size-challenge-try,
+.size-challenge-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.size-challenge-intro,
+.size-challenge-try {
+  display: grid;
+  place-items: center;
+}
+
+.size-challenge-intro img,
+.size-challenge-try img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+}
+
+.size-challenge-symbols {
+  position: absolute;
+  right: 8%;
+  top: 18%;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  font-size: 64px;
+  font-weight: 900;
+  color: #d89c09;
+}
+
+.size-ready-check {
+  position: absolute;
+  right: 10%;
+  top: 15%;
+
+  width: 100px;
+  height: 100px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #d9f3e4;
+  color: #218653;
+
+  font-size: 70px;
+  font-weight: 900;
+}
+
+/* Main puzzle layout */
+.size-challenge-stage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.size-problem-head {
+  position: relative;
+
+  width: 320px;
+  height: 390px;
+
+  margin-left: 50px;
+}
+
+.size-problem-face {
+  position: absolute;
+  left: 50%;
+  top: 65px;
+
+  transform: translateX(-50%);
+
+  width: 190px;
+  height: 220px;
+
+  border-radius: 48%;
+
+  background: #f3c89f;
+  border: 5px solid #27364a;
+}
+
+.size-problem-eyes {
+  position: absolute;
+  top: 88px;
+  width: 100%;
+  text-align: center;
+
+  word-spacing: 48px;
+
+  color: #27364a;
+  font-size: 20px;
+}
+
+.size-problem-headphones {
+  position: absolute;
+  inset: 0;
+}
+
+.size-problem-band {
+  position: absolute;
+
+  left: 55px;
+  top: 25px;
+
+  width: 210px;
+  height: 160px;
+
+  border: 20px solid #168bd2;
+  border-bottom: 0;
+
+  border-radius: 120px 120px 0 0;
+}
+
+.size-problem-pad {
+  position: absolute;
+
+  width: 56px;
+  height: 104px;
+
+  border-radius: 28px;
+
+  background: #168bd2;
+  border: 8px solid #27364a;
+}
+
+/* TOO SMALL:
+   ear cups sit too high */
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-pad {
+  top: 112px;
+}
+
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-pad-left {
+  left: 25px;
+}
+
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-pad-right {
+  right: 25px;
+}
+
+/* TOO BIG:
+   ear cups hang too low */
+.size-challenge-stage[data-size="smaller"]
+  .size-problem-band {
+  top: 8px;
+  height: 205px;
+}
+
+.size-challenge-stage[data-size="smaller"]
+  .size-problem-pad {
+  top: 205px;
+}
+
+.size-challenge-stage[data-size="smaller"]
+  .size-problem-pad-left {
+  left: 25px;
+}
+
+.size-challenge-stage[data-size="smaller"]
+  .size-problem-pad-right {
+  right: 25px;
+}
+
+/* Quiet-thinking cue */
+.size-thinking-cue {
+  position: absolute;
+
+  left: 420px;
+  top: 105px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  box-shadow:
+    0 7px 20px rgba(23, 32, 51, 0.14);
+}
+
+.size-thinking-cue span {
+  font-size: 34px;
+}
+
+.size-thinking-cue strong {
+  font-size: 15px;
+}
+
+/* Reveal */
+.size-answer-cue {
+  position: absolute;
+
+  left: 430px;
+  top: 205px;
+
+  display: none;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 22px;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.14);
+}
+
+.size-answer-arrow {
+  font-size: 68px;
+  line-height: 1;
+
+  color: #d89c09;
+}
+
+.size-answer-cue strong {
+  font-size: 28px;
+  color: #27364a;
+}
+
+.size-challenge-stage[data-answer="true"]
+  .size-thinking-cue {
+  display: none;
+}
+
+.size-challenge-stage[data-answer="true"]
+  .size-answer-cue {
+  display: flex;
+}
+
+/* ===== Size Challenge intro: growing/shrinking arrow ===== */
+
+.size-challenge-symbols {
+  overflow: visible;
+}
+
+.size-challenge-symbols span:first-child {
+  display: inline-block;
+
+  transform-origin: center;
+
+  animation:
+    size-arrow-grow-shrink 1.8s
+    ease-in-out infinite alternate;
+}
+
+@keyframes size-arrow-grow-shrink {
+  0% {
+    transform: scaleY(0.55) scaleX(0.9);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scaleY(1.55) scaleX(1.12);
+    opacity: 1;
+  }
+}
+
+/* Keep the question mark steady */
+.size-challenge-symbols span:last-child {
+  display: inline-block;
+  animation: none;
+}
+
+/* ===== Week 2 Size Challenge choices ===== */
+
+.size-choice-buttons {
+  position: absolute;
+
+  left: 405px;
+  top: 205px;
+
+  display: flex;
+  gap: 14px;
+}
+
+.size-choice-button {
+  min-width: 132px;
+  min-height: 112px;
+
+  padding: 10px 14px;
+
+  border: 4px solid transparent;
+  border-radius: 22px;
+
+  background: #ffffff;
+  color: #27364a;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.14);
+
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 4px;
+
+  cursor: pointer;
+}
+
+.size-choice-button:hover {
+  transform: translateY(-2px);
+}
+
+.size-choice-arrow {
+  font-size: 54px;
+  line-height: 1;
+  color: #d89c09;
+}
+
+.size-choice-button strong {
+  font-size: 16px;
+}
+
+.size-choice-feedback {
+  position: absolute;
+
+  left: 445px;
+  top: 335px;
+
+  min-width: 170px;
+  min-height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.size-choice-feedback.is-correct {
+  background: #d9f3e4;
+  color: #218653;
+}
+
+.size-choice-feedback.is-wrong {
+  background: #fff1dc;
+  color: #9a6200;
+}
+
+.size-choice-button.is-correct {
+  border-color: #45a86b;
+  background: #eef9f2;
+}
+
+.size-choice-button.is-wrong {
+  border-color: #e5a332;
+}
+
+/* ===== Size Challenge BIGGER visual correction ===== */
+
+/* TOO SMALL:
+   lower the headband so it looks tight on the child's head */
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-band {
+  top: 62px;
+  height: 125px;
+}
+
+/* Keep the cups tucked high to reinforce "too small" */
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-pad {
+  top: 132px;
+}
+
+/* ===== Size Challenge: clearly TOO SMALL ===== */
+
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-band {
+  top: 92px;
+  height: 105px;
+}
+
+/* Ear cups stay high because the headphones are too small */
+.size-challenge-stage[data-size="bigger"]
+  .size-problem-pad {
+  top: 148px;
+}
+
+/* BIGGER = expanding */
+.size-grow-symbol {
+  animation: size-choice-grow 1.2s ease-in-out infinite alternate;
+}
+
+/* SMALLER = contracting */
+.size-shrink-symbol {
+  animation: size-choice-shrink 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes size-choice-grow {
+  from {
+    transform: scaleY(0.65);
+  }
+
+  to {
+    transform: scaleY(1.35);
+  }
+}
+
+@keyframes size-choice-shrink {
+  from {
+    transform: scaleY(1.35);
+  }
+
+  to {
+    transform: scaleY(0.65);
+  }
+}
+
+/* ===== Week 2 Teacher Says ===== */
+
+.teacher-says-intro,
+.teacher-says-finish,
+.teacher-says-wait,
+.teacher-says-command {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.teacher-says-intro,
+.teacher-says-finish {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 26px;
+}
+
+.teacher-says-teacher {
+  font-size: clamp(110px, 17vw, 190px);
+}
+
+.teacher-says-intro-cards,
+.teacher-says-finish {
+  font-size: clamp(60px, 9vw, 100px);
+}
+
+.teacher-says-intro-cards {
+  display: flex;
+  gap: 30px;
+}
+
+/* Main command */
+
+.teacher-says-command {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 170px;
+  align-items: center;
+  gap: 14px;
+}
+
+.teacher-says-badge {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+
+  padding: 16px 10px;
+
+  border-radius: 24px;
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.14);
+}
+
+.teacher-says-badge span {
+  font-size: 76px;
+}
+
+.teacher-says-badge strong {
+  text-align: center;
+  font-size: 16px;
+}
+
+.teacher-says-command-picture {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.teacher-says-command-picture
+  .position-visual {
+  width: 330px;
+  height: 390px;
+}
+
+.teacher-says-command-word {
+  display: grid;
+  place-items: center;
+
+  min-height: 120px;
+
+  border-radius: 24px;
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.14);
+
+  font-size: 36px;
+  font-weight: 900;
+  color: #27364a;
+}
+
+/* WAIT trick screen */
+
+.teacher-says-wait {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+}
+
+.teacher-says-stop-hand {
+  font-size: clamp(110px, 16vw, 180px);
+
+  animation:
+    teacher-says-stop-pulse
+    1.3s ease-in-out infinite alternate;
+}
+
+.teacher-says-wait > strong {
+  font-size: clamp(52px, 8vw, 82px);
+  color: #d94444;
+}
+
+.teacher-says-distractors {
+  display: flex;
+  gap: 28px;
+
+  margin-top: 12px;
+
+  font-size: clamp(48px, 7vw, 72px);
+
+  opacity: 0.25;
+}
+
+@keyframes teacher-says-stop-pulse {
+  from {
+    transform: scale(0.92);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* ===== Week 2 Plug Detective ===== */
+
+.plug-detective-intro {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.plug-detective-icon,
+.plug-detective-headphones {
+  font-size: clamp(100px, 15vw, 180px);
+}
+
+.plug-detective-question {
+  width: 110px;
+  height: 110px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #ffd93d;
+  color: #654800;
+
+  font-size: 76px;
+  font-weight: 900;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.16);
+}
+
+.plug-detective-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+.plug-detective-find-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 760px;
+  max-height: 500px;
+
+  display: block;
+}
+
+.plug-detective-stage[data-reveal="false"]
+  .plug-detective-find-svg {
+  cursor: crosshair;
+}
+
+.plug-detective-thinking {
+  position: absolute;
+
+  left: 50%;
+  top: -48px;
+  transform: translateX(-50%);
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 8px 16px;
+
+  border-radius: 18px;
+  background: #ffffff;
+
+  box-shadow:
+    0 7px 20px rgba(23, 32, 51, 0.14);
+
+  white-space: nowrap;
+}
+
+.plug-detective-thinking span {
+  font-size: 30px;
+}
+
+.plug-detective-thinking strong {
+  font-size: 14px;
+}
+
+.plug-detective-stage[data-reveal="true"]
+  .plug-detective-thinking {
+  display: none;
+}
+
+.plug-detective-answer-ring {
+  fill: rgba(255, 225, 70, 0.03);
+  stroke: #f1b82d;
+  stroke-width: 8;
+  vector-effect: non-scaling-stroke;
+
+  filter:
+    drop-shadow(0 0 5px rgba(241, 184, 45, 0.28));
+}
+
+.plug-detective-feedback {
+  position: absolute;
+  right: 5%;
+  top: 8%;
+
+  min-width: 105px;
+  min-height: 70px;
+
+  display: none;
+  place-items: center;
+
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.plug-detective-feedback.is-correct {
+  display: grid;
+  background: #d9f3e4;
+  color: #218653;
+}
+
+.plug-detective-feedback.is-wrong {
+  display: grid;
+  background: #fff1dc;
+  color: #9a6200;
+}
+
+/* ===== Week 2 Volume Rescue ===== */
+
+.volume-rescue-stage,
+.rescue-intro,
+.rescue-finish {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rescue-intro,
+.rescue-finish {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+}
+
+.rescue-rocket {
+  font-size: clamp(110px, 16vw, 180px);
+  animation: rescue-rocket-float 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes rescue-rocket-float {
+  from {
+    transform: translate(-20px, 18px) rotate(-5deg);
+  }
+
+  to {
+    transform: translate(20px, -18px) rotate(5deg);
+  }
+}
+
+.rescue-intro-sound {
+  font-size: clamp(48px, 7vw, 76px);
+}
+
+.rescue-stars,
+.rescue-finish-stars {
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: 10px;
+  color: #e4aa26;
+}
+
+.rescue-trophy {
+  font-size: clamp(100px, 15vw, 170px);
+}
+
+.rescue-finish strong {
+  font-size: clamp(28px, 5vw, 48px);
+  color: #27364a;
+}
+
+.rescue-mission-meter {
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 12px;
+
+  font-size: 30px;
+  color: #c8d1dd;
+}
+
+.rescue-mission-meter .current {
+  color: #e4aa26;
+}
+
+.rescue-scene {
+  position: absolute;
+
+  left: 4%;
+  top: 15%;
+
+  width: 42%;
+  height: 62%;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0%,
+      #eef7ff 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 3px rgba(45, 126, 224, 0.08);
+}
+
+.rescue-character,
+.rescue-sleeper,
+.rescue-dancer {
+  font-size: clamp(80px, 11vw, 125px);
+}
+
+.rescue-sound-waves {
+  position: absolute;
+  right: 10%;
+  top: 25%;
+
+  font-size: 60px;
+  font-weight: 900;
+
+  color: #e85050;
+
+  animation: rescue-loud-shake 0.35s linear infinite alternate;
+}
+
+@keyframes rescue-loud-shake {
+  from {
+    transform: translateX(-5px) scale(0.95);
+  }
+
+  to {
+    transform: translateX(5px) scale(1.08);
+  }
+}
+
+.rescue-scene-icon {
+  position: absolute;
+  right: 12%;
+  bottom: 12%;
+  font-size: 56px;
+}
+
+.rescue-tiny-notes {
+  position: absolute;
+  right: 16%;
+  top: 24%;
+
+  font-size: 28px;
+
+  animation: rescue-tiny-float 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes rescue-tiny-float {
+  from {
+    transform: translateY(8px);
+  }
+
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+.rescue-zzz {
+  position: absolute;
+  right: 13%;
+  top: 16%;
+
+  font-size: 36px;
+  font-weight: 900;
+  color: #526078;
+}
+
+.rescue-noisy-note {
+  position: absolute;
+  left: 12%;
+  top: 16%;
+
+  font-size: 62px;
+
+  animation: rescue-noisy-note 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes rescue-noisy-note {
+  from {
+    transform: rotate(-12deg) scale(0.9);
+  }
+
+  to {
+    transform: rotate(12deg) scale(1.1);
+  }
+}
+
+.rescue-silent-speaker {
+  position: absolute;
+  right: 12%;
+  top: 20%;
+
+  font-size: 58px;
+}
+
+.rescue-party-notes {
+  position: absolute;
+  right: 10%;
+  bottom: 18%;
+
+  font-size: 38px;
+
+  opacity: 0.18;
+}
+
+.rescue-keyboard-area {
+  position: absolute;
+
+  right: 2%;
+  top: 17%;
+
+  width: 51%;
+  height: 58%;
+}
+
+.rescue-keyboard-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rescue-key-target {
+  fill: rgba(255, 217, 61, 0.04);
+  stroke: rgba(241, 184, 45, 0.28);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+
+  cursor: pointer;
+}
+
+.rescue-key-target:hover {
+  fill: rgba(255, 217, 61, 0.18);
+  stroke: #f1b82d;
+}
+
+.rescue-feedback {
+  position: absolute;
+
+  right: 12%;
+  bottom: 7%;
+
+  min-width: 180px;
+  min-height: 54px;
+
+  display: none;
+  place-items: center;
+
+  padding: 8px 16px;
+
+  border-radius: 18px;
+
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.rescue-feedback.is-correct {
+  display: grid;
+
+  background: #d9f3e4;
+  color: #218653;
+}
+
+.rescue-feedback.is-wrong {
+  display: grid;
+
+  background: #fff1dc;
+  color: #9a6200;
+}
+
+/* Scene reactions after solving */
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-sound-waves {
+  animation: none;
+  transform: scale(0.55);
+  opacity: 0.35;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-too-loud
+  .rescue-character {
+  transform: scale(1.08);
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-too-quiet
+  .rescue-tiny-notes {
+  font-size: 58px;
+  opacity: 1;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-sleeping
+  .rescue-noisy-note {
+  display: none;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-party
+  .rescue-party-notes {
+  opacity: 1;
+  animation: rescue-party-dance 0.7s ease-in-out infinite alternate;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-party
+  .rescue-dancer {
+  animation: rescue-party-dance 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes rescue-party-dance {
+  from {
+    transform: translateY(5px) rotate(-7deg);
+  }
+
+  to {
+    transform: translateY(-12px) rotate(7deg);
+  }
+}
+
+/* ===== Volume Rescue clearer visual problems ===== */
+
+/* Mission 2: "I can't hear it" */
+.rescue-listening-cue {
+  font-size: clamp(100px, 14vw, 155px);
+}
+
+.rescue-hear-question {
+  position: absolute;
+  right: 16%;
+  top: 46%;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #ffd93d;
+  color: #654800;
+
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.rescue-too-quiet .rescue-tiny-notes {
+  font-size: 22px;
+  opacity: 0.45;
+}
+
+/* Correct LOUDER answer makes the sound visually easier to hear */
+.volume-rescue-stage[data-solved="true"]
+  .rescue-too-quiet
+  .rescue-tiny-notes {
+  font-size: 70px;
+  opacity: 1;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-too-quiet
+  .rescue-hear-question {
+  display: none;
+}
+
+/* Mission 4: party is waiting for music */
+.rescue-party-question {
+  position: absolute;
+  right: 15%;
+  top: 20%;
+
+  width: 70px;
+  height: 70px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #ffd93d;
+  color: #654800;
+
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.rescue-party .rescue-dancer {
+  filter: grayscale(0.65);
+  opacity: 0.72;
+}
+
+/* No visible music before Sound On is solved */
+.rescue-party .rescue-party-notes {
+  opacity: 0;
+}
+
+/* Correct answer brings the party to life */
+.volume-rescue-stage[data-solved="true"]
+  .rescue-party
+  .rescue-party-question {
+  display: none;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-party
+  .rescue-dancer {
+  filter: none;
+  opacity: 1;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-party
+  .rescue-party-notes {
+  opacity: 1;
+}
+
+/* ===== Volume Rescue physical-practice button ===== */
+
+.rescue-play-button {
+  position: absolute;
+  right: 15%;
+  bottom: 5%;
+
+  min-width: 125px;
+  min-height: 62px;
+
+  padding: 8px 18px;
+
+  border: 0;
+  border-radius: 20px;
+
+  background: #ffffff;
+  color: #27364a;
+
+  box-shadow:
+    0 8px 22px rgba(23, 32, 51, 0.16);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.rescue-play-button span {
+  font-size: 28px;
+}
+
+.rescue-play-button strong {
+  font-size: 15px;
+}
+
+.volume-rescue-stage[data-solved="true"]
+  .rescue-play-button {
+  display: flex;
+}
+
+/* Same red STOP language used everywhere else */
+.rescue-play-button.is-playing {
+  background: #e85050;
+  color: #ffffff;
+}
+
+.rescue-play-button.is-playing span,
+.rescue-play-button.is-playing strong {
+  color: #ffffff;
+}
+
+/* ===== Volume Rescue mission layout ===== */
+
+/*
+  Rescue mission screens own the entire lesson area.
+  The normal large lesson label is not rendered for these screens.
+*/
+
+.lesson-screen.volume-rescue-screen {
+  width: min(1240px, 96vw);
+  height: 100%;
+
+  display: block;
+  margin: 0 auto;
+}
+
+.volume-rescue-screen > .lesson-visual {
+  width: 100%;
+  height: min(540px, 72vh);
+  max-width: none;
+  max-height: none;
+}
+
+/* Three simple rows:
+   mission header
+   activity
+   feedback/play
+*/
+.volume-rescue-screen .volume-rescue-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-rows:
+    64px
+    minmax(0, 1fr)
+    62px;
+
+  box-sizing: border-box;
+}
+
+/* MISSION 1 + stars */
+.volume-rescue-screen .rescue-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.volume-rescue-screen
+  .rescue-game-header > strong {
+  font-size: 24px;
+  line-height: 1;
+  color: #17233a;
+}
+
+.volume-rescue-screen .rescue-mission-meter {
+  position: static;
+
+  transform: none;
+
+  display: flex;
+  gap: 8px;
+
+  font-size: 27px;
+}
+
+/* Main activity:
+   problem on left, keyboard on right */
+.volume-rescue-screen .rescue-game-main {
+  display: grid;
+
+  grid-template-columns:
+    260px
+    minmax(0, 820px);
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 40px;
+
+  min-height: 0;
+}
+
+/* Problem card */
+.volume-rescue-screen .rescue-scene {
+  position: relative;
+
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+
+  width: 250px;
+  height: 290px;
+
+  justify-self: center;
+  align-self: center;
+}
+
+/* Keyboard */
+.volume-rescue-screen .rescue-keyboard-area {
+  position: relative;
+
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+
+  width: 100%;
+  height: auto;
+
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.volume-rescue-screen .rescue-keyboard-svg {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: 820px;
+  max-height: none;
+
+  margin: 0 auto;
+}
+
+/* Bottom response area */
+.volume-rescue-screen .rescue-game-footer {
+  display: grid;
+  place-items: center;
+}
+
+.volume-rescue-screen .rescue-feedback,
+.volume-rescue-screen .rescue-play-button {
+  position: static;
+
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+
+  transform: none;
+}
+
+/* PLAY stays hidden until the child solves the mission */
+.volume-rescue-screen .rescue-play-button {
+  display: none;
+}
+
+.volume-rescue-screen
+  .volume-rescue-stage[data-solved="true"]
+  .rescue-play-button {
+  display: flex;
+}
+
+
+/* ===== Volume Rescue feedback visibility fix ===== */
+
+/* Give the bottom response area enough dedicated room */
+.volume-rescue-screen .volume-rescue-stage {
+  grid-template-rows:
+    64px
+    minmax(0, 1fr)
+    82px;
+}
+
+/* Keep the keyboard fully inside the middle row */
+.volume-rescue-screen .rescue-keyboard-area {
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+.volume-rescue-screen .rescue-keyboard-svg {
+  width: min(800px, 100%) !important;
+  max-height: 360px !important;
+}
+
+/* Feedback and PLAY always sit above everything else */
+.volume-rescue-screen .rescue-game-footer {
+  position: relative;
+  z-index: 20;
+
+  min-height: 82px;
+
+  display: grid !important;
+  place-items: center !important;
+}
+
+/* Wrong answer */
+.volume-rescue-screen .rescue-feedback.is-wrong {
+  display: grid !important;
+
+  min-width: 190px;
+  min-height: 54px;
+
+  background: #fff1dc;
+  color: #9a6200;
+
+  border-radius: 18px;
+
+  font-size: 20px;
+  font-weight: 900;
+
+  z-index: 25;
+}
+
+/* Correct answer */
+.volume-rescue-screen .rescue-feedback.is-correct {
+  display: grid !important;
+
+  min-width: 220px;
+  min-height: 54px;
+
+  background: #d9f3e4;
+  color: #218653;
+
+  border-radius: 18px;
+
+  font-size: 20px;
+  font-weight: 900;
+
+  z-index: 25;
+}

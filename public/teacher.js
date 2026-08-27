@@ -1,7 +1,13 @@
 "use strict";
 
-const lesson = window.HEADPHONE_HEROES_LESSON;
 const classroom = window.HeadphoneClassroom;
+const lessonEngine = window.HeadphoneLessonEngine;
+
+function getActiveLesson(state) {
+  return lessonEngine.getLesson(
+    state.lessonId || "full"
+  );
+}
 
 const statusCard = document.querySelector(".teacher-status");
 const controls = document.querySelector(".teacher-controls");
@@ -18,16 +24,27 @@ const teacherConnectionText =
   document.getElementById("teacher-connection-text");
 
 
+const lessonSelector =
+  document.getElementById("lesson-selector");
+
 backButton.disabled = false;
 nextButton.disabled = false;
 
 function renderTeacher(state) {
+  const lesson = getActiveLesson(state);
   const step = lesson[state.currentStep] || lesson[0];
 
   statusCard.innerHTML = `
     <strong>${step.shortLabel}</strong>
     <span>Current Step: ${state.currentStep + 1} of ${lesson.length}</span>
   `;
+
+  if (
+    lessonSelector &&
+    lessonSelector.value !== (state.lessonId || "full")
+  ) {
+    lessonSelector.value = state.lessonId || "full";
+  }
 
   teacherControlToggle.checked = state.teacherControlEnabled;
   freezeToggle.checked = state.freezeScreenArmed;
@@ -53,6 +70,14 @@ function renderTeacher(state) {
   }
 }
 
+lessonSelector.addEventListener("change", async () => {
+  await classroom.updateState({
+    lessonId: lessonSelector.value,
+    currentStep: 0,
+    freezeScreenArmed: false
+  });
+});
+
 backButton.addEventListener("click", async () => {
   const state = classroom.getState();
 
@@ -70,6 +95,7 @@ backButton.addEventListener("click", async () => {
 
 nextButton.addEventListener("click", async () => {
   const state = classroom.getState();
+  const lesson = getActiveLesson(state);
 
   if (
     !state.teacherControlEnabled ||

@@ -42,6 +42,10 @@ function renderStudent(state) {
     if (typeof stopDetectiveSound === "function") {
       stopDetectiveSound();
     }
+
+    if (typeof stopVolumeRescueSound === "function") {
+      stopVolumeRescueSound();
+    }
   }
 
   currentState = state;
@@ -49,7 +53,8 @@ function renderStudent(state) {
 
   lessonEngine.renderStudentStep(
     lessonStage,
-    state.currentStep
+    state.currentStep,
+    state.lessonId || "full"
   );
 
   document.body.classList.toggle(
@@ -185,7 +190,7 @@ lessonStage.addEventListener("click", (event) => {
   }
 
   const currentStep =
-    lessonEngine.getStep(currentState.currentStep);
+    lessonEngine.getStep(currentState.currentStep, currentState.lessonId || "full");
 
   if (
     currentStep?.interactionType !== "sound-test"
@@ -298,7 +303,7 @@ lessonStage.addEventListener("click", (event) => {
   }
 
   const step =
-    lessonEngine.getStep(currentState.currentStep);
+    lessonEngine.getStep(currentState.currentStep, currentState.lessonId || "full");
 
   if (step?.interactionType !== "volume-test") {
     return;
@@ -359,7 +364,7 @@ lessonStage.addEventListener("click", (event) => {
   }
 
   const step =
-    lessonEngine.getStep(currentState.currentStep);
+    lessonEngine.getStep(currentState.currentStep, currentState.lessonId || "full");
 
   if (step?.interactionType !== "party-sound") {
     return;
@@ -395,7 +400,7 @@ lessonStage.addEventListener("click", (event) => {
   }
 
   const step =
-    lessonEngine.getStep(currentState.currentStep);
+    lessonEngine.getStep(currentState.currentStep, currentState.lessonId || "full");
 
   if (step?.interactionType !== "detective-sound") {
     return;
@@ -492,3 +497,284 @@ async function playDetectiveSound() {
 
   detectiveTimers.push(stopTimer);
 }
+
+/* ===== Week 2 Size Challenge interaction ===== */
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const button =
+    event.target.closest(".size-choice-button");
+
+  if (!button) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(
+      currentState.currentStep,
+      currentState.lessonId || "full"
+    );
+
+  if (step?.interactionType !== "size-choice") {
+    return;
+  }
+
+  const selectedAnswer =
+    button.dataset.sizeAnswer;
+
+  const correct =
+    selectedAnswer === step.correctAnswer;
+
+  const stage =
+    button.closest(".size-challenge-stage");
+
+  const feedback =
+    stage?.querySelector(".size-choice-feedback");
+
+  const buttons =
+    stage?.querySelectorAll(".size-choice-button");
+
+  buttons?.forEach((choice) => {
+    choice.classList.remove(
+      "is-correct",
+      "is-wrong"
+    );
+  });
+
+  feedback?.classList.remove(
+    "is-correct",
+    "is-wrong"
+  );
+
+  if (correct) {
+    button.classList.add("is-correct");
+
+    if (feedback) {
+      feedback.textContent = "✓";
+      feedback.classList.add("is-correct");
+    }
+
+    return;
+  }
+
+  button.classList.add("is-wrong");
+
+  if (feedback) {
+    feedback.textContent = "↻ TRY AGAIN";
+    feedback.classList.add("is-wrong");
+  }
+});
+
+/* ===== Week 2 Plug Detective interaction ===== */
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const svg =
+    event.target.closest(".plug-detective-find-svg");
+
+  if (!svg) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(
+      currentState.currentStep,
+      currentState.lessonId || "full"
+    );
+
+  if (step?.interactionType !== "plug-find-choice") {
+    return;
+  }
+
+  const point = svg.createSVGPoint();
+
+  point.x = event.clientX;
+  point.y = event.clientY;
+
+  const matrix = svg.getScreenCTM();
+
+  if (!matrix) {
+    return;
+  }
+
+  const svgPoint =
+    point.matrixTransform(matrix.inverse());
+
+  /*
+    Correct headphone jack location from the
+    fixed side.jpg coordinate system.
+  */
+  const jackX = 3150;
+  const jackY = 1875;
+
+  const dx =
+    (svgPoint.x - jackX) / 190;
+
+  const dy =
+    (svgPoint.y - jackY) / 165;
+
+  const correct =
+    (dx * dx) + (dy * dy) <= 1;
+
+  const stage =
+    svg.closest(".plug-detective-stage");
+
+  const feedback =
+    stage?.querySelector(
+      ".plug-detective-feedback"
+    );
+
+  if (!feedback) {
+    return;
+  }
+
+  feedback.classList.remove(
+    "is-correct",
+    "is-wrong"
+  );
+
+  if (correct) {
+    feedback.textContent = "✓";
+    feedback.classList.add("is-correct");
+
+    return;
+  }
+
+  feedback.textContent = "↻ TRY AGAIN";
+  feedback.classList.add("is-wrong");
+});
+
+/* ===== Week 2 Volume Rescue interaction ===== */
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const target =
+    event.target.closest(".rescue-key-target");
+
+  if (!target) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(
+      currentState.currentStep,
+      currentState.lessonId || "full"
+    );
+
+  if (step?.interactionType !== "rescue-choice") {
+    return;
+  }
+
+  const selected =
+    target.dataset.rescueAnswer;
+
+  const stage =
+    target.closest(".volume-rescue-stage");
+
+  const feedback =
+    stage?.querySelector(".rescue-feedback");
+
+  if (!stage || !feedback) {
+    return;
+  }
+
+  feedback.classList.remove(
+    "is-correct",
+    "is-wrong"
+  );
+
+  if (selected !== step.correctAnswer) {
+    feedback.textContent = "↻ TRY AGAIN";
+    feedback.classList.add("is-wrong");
+    return;
+  }
+
+  stage.dataset.solved = "true";
+
+  feedback.textContent = "✓ MISSION COMPLETE!";
+  feedback.classList.add("is-correct");
+
+  stage
+    .querySelectorAll(".rescue-key-target")
+    .forEach((key) => {
+      key.style.pointerEvents = "none";
+    });
+});
+
+/* ===== Week 2 Volume Rescue sound ===== */
+
+let rescueMusic = null;
+
+function stopVolumeRescueSound() {
+  if (!rescueMusic) {
+    return;
+  }
+
+  rescueMusic.pause();
+  rescueMusic.currentTime = 0;
+  rescueMusic = null;
+}
+
+async function playVolumeRescueSound() {
+  stopVolumeRescueSound();
+
+  rescueMusic =
+    new Audio("/assets/music/music.mp3");
+
+  rescueMusic.loop = true;
+  rescueMusic.volume = 0.45;
+
+  try {
+    await rescueMusic.play();
+  } catch (error) {
+    console.error(
+      "Unable to play Volume Rescue sound.",
+      error
+    );
+  }
+}
+
+lessonStage.addEventListener("click", async (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const button =
+    event.target.closest(".rescue-play-button");
+
+  if (!button) {
+    return;
+  }
+
+  const stage =
+    button.closest(".volume-rescue-stage");
+
+  if (!stage || stage.dataset.solved !== "true") {
+    return;
+  }
+
+  if (rescueMusic && !rescueMusic.paused) {
+    stopVolumeRescueSound();
+
+    button.classList.remove("is-playing");
+    button.querySelector("strong").textContent =
+      "PLAY";
+
+    return;
+  }
+
+  await playVolumeRescueSound();
+
+  button.classList.add("is-playing");
+  button.querySelector("strong").textContent =
+    "STOP";
+});

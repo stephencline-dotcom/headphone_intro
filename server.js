@@ -117,6 +117,7 @@ app.get("/present", (req, res) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 const classroomState = {
+  lessonId: "full",
   currentStep: 0,
   teacherControlEnabled: true,
   freezeScreenArmed: false,
@@ -233,10 +234,15 @@ app.post(
   requireTeacher,
   (req, res) => {
     const {
+      lessonId,
       currentStep,
       teacherControlEnabled,
       freezeScreenArmed
     } = req.body;
+
+    if (typeof lessonId === "string") {
+      classroomState.lessonId = lessonId;
+    }
 
     if (Number.isInteger(currentStep)) {
       classroomState.currentStep =
