@@ -411,29 +411,11 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
-    id: "stop",
-    section: "routine",
-    shortLabel: "STOP",
-    visual: "placeholder-stop",
-    spokenInstruction: "When your teacher says stop or the timer rings, headphones go to your neck.",
-    interactionType: "none"
-  },
-
-  {
-    id: "review",
-    section: "review",
-    shortLabel: "REVIEW",
-    visual: "placeholder-review",
-    spokenInstruction: "Let's practice everything we learned.",
-    interactionType: "none"
-  },
-
-  {
     id: "hero",
     section: "complete",
     shortLabel: "HEADPHONE HERO!",
-    visual: "placeholder-hero",
-    spokenInstruction: "You are a Headphone Hero!",
+    visual: "hero-finish",
+    spokenInstruction: "You did it! You are a Headphone Hero!",
     interactionType: "none"
   }
 ]

@@ -28,6 +28,27 @@ window.HeadphoneLessonEngine = (() => {
     visual.className = "lesson-visual";
     visual.dataset.visual = step.visual || "placeholder";
 
+    if (step.visual === "hero-finish") {
+      visual.innerHTML = `
+        <div class="hero-finish-visual">
+          <div class="hero-finish-stars" aria-hidden="true">
+            ⭐ ⭐ ⭐
+          </div>
+
+          <div class="hero-finish-main" aria-hidden="true">
+            <span class="hero-finish-headphones">🎧</span>
+            <span class="hero-finish-trophy">🏆</span>
+          </div>
+
+          <div class="hero-finish-check" aria-hidden="true">
+            ✓
+          </div>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual === "welcome") {
       visual.innerHTML = `
         <div class="welcome-visual">

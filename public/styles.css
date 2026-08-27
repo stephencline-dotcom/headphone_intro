@@ -4991,3 +4991,51 @@ body:not(.presentation-shell)
 
   z-index: 25;
 }
+
+/* ===== Week 1 Headphone Hero finish ===== */
+
+.hero-finish-visual {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+  align-content: center;
+
+  gap: 18px;
+}
+
+.hero-finish-stars {
+  font-size: clamp(38px, 6vw, 64px);
+  letter-spacing: 10px;
+}
+
+.hero-finish-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.hero-finish-headphones,
+.hero-finish-trophy {
+  font-size: clamp(105px, 16vw, 180px);
+}
+
+.hero-finish-check {
+  width: 92px;
+  height: 92px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #d9f3e4;
+  color: #218653;
+
+  font-size: 64px;
+  font-weight: 900;
+}
