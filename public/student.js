@@ -30,11 +30,18 @@ function renderStudent(state) {
     lastRenderedStep !== null &&
     state.currentStep !== lastRenderedStep;
 
-  if (
-    stepChanged &&
-    typeof stopVolumePartySound === "function"
-  ) {
-    stopVolumePartySound();
+  if (stepChanged) {
+    if (typeof stopVolumePartySound === "function") {
+      stopVolumePartySound();
+    }
+
+    if (typeof stopVolumePracticeSound === "function") {
+      stopVolumePracticeSound();
+    }
+
+    if (typeof stopDetectiveSound === "function") {
+      stopDetectiveSound();
+    }
   }
 
   currentState = state;
@@ -132,6 +139,7 @@ async function playHeadphoneTestSound() {
   }
 
   const audioContext = new AudioContext();
+  volumePracticeAudioContext = audioContext;
 
   if (audioContext.state === "suspended") {
     await audioContext.resume();
@@ -203,7 +211,19 @@ lessonStage.addEventListener("click", (event) => {
 
 /* ===== Volume-key practice sound ===== */
 
+let volumePracticeAudioContext = null;
+
+function stopVolumePracticeSound() {
+  if (!volumePracticeAudioContext) {
+    return;
+  }
+
+  volumePracticeAudioContext.close().catch(() => {});
+  volumePracticeAudioContext = null;
+}
+
 async function playVolumePracticeSound() {
+  stopVolumePracticeSound();
   const AudioContext =
     window.AudioContext ||
     window.webkitAudioContext;
@@ -213,6 +233,7 @@ async function playVolumePracticeSound() {
   }
 
   const audioContext = new AudioContext();
+  volumePracticeAudioContext = audioContext;
 
   if (audioContext.state === "suspended") {
     await audioContext.resume();
@@ -258,7 +279,9 @@ async function playVolumePracticeSound() {
   oscillator.stop(endTime);
 
   setTimeout(() => {
-    audioContext.close().catch(() => {});
+    if (volumePracticeAudioContext === audioContext) {
+      stopVolumePracticeSound();
+    }
   }, 12300);
 }
 
@@ -281,7 +304,18 @@ lessonStage.addEventListener("click", (event) => {
     return;
   }
 
+  if (volumePracticeAudioContext) {
+    stopVolumePracticeSound();
+
+    button.classList.remove("is-playing");
+    button.querySelector("span").textContent = "PLAY";
+    return;
+  }
+
   playVolumePracticeSound();
+
+  button.classList.add("is-playing");
+  button.querySelector("span").textContent = "STOP";
 });
 
 /* ===== Volume Party music ===== */
@@ -345,3 +379,116 @@ lessonStage.addEventListener("click", (event) => {
   button.classList.add("is-playing");
   button.querySelector("strong").textContent = "STOP";
 });
+
+/* ===== Sound Detective audio ===== */
+
+lessonStage.addEventListener("click", (event) => {
+  if (currentState.freezeScreenArmed) {
+    return;
+  }
+
+  const button =
+    event.target.closest(".detective-play-button");
+
+  if (!button) {
+    return;
+  }
+
+  const step =
+    lessonEngine.getStep(currentState.currentStep);
+
+  if (step?.interactionType !== "detective-sound") {
+    return;
+  }
+
+  if (detectiveAudioContext) {
+    stopDetectiveSound();
+
+    button.classList.remove("is-playing");
+    button.querySelector("strong").textContent = "PLAY";
+    return;
+  }
+
+  playDetectiveSound();
+
+  button.classList.add("is-playing");
+  button.querySelector("strong").textContent = "STOP";
+});
+
+/* ===== Sound Detective mystery dings ===== */
+
+let detectiveAudioContext = null;
+let detectiveTimers = [];
+
+function stopDetectiveSound() {
+  detectiveTimers.forEach((timer) => clearTimeout(timer));
+  detectiveTimers = [];
+
+  if (detectiveAudioContext) {
+    detectiveAudioContext.close().catch(() => {});
+    detectiveAudioContext = null;
+  }
+}
+
+async function playDetectiveSound() {
+  stopDetectiveSound();
+
+  const AudioContext =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+  if (!AudioContext) {
+    return;
+  }
+
+  const audioContext = new AudioContext();
+  detectiveAudioContext = audioContext;
+
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+
+  function playDing() {
+    if (detectiveAudioContext !== audioContext) {
+      return;
+    }
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.value = 660;
+
+    const now = audioContext.currentTime;
+
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(
+      0.20,
+      now + 0.02
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      now + 0.45
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start(now);
+    oscillator.stop(now + 0.48);
+  }
+
+  /* Gentle repeating dings for about 12 seconds */
+  for (let delay = 0; delay < 12000; delay += 900) {
+    const timer = setTimeout(playDing, delay);
+    detectiveTimers.push(timer);
+  }
+
+  const stopTimer = setTimeout(() => {
+    if (detectiveAudioContext === audioContext) {
+      stopDetectiveSound();
+    }
+  }, 12300);
+
+  detectiveTimers.push(stopTimer);
+}

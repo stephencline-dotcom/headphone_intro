@@ -27,6 +27,121 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual.startsWith("detective-")) {
+      const mode = step.visual.replace("detective-", "");
+
+      if (mode === "start") {
+        visual.innerHTML = `
+          <div class="detective-intro">
+            <div class="detective-big-icon" aria-hidden="true">👂</div>
+            <div class="detective-clues" aria-hidden="true">
+              <span>🔉</span>
+              <span>🔊</span>
+              <span>🔇</span>
+            </div>
+          </div>
+        `;
+
+        return visual;
+      }
+
+      if (mode === "finish") {
+        visual.innerHTML = `
+          <div class="detective-finish">
+            <div aria-hidden="true">👂</div>
+            <div aria-hidden="true">✓</div>
+          </div>
+        `;
+
+        return visual;
+      }
+
+      let visualCue = "";
+      let highlightClass = "";
+
+      if (mode === "down") {
+        visualCue = `
+          <span class="detective-cue-big">🔊</span>
+          <span class="detective-cue-arrow">→</span>
+          <span class="detective-cue-small">🔉</span>
+        `;
+        highlightClass = "detective-highlight-down";
+      }
+
+      if (mode === "up") {
+        visualCue = `
+          <span class="detective-cue-small">🔉</span>
+          <span class="detective-cue-arrow">→</span>
+          <span class="detective-cue-big">🔊</span>
+        `;
+        highlightClass = "detective-highlight-up";
+      }
+
+      if (mode === "mute") {
+        visualCue = `
+          <span class="detective-cue-big">🔊</span>
+          <span class="detective-cue-arrow">→</span>
+          <span class="detective-cue-big">🤫</span>
+        `;
+        highlightClass = "detective-highlight-mute";
+      }
+
+      if (mode === "unmute") {
+        visualCue = `
+          <span class="detective-cue-big">🤫</span>
+          <span class="detective-cue-arrow">→</span>
+          <span class="detective-cue-big">🔊</span>
+        `;
+        highlightClass = "detective-highlight-mute";
+      }
+
+      visual.innerHTML = `
+        <div class="detective-stage">
+          <svg
+            class="detective-keyboard-svg"
+            viewBox="0 0 1011 377"
+            role="img"
+            aria-label="Classroom Chromebook keyboard"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <image
+              href="/assets/images/mute.png"
+              x="0"
+              y="0"
+              width="1011"
+              height="377"
+            ></image>
+
+            <rect
+              class="detective-key-highlight ${highlightClass}"
+              x="${
+                mode === "down"
+                  ? 748
+                  : mode === "up"
+                    ? 833
+                    : 663
+              }"
+              y="19"
+              width="80"
+              height="39"
+              rx="9"
+            ></rect>
+          </svg>
+
+          <div class="detective-visual-cue" aria-hidden="true">
+            ${visualCue}
+          </div>
+
+          <button class="detective-play-button" type="button">
+            <span>🔊</span>
+            <strong>PLAY</strong>
+          </button>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("party-")) {
       const mode = step.visual.replace("party-", "");
 

@@ -137,6 +137,15 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
+    id: "reset-after-plug",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "position-neck-teach",
     section: "positions",
     shortLabel: "NECK",
@@ -245,6 +254,15 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
+    id: "reset-after-volume",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "party-start",
     section: "volume-party",
     shortLabel: "VOLUME PARTY",
@@ -317,12 +335,75 @@ window.HEADPHONE_HEROES_LESSON = [
   },
 
   {
-    id: "party-unmute-see",
-    section: "volume-party",
-    shortLabel: "GO!",
-    visual: "party-normal",
-    spokenInstruction: "The sound is back. The party can move again!",
-    interactionType: "party-sound"
+    id: "reset-after-party",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
+    interactionType: "none"
+  },
+
+  {
+    id: "detective-start",
+    section: "sound-detective",
+    shortLabel: "SOUND DETECTIVE",
+    visual: "detective-start",
+    spokenInstruction: "Time to be a Sound Detective! Listen carefully and use your Chromebook sound buttons.",
+    interactionType: "detective"
+  },
+
+  {
+    id: "detective-quieter",
+    section: "sound-detective",
+    shortLabel: "QUIETER",
+    visual: "detective-down",
+    spokenInstruction: "Make the sound quieter. Press the highlighted button on your Chromebook.",
+    interactionType: "detective-sound"
+  },
+
+  {
+    id: "detective-louder",
+    section: "sound-detective",
+    shortLabel: "LOUDER",
+    visual: "detective-up",
+    spokenInstruction: "Make the sound louder. Press the highlighted button on your Chromebook.",
+    interactionType: "detective-sound"
+  },
+
+  {
+    id: "detective-mute",
+    section: "sound-detective",
+    shortLabel: "MUTE",
+    visual: "detective-mute",
+    spokenInstruction: "Make the sound stop. Press the highlighted mute button.",
+    interactionType: "detective-sound"
+  },
+
+  {
+    id: "detective-unmute",
+    section: "sound-detective",
+    shortLabel: "SOUND ON",
+    visual: "detective-unmute",
+    spokenInstruction: "Bring the sound back. Press the highlighted sound button.",
+    interactionType: "detective-sound"
+  },
+
+  {
+    id: "reset-after-detective",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
+    interactionType: "none"
+  },
+
+  {
+    id: "detective-finish",
+    section: "sound-detective",
+    shortLabel: "GREAT LISTENING!",
+    visual: "detective-finish",
+    spokenInstruction: "Great listening! You know how to control your Chromebook sound.",
+    interactionType: "none"
   },
 
   {
