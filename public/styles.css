@@ -2977,3 +2977,79 @@ body:not(.presentation-shell)
       scale(var(--party-scale-end, 1.04));
   }
 }
+
+/* ===== Volume Party: stronger LOUDER movement ===== */
+
+/* LOUDER */
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-duration: 0.75s;
+  --party-distance: 120px;
+  --party-rotate: 10deg;
+  --party-scale-start: 0.88;
+  --party-scale-end: 1.14;
+}
+
+/* VERY LOUD / LOUDEST */
+.volume-party[data-party="very-fast"]
+  .party-character {
+  animation-duration: 0.42s;
+  --party-distance: 155px;
+  --party-rotate: 14deg;
+  --party-scale-start: 0.84;
+  --party-scale-end: 1.20;
+}
+
+/* ===== Volume Party: calm starting movement ===== */
+
+/* Starting / normal level = barely moving */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-duration: 5.5s;
+  --party-distance: 12px;
+  --party-rotate: 1deg;
+  --party-scale-start: 0.99;
+  --party-scale-end: 1.01;
+}
+
+/* ===== LOUDER: clearly stronger than Volume Party ===== */
+
+.volume-party[data-party="fast"]
+  .party-character {
+  animation-name: headphone-party-louder !important;
+  animation-duration: 0.65s !important;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes headphone-party-louder {
+  0% {
+    transform:
+      translateY(-25px)
+      rotate(-10deg)
+      scale(0.90);
+  }
+
+  100% {
+    transform:
+      translateY(125px)
+      rotate(10deg)
+      scale(1.14);
+  }
+}
+
+/* Opening Volume Party remains very calm */
+.volume-party[data-party="normal"]
+  .party-character {
+  animation-name: headphone-party-gentle !important;
+  animation-duration: 5.5s !important;
+}
+
+/* ===== MUTE = full stop ===== */
+
+.volume-party[data-party="stop"]
+  .party-character {
+  animation: none !important;
+  transform: translateY(0) rotate(0deg) scale(1) !important;
+}

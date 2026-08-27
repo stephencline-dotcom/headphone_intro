@@ -23,9 +23,22 @@ freezeOverlay.innerHTML = `
 document.body.appendChild(freezeOverlay);
 
 let currentState = classroom.getState();
+let lastRenderedStep = null;
 
 function renderStudent(state) {
+  const stepChanged =
+    lastRenderedStep !== null &&
+    state.currentStep !== lastRenderedStep;
+
+  if (
+    stepChanged &&
+    typeof stopVolumePartySound === "function"
+  ) {
+    stopVolumePartySound();
+  }
+
   currentState = state;
+  lastRenderedStep = state.currentStep;
 
   lessonEngine.renderStudentStep(
     lessonStage,
@@ -211,30 +224,42 @@ async function playVolumePracticeSound() {
   oscillator.type = "sine";
   oscillator.frequency.value = 440;
 
-  gain.gain.value = 0.18;
+  gain.gain.setValueAtTime(
+    0.16,
+    audioContext.currentTime
+  );
 
   oscillator.connect(gain);
   gain.connect(audioContext.destination);
 
   oscillator.start();
 
-  gain.gain.setValueAtTime(
-    0.18,
-    audioContext.currentTime
-  );
+  const startTime = audioContext.currentTime;
+  const endTime = startTime + 12;
 
-  gain.gain.exponentialRampToValueAtTime(
-    0.0001,
-    audioContext.currentTime + 6
-  );
+  /*
+    Gentle repeating pulse so students have time
+    to practice the physical Chromebook volume keys.
+  */
+  for (let t = startTime; t < endTime; t += 1.2) {
+    gain.gain.setValueAtTime(0.12, t);
 
-  oscillator.stop(
-    audioContext.currentTime + 6
-  );
+    gain.gain.linearRampToValueAtTime(
+      0.18,
+      Math.min(t + 0.45, endTime)
+    );
+
+    gain.gain.linearRampToValueAtTime(
+      0.12,
+      Math.min(t + 1.0, endTime)
+    );
+  }
+
+  oscillator.stop(endTime);
 
   setTimeout(() => {
     audioContext.close().catch(() => {});
-  }, 6300);
+  }, 12300);
 }
 
 lessonStage.addEventListener("click", (event) => {

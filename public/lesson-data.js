@@ -257,7 +257,7 @@ window.HEADPHONE_HEROES_LESSON = [
     id: "party-louder-do",
     section: "volume-party",
     shortLabel: "LOUDER",
-    visual: "party-normal",
+    visual: "party-medium-fast",
     spokenInstruction: "Make the music louder. Press the louder button on your Chromebook.",
     interactionType: "party-sound"
   },
@@ -275,7 +275,7 @@ window.HEADPHONE_HEROES_LESSON = [
     id: "party-quieter-do",
     section: "volume-party",
     shortLabel: "QUIETER",
-    visual: "party-fast",
+    visual: "party-medium-fast",
     spokenInstruction: "Make the music quieter. Press the quieter button on your Chromebook.",
     interactionType: "party-sound"
   },
@@ -293,7 +293,7 @@ window.HEADPHONE_HEROES_LESSON = [
     id: "party-mute-do",
     section: "volume-party",
     shortLabel: "MUTE",
-    visual: "party-slow",
+    visual: "party-stop",
     spokenInstruction: "Mute the music. Press the mute button.",
     interactionType: "party-sound"
   },
