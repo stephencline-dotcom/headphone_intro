@@ -3,6 +3,13 @@ const path = require("path");
 const session = require("express-session");
 
 const app = express();
+
+/*
+  Render terminates HTTPS at its proxy.
+  Trust the first proxy so secure session cookies work.
+*/
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 3000;
 
 const TEACHER_PASSWORD =
