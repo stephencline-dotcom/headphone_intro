@@ -105,3 +105,36 @@ window.HeadphoneClassroomBootstrap.initialize()
       </section>
     `;
   });
+
+/* ===== Presentation teacher heartbeat ===== */
+
+let presentationHeartbeatTimer = null;
+
+async function sendPresentationHeartbeat() {
+  try {
+    const response = await fetch("/api/teacher-heartbeat", {
+      method: "POST"
+    });
+
+    if (response.status === 401) {
+      return;
+    }
+  } catch (error) {
+    console.warn("Presentation heartbeat failed.", error);
+  }
+}
+
+function startPresentationHeartbeat() {
+  sendPresentationHeartbeat();
+
+  if (presentationHeartbeatTimer) {
+    clearInterval(presentationHeartbeatTimer);
+  }
+
+  presentationHeartbeatTimer = setInterval(
+    sendPresentationHeartbeat,
+    10000
+  );
+}
+
+startPresentationHeartbeat();

@@ -124,7 +124,7 @@ const classroomState = {
 };
 
 let teacherLastSeen = 0;
-const TEACHER_STALE_MS = 15000;
+const TEACHER_STALE_MS = 60000;
 
 const clients = new Set();
 
