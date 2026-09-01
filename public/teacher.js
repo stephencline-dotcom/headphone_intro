@@ -20,6 +20,9 @@ const teacherControlToggle =
 const freezeToggle =
   document.getElementById("freeze-toggle");
 
+const stopCatchingButton =
+  document.getElementById("stop-catching-button");
+
 const teacherConnectionText =
   document.getElementById("teacher-connection-text");
 
@@ -48,6 +51,30 @@ function renderTeacher(state) {
 
   teacherControlToggle.checked = state.teacherControlEnabled;
   freezeToggle.checked = state.freezeScreenArmed;
+
+  if (stopCatchingButton) {
+    stopCatchingButton.hidden =
+      !state.freezeScreenArmed;
+
+    stopCatchingButton.disabled =
+      !state.freezeCatchEnabled;
+
+    stopCatchingButton.classList.toggle(
+      "is-stopped",
+      state.freezeScreenArmed &&
+        !state.freezeCatchEnabled
+    );
+
+    stopCatchingButton.querySelector("strong").textContent =
+      state.freezeCatchEnabled
+        ? "Stop Catching"
+        : "Frozen Students Only";
+
+    stopCatchingButton.querySelector("small").textContent =
+      state.freezeCatchEnabled
+        ? "Let students who were not frozen continue"
+        : "Only students already frozen remain locked";
+  }
 
   backButton.disabled =
     !state.teacherControlEnabled ||
@@ -117,7 +144,23 @@ teacherControlToggle.addEventListener("change", async () => {
 
 freezeToggle.addEventListener("change", async () => {
   await classroom.updateState({
-    freezeScreenArmed: freezeToggle.checked
+    freezeScreenArmed: freezeToggle.checked,
+    freezeCatchEnabled: freezeToggle.checked
+  });
+});
+
+stopCatchingButton.addEventListener("click", async () => {
+  const state = classroom.getState();
+
+  if (
+    !state.freezeScreenArmed ||
+    !state.freezeCatchEnabled
+  ) {
+    return;
+  }
+
+  await classroom.updateState({
+    freezeCatchEnabled: false
   });
 });
 

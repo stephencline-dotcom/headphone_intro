@@ -92,6 +92,7 @@ app.post("/api/teacher-logout", requireTeacher, (req, res) => {
     release Freeze BEFORE clearing the teacher session.
   */
   classroomState.freezeScreenArmed = false;
+  classroomState.freezeCatchEnabled = false;
   classroomState.teacherPresent = false;
   teacherLastSeen = 0;
 
@@ -128,6 +129,7 @@ const classroomState = {
   currentStep: 0,
   teacherControlEnabled: true,
   freezeScreenArmed: false,
+  freezeCatchEnabled: false,
   teacherPresent: false
 };
 
@@ -218,6 +220,7 @@ app.post(
       students frozen.
     */
     classroomState.freezeScreenArmed = false;
+    classroomState.freezeCatchEnabled = false;
 
     if (changed) {
       broadcastState();
@@ -244,7 +247,8 @@ app.post(
       lessonId,
       currentStep,
       teacherControlEnabled,
-      freezeScreenArmed
+      freezeScreenArmed,
+      freezeCatchEnabled
     } = req.body;
 
     if (typeof lessonId === "string") {
@@ -264,6 +268,22 @@ app.post(
     if (typeof freezeScreenArmed === "boolean") {
       classroomState.freezeScreenArmed =
         freezeScreenArmed;
+
+      /*
+        Turning Freeze completely off always releases
+        every student and resets catching.
+      */
+      if (!freezeScreenArmed) {
+        classroomState.freezeCatchEnabled = false;
+      }
+    }
+
+    if (
+      typeof freezeCatchEnabled === "boolean" &&
+      classroomState.freezeScreenArmed
+    ) {
+      classroomState.freezeCatchEnabled =
+        freezeCatchEnabled;
     }
 
     broadcastState();
@@ -277,6 +297,7 @@ app.post(
   requireTeacher,
   (req, res) => {
     classroomState.freezeScreenArmed = false;
+    classroomState.freezeCatchEnabled = false;
 
     broadcastState();
 
@@ -292,6 +313,7 @@ app.post(
   requireTeacher,
   (req, res) => {
     classroomState.freezeScreenArmed = false;
+    classroomState.freezeCatchEnabled = false;
     classroomState.teacherControlEnabled = true;
     classroomState.currentStep = 0;
 
@@ -310,6 +332,7 @@ app.post(
       resetting lesson state.
     */
     classroomState.freezeScreenArmed = false;
+    classroomState.freezeCatchEnabled = false;
     classroomState.currentStep = 0;
 
     broadcastState();
@@ -370,6 +393,7 @@ setInterval(() => {
 
   classroomState.teacherPresent = false;
   classroomState.freezeScreenArmed = false;
+  classroomState.freezeCatchEnabled = false;
 
   broadcastState();
 }, 5000);

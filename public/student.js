@@ -25,6 +25,22 @@ document.body.appendChild(freezeOverlay);
 let currentState = classroom.getState();
 let lastRenderedStep = null;
 
+/*
+  Local to this Chromebook:
+  true only after THIS student triggered Freeze.
+*/
+let studentFreezeTriggered = false;
+
+function isStudentInteractionBlocked() {
+  return (
+    currentState.freezeScreenArmed &&
+    (
+      studentFreezeTriggered ||
+      currentState.freezeCatchEnabled
+    )
+  );
+}
+
 function renderStudent(state) {
   const stepChanged =
     lastRenderedStep !== null &&
@@ -63,6 +79,8 @@ function renderStudent(state) {
   );
 
   if (!state.freezeScreenArmed) {
+    studentFreezeTriggered = false;
+
     freezeOverlay.classList.remove("is-visible");
     freezeOverlay.setAttribute("aria-hidden", "true");
   }
@@ -84,6 +102,33 @@ function interceptFrozenInteraction(event) {
   if (!currentState.freezeScreenArmed) {
     return;
   }
+
+  /*
+    Already-caught students remain locked even after
+    the teacher stops catching new students.
+  */
+  if (studentFreezeTriggered) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    freezeOverlay.classList.add("is-visible");
+    freezeOverlay.setAttribute("aria-hidden", "false");
+    return;
+  }
+
+  /*
+    Catching has stopped and this Chromebook was never
+    frozen, so allow the student to continue normally.
+  */
+  if (!currentState.freezeCatchEnabled) {
+    return;
+  }
+
+  /*
+    Catch THIS student on their first interaction.
+  */
+  studentFreezeTriggered = true;
 
   event.preventDefault();
   event.stopPropagation();
@@ -185,7 +230,7 @@ async function playHeadphoneTestSound() {
 }
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -291,7 +336,7 @@ async function playVolumePracticeSound() {
 }
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -352,7 +397,7 @@ async function playVolumePartySound() {
 }
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -388,7 +433,7 @@ lessonStage.addEventListener("click", (event) => {
 /* ===== Sound Detective audio ===== */
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -501,7 +546,7 @@ async function playDetectiveSound() {
 /* ===== Week 2 Size Challenge interaction ===== */
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -571,7 +616,7 @@ lessonStage.addEventListener("click", (event) => {
 /* ===== Week 2 Plug Detective interaction ===== */
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -653,7 +698,7 @@ lessonStage.addEventListener("click", (event) => {
 /* ===== Week 2 Volume Rescue interaction ===== */
 
 lessonStage.addEventListener("click", (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 
@@ -744,7 +789,7 @@ async function playVolumeRescueSound() {
 }
 
 lessonStage.addEventListener("click", async (event) => {
-  if (currentState.freezeScreenArmed) {
+  if (isStudentInteractionBlocked()) {
     return;
   }
 

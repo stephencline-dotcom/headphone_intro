@@ -4,7 +4,8 @@ window.HeadphoneClassroom = (() => {
   let state = {
     currentStep: 0,
     teacherControlEnabled: true,
-    freezeScreenArmed: false
+    freezeScreenArmed: false,
+    freezeCatchEnabled: false
   };
 
   const listeners = new Set();

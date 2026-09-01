@@ -5039,3 +5039,210 @@ body:not(.presentation-shell)
   font-size: 64px;
   font-weight: 900;
 }
+
+/* ===== Freeze: stop catching new students ===== */
+
+.stop-catching-button {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 8px 12px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: #fff1cc;
+  color: #6f5000;
+
+  display: grid;
+  gap: 2px;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.stop-catching-button strong {
+  font-size: 14px;
+}
+
+.stop-catching-button small {
+  font-size: 11px;
+}
+
+.stop-catching-button.is-stopped {
+  background: #e8eef6;
+  color: #4e5b6c;
+}
+
+.stop-catching-button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+/* ===== Presentation Freeze controls ===== */
+
+.presentation-freeze-bar {
+  width: min(1100px, 94vw);
+
+  margin: 6px auto 0;
+  padding: 6px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 5px 16px rgba(23, 32, 51, 0.10);
+}
+
+.presentation-freeze-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  min-width: 165px;
+
+  font-size: 12px;
+}
+
+.presentation-freeze-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+  background: #45a86b;
+}
+
+.presentation-freeze-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.presentation-freeze-actions button {
+  min-height: 34px;
+
+  padding: 5px 10px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #eef2f6;
+  color: #27364a;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.presentation-freeze-actions button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Catching */
+body[data-presentation-freeze-state="catching"]
+  .presentation-freeze-bar {
+  background: #fff4f4;
+}
+
+body[data-presentation-freeze-state="catching"]
+  .presentation-freeze-dot {
+  background: #e85050;
+}
+
+body[data-presentation-freeze-state="catching"]
+  #presentation-freeze-status {
+  color: #b53232;
+}
+
+/* Only already-frozen students remain locked */
+body[data-presentation-freeze-state="frozen-only"]
+  .presentation-freeze-bar {
+  background: #fff8df;
+}
+
+body[data-presentation-freeze-state="frozen-only"]
+  .presentation-freeze-dot {
+  background: #d89c09;
+}
+
+body[data-presentation-freeze-state="frozen-only"]
+  #presentation-freeze-status {
+  color: #846000;
+}
+
+/* Unlocked */
+body[data-presentation-freeze-state="unlocked"]
+  .presentation-freeze-dot {
+  background: #45a86b;
+}
+
+/* ===== Presentation Freeze controls: compact corner bar ===== */
+
+.presentation-freeze-bar {
+  position: fixed;
+
+  top: 12px;
+  right: 18px;
+
+  width: auto;
+  max-width: none;
+
+  margin: 0;
+  padding: 5px 7px;
+
+  z-index: 100;
+
+  gap: 8px;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 14px rgba(23, 32, 51, 0.10);
+}
+
+.presentation-freeze-status {
+  min-width: auto;
+  gap: 5px;
+
+  padding: 0 5px;
+
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.presentation-freeze-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.presentation-freeze-actions {
+  gap: 4px;
+}
+
+.presentation-freeze-actions button {
+  min-height: 28px;
+
+  padding: 4px 7px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Shorter wording works better in the compact presentation bar */
+#presentation-stop-catching {
+  max-width: 120px;
+}
+
+#presentation-unlock-all {
+  max-width: 90px;
+}
