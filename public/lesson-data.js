@@ -132,6 +132,15 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "plug-ears-ready",
+    section: "routine-reset",
+    shortLabel: "EARS",
+    visual: "position-ears",
+    spokenInstruction: "Headphones on your ears. Get ready to listen.",
+    interactionType: "none"
+  },
+
+  {
     id: "plug-check",
     section: "plug",
     shortLabel: "CHECK",
@@ -159,11 +168,11 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
-    id: "position-ears-teach",
+    id: "position-go-practice",
     section: "positions",
-    shortLabel: "EARS",
-    visual: "position-ears",
-    spokenInstruction: "When it is time to work and listen to your Chromebook, gently move your headphones from your neck to your ears.",
+    shortLabel: "GO",
+    visual: "position-go",
+    spokenInstruction: "Go! Headphones on your ears. Get ready to work.",
     interactionType: "none"
   },
 
@@ -172,34 +181,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     section: "positions",
     shortLabel: "STOP",
     visual: "position-stop",
-    spokenInstruction: "Stop! Move your headphones to your neck and look at your teacher.",
-    interactionType: "none"
-  },
-
-  {
-    id: "position-neck-practice",
-    section: "positions",
-    shortLabel: "NECK",
-    visual: "position-neck",
-    spokenInstruction: "Check yourself. Headphones on your neck. Look, listen, hands down.",
-    interactionType: "none"
-  },
-
-  {
-    id: "position-go-practice",
-    section: "positions",
-    shortLabel: "GO",
-    visual: "position-go",
-    spokenInstruction: "Go! Move your headphones to your ears and get ready to listen.",
-    interactionType: "none"
-  },
-
-  {
-    id: "position-ears-practice",
-    section: "positions",
-    shortLabel: "EARS",
-    visual: "position-ears",
-    spokenInstruction: "Check yourself. Headphones on your ears. Ready to work.",
+    spokenInstruction: "Stop. Headphones on your neck. Look, listen, and hands down.",
     interactionType: "none"
   },
 
@@ -216,7 +198,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     id: "sound-start",
     section: "sound",
     shortLabel: "SOUND",
-    visual: "volume-sound",
+    visual: "volume-all",
     spokenInstruction: "Now let's learn the sound buttons on our Chromebook.",
     interactionType: "volume-test"
   },
@@ -231,12 +213,30 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "reset-after-quieter",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "volume-louder",
     section: "volume",
     shortLabel: "LOUDER",
     visual: "volume-up",
     spokenInstruction: "Find the louder button. Press it to make the sound louder.",
     interactionType: "volume-test"
+  },
+
+  {
+    id: "reset-after-louder",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
   },
 
   {
@@ -285,12 +285,30 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "party-neck-after-louder",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "party-louder-see",
     section: "volume-party",
     shortLabel: "LOUDER!",
     visual: "party-fast",
     spokenInstruction: "Louder! The party moves faster!",
     interactionType: "party-sound"
+  },
+
+  {
+    id: "party-neck-after-louder-see",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
   },
 
   {
@@ -303,12 +321,30 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "party-neck-after-quieter",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "party-quieter-see",
     section: "volume-party",
     shortLabel: "QUIETER",
     visual: "party-slow",
     spokenInstruction: "Quieter. The party moves slower.",
     interactionType: "party-sound"
+  },
+
+  {
+    id: "party-neck-after-quieter-see",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
   },
 
   {
@@ -327,6 +363,15 @@ window.HEADPHONE_HEROES_LESSONS = {
     visual: "party-stop",
     spokenInstruction: "Mute means no sound. The party stops!",
     interactionType: "party-sound"
+  },
+
+  {
+    id: "party-neck-after-mute",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
   },
 
   {

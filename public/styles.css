@@ -5246,3 +5246,18 @@ body[data-presentation-freeze-state="unlocked"]
 #presentation-unlock-all {
   max-width: 90px;
 }
+
+/* ===== SOUND intro: highlight all three Chromebook volume keys ===== */
+
+.volume-photo-stage[data-volume="all"]
+  .volume-highlight-mute,
+.volume-photo-stage[data-volume="all"]
+  .volume-highlight-down,
+.volume-photo-stage[data-volume="all"]
+  .volume-highlight-up {
+  display: block;
+  fill: rgba(255, 217, 61, 0.06);
+  stroke: #f1b82d;
+  stroke-width: 5;
+  vector-effect: non-scaling-stroke;
+}
