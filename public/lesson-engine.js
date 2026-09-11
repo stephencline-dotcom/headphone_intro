@@ -821,6 +821,226 @@ window.HeadphoneLessonEngine = (() => {
       return visual;
     }
 
+    if (step.visual === "review3-quick") {
+      visual.innerHTML = `
+        <div class="review3-quick-review">
+
+          <div class="review3-part-frame review3-headband-frame">
+            <div
+              class="headphone-photo-stage"
+              data-highlight="headband"
+            >
+              <img
+                class="headphone-photo"
+                src="/assets/images/classroom-headphones.png"
+                alt="Classroom headphones"
+              >
+              <div
+                class="part-highlight part-headband"
+                aria-hidden="true">
+              </div>
+            </div>
+
+            <strong>HEADBAND</strong>
+          </div>
+
+          <div class="review3-part-frame review3-earpads-frame">
+            <div
+              class="headphone-photo-stage"
+              data-highlight="earpads"
+            >
+              <img
+                class="headphone-photo"
+                src="/assets/images/classroom-headphones.png"
+                alt="Classroom headphones"
+              >
+              <div
+                class="part-highlight part-earpad-left"
+                aria-hidden="true">
+              </div>
+              <div
+                class="part-highlight part-earpad-right"
+                aria-hidden="true">
+              </div>
+            </div>
+
+            <strong>EAR PADS</strong>
+          </div>
+
+          <div class="review3-part-frame review3-cord-frame">
+            <div
+              class="headphone-photo-stage"
+              data-highlight="cord"
+            >
+              <img
+                class="headphone-photo"
+                src="/assets/images/classroom-headphones.png"
+                alt="Classroom headphones"
+              >
+              <div
+                class="part-highlight part-cord"
+                aria-hidden="true">
+              </div>
+            </div>
+
+            <strong>CORD</strong>
+          </div>
+
+          <div class="review3-part-frame review3-plug-frame">
+            <div
+              class="headphone-photo-stage"
+              data-highlight="plug"
+            >
+              <img
+                class="headphone-photo"
+                src="/assets/images/classroom-headphones.png"
+                alt="Classroom headphones"
+              >
+              <div
+                class="part-highlight part-plug"
+                aria-hidden="true">
+              </div>
+            </div>
+
+            <strong>PLUG</strong>
+          </div>
+
+          <div class="review3-plug-in-frame">
+            <div class="review3-plug-in-images">
+              <div class="review3-plug-icon">🎧</div>
+
+              <div class="review3-plug-arrow">→</div>
+
+              <svg
+                class="review3-port-svg"
+                viewBox="0 0 4080 3060"
+                role="img"
+                aria-label="Left side of Chromebook"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <image
+                  href="/assets/images/side.jpg"
+                  x="0"
+                  y="0"
+                  width="4080"
+                  height="3060"
+                ></image>
+
+                <ellipse
+                  class="review3-port-ring"
+                  cx="3150"
+                  cy="1875"
+                  rx="145"
+                  ry="120"
+                ></ellipse>
+              </svg>
+            </div>
+
+            <strong>PLUG IT IN</strong>
+          </div>
+
+        </div>
+      `;
+
+      return visual;
+    }
+
+    if (step.visual === "review3-dance-directions") {
+      visual.innerHTML = `
+        <div class="review3-dance-directions">
+
+          <div class="review3-direction-row">
+            <div class="review3-direction-key">
+              <span class="review3-key-icon">🔉</span>
+              <strong>QUIETER</strong>
+            </div>
+
+            <div class="review3-direction-arrow">→</div>
+
+            <div class="review3-direction-result">
+              <span>🐢</span>
+              <strong>SLOW DOWN</strong>
+            </div>
+          </div>
+
+          <div class="review3-direction-row">
+            <div class="review3-direction-key">
+              <span class="review3-key-icon">🔊</span>
+              <strong>LOUDER</strong>
+            </div>
+
+            <div class="review3-direction-arrow">→</div>
+
+            <div class="review3-direction-result">
+              <span>🚀</span>
+              <strong>SPEED UP</strong>
+            </div>
+          </div>
+
+          <div class="review3-direction-row">
+            <div class="review3-direction-key">
+              <span class="review3-key-icon">🔇</span>
+              <strong>MUTE</strong>
+            </div>
+
+            <div class="review3-direction-arrow">→</div>
+
+            <div class="review3-direction-result">
+              <span>✋</span>
+              <strong>STOP</strong>
+            </div>
+          </div>
+
+          <div class="review3-sound-on-reminder">
+            <span>▶️</span>
+            <strong>SOUND OFF?</strong>
+            <span>→</span>
+            <span>🔊</span>
+            <strong>PRESS VOLUME UP</strong>
+          </div>
+
+        </div>
+      `;
+
+      return visual;
+    }
+
+    if (step.visual === "review3-dance") {
+      visual.innerHTML = `
+        <div
+          class="review3-dance"
+          data-dance-state="ready"
+        >
+          <div class="review3-dance-cue">
+            <span class="review3-cue-icon">🎵</span>
+            <strong>READY?</strong>
+          </div>
+
+          <div class="review3-dance-stage">
+            <div class="review3-dancer review3-dancer-one">🕺</div>
+            <div class="review3-dancer review3-dancer-two">💃</div>
+            <div class="review3-dancer review3-dancer-three">🤸</div>
+            <div class="review3-dancer review3-dancer-four">🕺</div>
+            <div class="review3-dancer review3-dancer-five">💃</div>
+
+            <span class="review3-note review3-note-one">♪</span>
+            <span class="review3-note review3-note-two">♫</span>
+            <span class="review3-note review3-note-three">♪</span>
+          </div>
+
+          <button
+            class="review3-dance-start"
+            type="button"
+          >
+            <span>▶</span>
+            <strong>START DANCE</strong>
+          </button>
+        </div>
+      `;
+
+      return visual;
+    }
+
     if (step.visual.startsWith("party-")) {
       const mode = step.visual.replace("party-", "");
 
@@ -1182,15 +1402,22 @@ window.HeadphoneLessonEngine = (() => {
       step.visual?.startsWith("rescue-") &&
       !["rescue-intro", "rescue-finish"].includes(step.visual);
 
+    const isWeek3Dance =
+      step.visual === "review3-dance";
+
     if (isVolumeRescue) {
       wrapper.classList.add("volume-rescue-screen");
+    }
+
+    if (isWeek3Dance) {
+      wrapper.classList.add("review3-dance-screen");
     }
 
     const visual = createVisual(step);
 
     wrapper.appendChild(visual);
 
-    if (!isVolumeRescue) {
+    if (!isVolumeRescue && !isWeek3Dance) {
       const label = document.createElement("h2");
       label.className = "lesson-label";
       label.textContent = step.shortLabel;

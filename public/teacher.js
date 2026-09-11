@@ -410,7 +410,20 @@ const copyStudentLinkButton =
 const classroomLinkStatus =
   document.getElementById("classroom-link-status");
 
-openPresentationButton.addEventListener("click", () => {
+openPresentationButton.addEventListener("click", async () => {
+  /*
+    Week 3 begins with a calm welcome screen.
+    Always reset it to step 0 before opening the
+    presentation so the automatic Quick Review
+    cannot begin before the teacher is ready.
+  */
+  if (lessonSelector?.value === "review-3") {
+    await classroom.updateState({
+      lessonId: "review-3",
+      currentStep: 0
+    });
+  }
+
   window.open(
     `${window.location.origin}/present`,
     "_blank",

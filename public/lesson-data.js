@@ -894,6 +894,57 @@ window.HEADPHONE_HEROES_LESSONS = {
         interactionType: "none"
       }
     ]
+  },
+
+  "review-3": {
+    id: "review-3",
+    title: "Week 3 Quick Review",
+    lesson: [
+      {
+        id: "review3-welcome",
+        section: "week3-opening",
+        shortLabel: "WELCOME BACK!",
+        visual: "headphones-full",
+        spokenInstruction: "Welcome back, Headphone Heroes! Get ready for one last quick review.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review3-quick-review",
+        section: "week3-review",
+        shortLabel: "QUICK REVIEW",
+        visual: "review3-quick",
+        spokenInstruction: "Quick review! Watch the important headphone parts and remember how we plug them in.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review3-dance-directions",
+        section: "week3-dance",
+        shortLabel: "DANCE DIRECTIONS",
+        visual: "review3-dance-directions",
+        spokenInstruction: "Watch the dancers and use the matching Chromebook sound button.",
+        interactionType: "none"
+      },
+
+      {
+        id: "review3-dance",
+        section: "week3-dance",
+        shortLabel: "DANCE CHALLENGE",
+        visual: "review3-dance",
+        spokenInstruction: "Start the dance and watch carefully. Use your Chromebook volume buttons to help the dancers.",
+        interactionType: "review3-dance"
+      },
+
+      {
+        id: "review3-finish",
+        section: "complete",
+        shortLabel: "HEADPHONE HERO!",
+        visual: "hero-finish",
+        spokenInstruction: "Great job! You are a Headphone Hero!",
+        interactionType: "none"
+      }
+    ]
   }
 };
 

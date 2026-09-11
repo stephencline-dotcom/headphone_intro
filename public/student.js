@@ -62,6 +62,10 @@ function renderStudent(state) {
     if (typeof stopVolumeRescueSound === "function") {
       stopVolumeRescueSound();
     }
+
+    if (typeof stopReview3Dance === "function") {
+      stopReview3Dance();
+    }
   }
 
   currentState = state;
@@ -823,3 +827,201 @@ lessonStage.addEventListener("click", async (event) => {
   button.querySelector("strong").textContent =
     "STOP";
 });
+
+/* ===== Week 3 continuous Dance Challenge ===== */
+
+let review3DanceMusic = null;
+let review3DanceTimers = [];
+
+function stopReview3Dance() {
+  review3DanceTimers.forEach((timer) => {
+    clearTimeout(timer);
+  });
+
+  review3DanceTimers = [];
+
+  if (review3DanceMusic) {
+    review3DanceMusic.pause();
+    review3DanceMusic.currentTime = 0;
+    review3DanceMusic = null;
+  }
+}
+
+function setReview3DanceState(
+  stage,
+  state,
+  icon,
+  message
+) {
+  if (!stage) {
+    return;
+  }
+
+  stage.dataset.danceState = state;
+
+  const cueIcon =
+    stage.querySelector(".review3-cue-icon");
+
+  const cueText =
+    stage.querySelector(
+      ".review3-dance-cue strong"
+    );
+
+  if (cueIcon) {
+    cueIcon.textContent = icon;
+  }
+
+  if (cueText) {
+    cueText.textContent = message;
+  }
+}
+
+async function startReview3Dance(stage) {
+  stopReview3Dance();
+
+  stage.classList.add("is-running");
+  stage.classList.remove("is-finished");
+
+  review3DanceMusic =
+    new Audio("/assets/music/happy.mp3");
+
+  review3DanceMusic.loop = true;
+  review3DanceMusic.volume = 0.45;
+
+  try {
+    await review3DanceMusic.play();
+  } catch (error) {
+    console.error(
+      "Unable to start Week 3 dance music.",
+      error
+    );
+  }
+
+  const rounds = [
+    {
+      delay: 0,
+      state: "normal",
+      icon: "🎵",
+      message: "DANCE!"
+    },
+    {
+      delay: 3500,
+      state: "slow",
+      icon: "🐢 🔉",
+      message: "TURN IT DOWN"
+    },
+    {
+      delay: 9500,
+      state: "fast",
+      icon: "🚀 🔊",
+      message: "TURN IT UP"
+    },
+    {
+      delay: 15500,
+      state: "stop",
+      icon: "✋ 🔇",
+      message: "MUTE"
+    },
+    {
+      delay: 21500,
+      state: "start",
+      icon: "▶️ 🔊",
+      message: "TURN SOUND ON"
+    },
+    {
+      delay: 27500,
+      state: "slow",
+      icon: "🐢 🔉",
+      message: "TURN IT DOWN"
+    },
+    {
+      delay: 33500,
+      state: "fast",
+      icon: "🚀 🔊",
+      message: "TURN IT UP"
+    }
+  ];
+
+  rounds.forEach((round) => {
+    const timer = setTimeout(() => {
+      setReview3DanceState(
+        stage,
+        round.state,
+        round.icon,
+        round.message
+      );
+    }, round.delay);
+
+    review3DanceTimers.push(timer);
+  });
+
+  const finishTimer = setTimeout(() => {
+    setReview3DanceState(
+      stage,
+      "done",
+      "⭐",
+      "GREAT JOB!"
+    );
+
+    stage.classList.remove("is-running");
+    stage.classList.add("is-finished");
+
+    const button =
+      stage.querySelector(
+        ".review3-dance-start"
+      );
+
+    if (button) {
+      button.querySelector("strong").textContent =
+        "PLAY AGAIN";
+    }
+
+    if (review3DanceMusic) {
+      review3DanceMusic.pause();
+      review3DanceMusic.currentTime = 0;
+      review3DanceMusic = null;
+    }
+  }, 39500);
+
+  review3DanceTimers.push(finishTimer);
+}
+
+lessonStage.addEventListener(
+  "click",
+  (event) => {
+    if (isStudentInteractionBlocked()) {
+      return;
+    }
+
+    const button =
+      event.target.closest(
+        ".review3-dance-start"
+      );
+
+    if (!button) {
+      return;
+    }
+
+    const step =
+      lessonEngine.getStep(
+        currentState.currentStep,
+        currentState.lessonId || "full"
+      );
+
+    if (
+      step?.interactionType !==
+      "review3-dance"
+    ) {
+      return;
+    }
+
+    const stage =
+      button.closest(".review3-dance");
+
+    if (!stage) {
+      return;
+    }
+
+    startReview3Dance(stage);
+  }
+);

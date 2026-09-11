@@ -5261,3 +5261,520 @@ body[data-presentation-freeze-state="unlocked"]
   stroke-width: 5;
   vector-effect: non-scaling-stroke;
 }
+
+/* ===== Week 3 quick review ===== */
+
+.review3-quick-review {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.review3-part-frame,
+.review3-plug-in-frame {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+}
+
+.review3-part-frame
+  .headphone-photo-stage {
+  width: min(700px, 90%);
+  height: 420px;
+}
+
+.review3-part-frame > strong,
+.review3-plug-in-frame > strong {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+
+  transform: translateX(-50%);
+
+  padding: 8px 18px;
+
+  border-radius: 16px;
+  background: #ffffff;
+
+  font-size: 26px;
+  color: #27364a;
+
+  box-shadow:
+    0 6px 18px rgba(23, 32, 51, 0.12);
+}
+
+/* Each part gets about 2.5 seconds */
+.review3-headband-frame {
+  animation:
+    review3-show-frame 2.5s linear 0s 1 both;
+}
+
+.review3-earpads-frame {
+  animation:
+    review3-show-frame 2.5s linear 2.5s 1 both;
+}
+
+.review3-cord-frame {
+  animation:
+    review3-show-frame 2.5s linear 5s 1 both;
+}
+
+.review3-plug-frame {
+  animation:
+    review3-show-frame 2.5s linear 7.5s 1 both;
+}
+
+@keyframes review3-show-frame {
+  0%,
+  8% {
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Final review moment stays visible */
+.review3-plug-in-frame {
+  animation:
+    review3-show-final 0.5s ease 10s 1 forwards;
+}
+
+@keyframes review3-show-final {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.review3-plug-in-images {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.review3-plug-icon {
+  font-size: clamp(80px, 11vw, 130px);
+}
+
+.review3-plug-arrow {
+  font-size: clamp(55px, 8vw, 90px);
+  font-weight: 900;
+  color: #d89c09;
+}
+
+.review3-port-svg {
+  width: min(520px, 55%);
+  height: auto;
+
+  border-radius: 24px;
+}
+
+.review3-port-ring {
+  fill: rgba(255, 217, 61, 0.05);
+  stroke: #f1b82d;
+  stroke-width: 10;
+  vector-effect: non-scaling-stroke;
+}
+
+
+/* ===== Week 3 continuous Dance Challenge ===== */
+
+.review3-dance {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 78px minmax(0, 1fr) 72px;
+}
+
+.review3-dance-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  font-size: 28px;
+}
+
+.review3-cue-icon {
+  font-size: 52px;
+}
+
+.review3-dance-cue strong {
+  font-size: 28px;
+}
+
+.review3-dance-stage {
+  position: relative;
+
+  width: min(850px, 94%);
+  height: 330px;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0%,
+      #eef7ff 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 3px
+      rgba(45, 126, 224, 0.08);
+}
+
+.review3-dancer {
+  position: absolute;
+
+  font-size: clamp(58px, 8vw, 92px);
+
+  animation:
+    review3-dance-bounce
+    0.7s ease-in-out infinite alternate;
+}
+
+.review3-dancer-one {
+  left: 7%;
+  bottom: 18%;
+}
+
+.review3-dancer-two {
+  left: 26%;
+  top: 18%;
+  animation-delay: -0.2s;
+}
+
+.review3-dancer-three {
+  left: 45%;
+  bottom: 16%;
+  animation-delay: -0.4s;
+}
+
+.review3-dancer-four {
+  right: 22%;
+  top: 17%;
+  animation-delay: -0.1s;
+}
+
+.review3-dancer-five {
+  right: 5%;
+  bottom: 17%;
+  animation-delay: -0.35s;
+}
+
+.review3-note {
+  position: absolute;
+
+  font-size: 42px;
+
+  animation:
+    review3-note-float
+    1.5s ease-in-out infinite alternate;
+}
+
+.review3-note-one {
+  left: 17%;
+  top: 10%;
+}
+
+.review3-note-two {
+  left: 52%;
+  top: 8%;
+}
+
+.review3-note-three {
+  right: 12%;
+  top: 12%;
+}
+
+@keyframes review3-dance-bounce {
+  from {
+    transform:
+      translateY(12px)
+      rotate(-5deg)
+      scale(0.96);
+  }
+
+  to {
+    transform:
+      translateY(-18px)
+      rotate(5deg)
+      scale(1.05);
+  }
+}
+
+@keyframes review3-note-float {
+  from {
+    transform: translateY(7px);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* SLOW */
+.review3-dance[data-dance-state="slow"]
+  .review3-dancer {
+  animation-duration: 1.8s;
+}
+
+/* FAST */
+.review3-dance[data-dance-state="fast"]
+  .review3-dancer,
+.review3-dance[data-dance-state="start"]
+  .review3-dancer {
+  animation-duration: 0.34s;
+}
+
+/* STOP */
+.review3-dance[data-dance-state="stop"]
+  .review3-dancer,
+.review3-dance[data-dance-state="stop"]
+  .review3-note {
+  animation-play-state: paused;
+}
+
+/* Finished */
+.review3-dance[data-dance-state="done"]
+  .review3-dancer {
+  animation-duration: 0.55s;
+}
+
+.review3-dance-start {
+  justify-self: center;
+  align-self: center;
+
+  min-width: 180px;
+  min-height: 54px;
+
+  padding: 8px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: #ffffff;
+  color: #27364a;
+
+  box-shadow:
+    0 7px 20px rgba(23, 32, 51, 0.14);
+
+  cursor: pointer;
+}
+
+.review3-dance-start span {
+  font-size: 24px;
+}
+
+.review3-dance-start strong {
+  font-size: 15px;
+}
+
+.review3-dance.is-running
+  .review3-dance-start {
+  visibility: hidden;
+}
+
+.review3-dance.is-finished
+  .review3-dance-start {
+  visibility: visible;
+}
+
+.review3-dance[data-dance-state="slow"]
+  .review3-dance-cue {
+  color: #3a638e;
+}
+
+.review3-dance[data-dance-state="fast"]
+  .review3-dance-cue {
+  color: #bd6500;
+}
+
+.review3-dance[data-dance-state="stop"]
+  .review3-dance-cue {
+  color: #c53e3e;
+}
+
+.review3-dance[data-dance-state="start"]
+  .review3-dance-cue {
+  color: #218653;
+}
+
+/* ===== Week 3 Dance Challenge full-screen layout ===== */
+
+.lesson-screen.review3-dance-screen {
+  display: block !important;
+
+  width: min(1100px, 94vw) !important;
+  height: 100% !important;
+
+  margin: 0 auto !important;
+}
+
+.review3-dance-screen > .lesson-visual {
+  width: 100% !important;
+  height: min(500px, 66vh) !important;
+
+  max-width: none !important;
+  max-height: none !important;
+}
+
+.review3-dance-screen .review3-dance {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: grid !important;
+  grid-template-rows:
+    60px
+    minmax(0, 1fr)
+    70px !important;
+
+  align-items: center !important;
+}
+
+.review3-dance-screen .review3-dance-cue {
+  grid-row: 1;
+}
+
+.review3-dance-screen .review3-dance-stage {
+  grid-row: 2;
+
+  width: min(880px, 96%) !important;
+  height: min(320px, 100%) !important;
+
+  align-self: center;
+  justify-self: center;
+}
+
+.review3-dance-screen .review3-dance-start {
+  grid-row: 3;
+
+  position: relative !important;
+
+  display: flex !important;
+  visibility: visible;
+
+  justify-self: center !important;
+  align-self: center !important;
+
+  margin: 8px auto 0 !important;
+
+  z-index: 20;
+}
+
+.review3-dance-screen
+  .review3-dance.is-running
+  .review3-dance-start {
+  visibility: hidden;
+}
+
+/* ===== Week 3 Dance directions ===== */
+
+.review3-dance-directions {
+  width: min(900px, 94%);
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+
+.review3-direction-row {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+
+  align-items: center;
+  gap: 16px;
+
+  padding: 14px 18px;
+
+  border-radius: 22px;
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(23, 32, 51, 0.10);
+}
+
+.review3-direction-key,
+.review3-direction-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.review3-direction-key strong,
+.review3-direction-result strong {
+  font-size: 22px;
+  color: #27364a;
+}
+
+.review3-key-icon,
+.review3-direction-result span {
+  font-size: 54px;
+}
+
+.review3-direction-arrow {
+  text-align: center;
+
+  font-size: 42px;
+  font-weight: 900;
+
+  color: #d89c09;
+}
+
+.review3-sound-on-reminder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 8px;
+  padding: 12px 16px;
+
+  border-radius: 18px;
+  background: #eef7ff;
+
+  font-size: 20px;
+}
+
+.review3-sound-on-reminder span {
+  font-size: 34px;
+}
+
+.review3-sound-on-reminder strong {
+  color: #27364a;
+}

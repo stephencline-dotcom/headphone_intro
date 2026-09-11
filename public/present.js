@@ -255,3 +255,81 @@ function startPresentationHeartbeat() {
 }
 
 startPresentationHeartbeat();
+
+/* ===== Week 3 Dance Challenge presentation preview ===== */
+
+let presentationDanceTimers = [];
+
+function clearPresentationDance() {
+  presentationDanceTimers.forEach((timer) => {
+    clearTimeout(timer);
+  });
+
+  presentationDanceTimers = [];
+}
+
+lessonStage.addEventListener("click", (event) => {
+  const button =
+    event.target.closest(".review3-dance-start");
+
+  if (!button) {
+    return;
+  }
+
+  const stage =
+    button.closest(".review3-dance");
+
+  if (!stage) {
+    return;
+  }
+
+  clearPresentationDance();
+
+  stage.classList.add("is-running");
+  stage.classList.remove("is-finished");
+
+  const cueIcon =
+    stage.querySelector(".review3-cue-icon");
+
+  const cueText =
+    stage.querySelector(
+      ".review3-dance-cue strong"
+    );
+
+  const rounds = [
+    [0, "normal", "🎵", "DANCE!"],
+    [3500, "slow", "🐢 🔉", "TURN IT DOWN"],
+    [9500, "fast", "🚀 🔊", "TURN IT UP"],
+    [15500, "stop", "✋ 🔇", "MUTE"],
+    [21500, "start", "▶️ 🔊", "TURN SOUND ON"],
+    [27500, "slow", "🐢 🔉", "TURN IT DOWN"],
+    [33500, "fast", "🚀 🔊", "TURN IT UP"]
+  ];
+
+  rounds.forEach(
+    ([delay, state, icon, message]) => {
+      const timer = setTimeout(() => {
+        stage.dataset.danceState = state;
+        cueIcon.textContent = icon;
+        cueText.textContent = message;
+      }, delay);
+
+      presentationDanceTimers.push(timer);
+    }
+  );
+
+  const finishTimer = setTimeout(() => {
+    stage.dataset.danceState = "done";
+
+    cueIcon.textContent = "⭐";
+    cueText.textContent = "GREAT JOB!";
+
+    stage.classList.remove("is-running");
+    stage.classList.add("is-finished");
+
+    button.querySelector("strong").textContent =
+      "PLAY AGAIN";
+  }, 39500);
+
+  presentationDanceTimers.push(finishTimer);
+});
