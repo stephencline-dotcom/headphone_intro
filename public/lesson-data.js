@@ -141,6 +141,15 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "plug-neck-before-check",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "plug-check",
     section: "plug",
     shortLabel: "CHECK",
@@ -152,15 +161,6 @@ window.HEADPHONE_HEROES_LESSONS = {
   {
     id: "reset-after-plug",
     section: "routine-reset",
-    shortLabel: "NECK",
-    visual: "position-neck",
-    spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
-    interactionType: "none"
-  },
-
-  {
-    id: "position-neck-teach",
-    section: "positions",
     shortLabel: "NECK",
     visual: "position-neck",
     spokenInstruction: "Headphones on your neck. Look at your teacher, listen, and put your hands down.",
@@ -249,11 +249,20 @@ window.HEADPHONE_HEROES_LESSONS = {
   },
 
   {
+    id: "reset-after-mute",
+    section: "routine-reset",
+    shortLabel: "NECK",
+    visual: "position-neck",
+    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
+    interactionType: "none"
+  },
+
+  {
     id: "volume-unmute",
     section: "volume",
     shortLabel: "SOUND ON",
-    visual: "volume-unmute",
-    spokenInstruction: "Press the sound button again to turn your sound back on.",
+    visual: "volume-up",
+    spokenInstruction: "Press the louder button to turn your sound back on.",
     interactionType: "volume-test"
   },
 
@@ -379,7 +388,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     section: "volume-party",
     shortLabel: "SOUND ON",
     visual: "party-stop",
-    spokenInstruction: "Turn the sound back on.",
+    spokenInstruction: "Press the louder button to turn the sound back on.",
     interactionType: "party-sound"
   },
 
@@ -433,7 +442,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     section: "sound-detective",
     shortLabel: "SOUND ON",
     visual: "detective-unmute",
-    spokenInstruction: "Bring the sound back. Press the highlighted sound button.",
+    spokenInstruction: "Bring the sound back. Press the highlighted louder button.",
     interactionType: "detective-sound"
   },
 
@@ -863,7 +872,7 @@ window.HEADPHONE_HEROES_LESSONS = {
         visual: "rescue-sound-on",
         spokenInstruction: "The party is ready, but there is no sound. Which button brings the sound back?",
         interactionType: "rescue-choice",
-        correctAnswer: "mute",
+        correctAnswer: "up",
         missionNumber: 4
       },
 

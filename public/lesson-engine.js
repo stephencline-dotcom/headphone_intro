@@ -771,7 +771,7 @@ window.HeadphoneLessonEngine = (() => {
           <span class="detective-cue-arrow">→</span>
           <span class="detective-cue-big">🔊</span>
         `;
-        highlightClass = "detective-highlight-mute";
+        highlightClass = "detective-highlight-up";
       }
 
       visual.innerHTML = `
@@ -796,7 +796,7 @@ window.HeadphoneLessonEngine = (() => {
               x="${
                 mode === "down"
                   ? 748
-                  : mode === "up"
+                  : mode === "up" || mode === "unmute"
                     ? 833
                     : 663
               }"
