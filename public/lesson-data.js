@@ -284,23 +284,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     interactionType: "party-sound"
   },
 
-  {
-    id: "party-louder-do",
-    section: "volume-party",
-    shortLabel: "LOUDER",
-    visual: "party-medium-fast",
-    spokenInstruction: "Make the music louder. Press the louder button on your Chromebook.",
-    interactionType: "party-sound"
-  },
 
-  {
-    id: "party-neck-after-louder",
-    section: "routine-reset",
-    shortLabel: "NECK",
-    visual: "position-neck",
-    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
-    interactionType: "none"
-  },
 
   {
     id: "party-louder-see",
@@ -320,23 +304,7 @@ window.HEADPHONE_HEROES_LESSONS = {
     interactionType: "none"
   },
 
-  {
-    id: "party-quieter-do",
-    section: "volume-party",
-    shortLabel: "QUIETER",
-    visual: "party-medium-fast",
-    spokenInstruction: "Make the music quieter. Press the quieter button on your Chromebook.",
-    interactionType: "party-sound"
-  },
 
-  {
-    id: "party-neck-after-quieter",
-    section: "routine-reset",
-    shortLabel: "NECK",
-    visual: "position-neck",
-    spokenInstruction: "Headphones on your neck. Look, listen, and hands down.",
-    interactionType: "none"
-  },
 
   {
     id: "party-quieter-see",
