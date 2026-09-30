@@ -220,7 +220,7 @@ window.HeadphoneLessonEngine = (() => {
               class="rescue-play-button"
               type="button"
             >
-              <span>🔊</span>
+              <span>💡</span>
               <strong>PLAY</strong>
             </button>
           </div>
@@ -686,7 +686,7 @@ window.HeadphoneLessonEngine = (() => {
             <div class="review-sound-icons" aria-hidden="true">
               <span>🔇</span>
               <span>🔉</span>
-              <span>🔊</span>
+              <span>💡</span>
             </div>
           </div>
         `;
@@ -715,7 +715,7 @@ window.HeadphoneLessonEngine = (() => {
             <div class="detective-big-icon" aria-hidden="true">👂</div>
             <div class="detective-clues" aria-hidden="true">
               <span>🔉</span>
-              <span>🔊</span>
+              <span>💡</span>
               <span>🔇</span>
             </div>
           </div>
@@ -812,7 +812,7 @@ window.HeadphoneLessonEngine = (() => {
           </div>
 
           <button class="detective-play-button" type="button">
-            <span>🔊</span>
+            <span>💡</span>
             <strong>PLAY</strong>
           </button>
         </div>
@@ -995,7 +995,7 @@ window.HeadphoneLessonEngine = (() => {
             <span>▶️</span>
             <strong>SOUND OFF?</strong>
             <span>→</span>
-            <span>🔊</span>
+            <span>💡</span>
             <strong>PRESS VOLUME UP</strong>
           </div>
 
@@ -1456,3 +1456,6 @@ window.HeadphoneLessonEngine = (() => {
     renderTeacherPreview
   };
 })();
+
+
+

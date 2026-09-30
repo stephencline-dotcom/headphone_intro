@@ -5778,3 +5778,28 @@ body[data-presentation-freeze-state="unlocked"]
 .review3-sound-on-reminder strong {
   color: #27364a;
 }
+
+/* ===== Week 3 SOUND ON reminder card ===== */
+
+.review3-sound-on-reminder {
+  margin-top: 0;
+
+  padding: 14px 18px;
+
+  min-height: 92px;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 18px rgba(23, 32, 51, 0.10);
+}
+
+.review3-sound-on-reminder span {
+  font-size: 48px;
+}
+
+.review3-sound-on-reminder strong {
+  font-size: 22px;
+}

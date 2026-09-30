@@ -301,7 +301,7 @@ lessonStage.addEventListener("click", (event) => {
     [3500, "slow", "🐢 🔉", "TURN IT DOWN"],
     [9500, "fast", "🚀 🔊", "TURN IT UP"],
     [15500, "stop", "✋ 🔇", "MUTE"],
-    [21500, "start", "▶️ 🔊", "TURN SOUND ON"],
+    [21500, "start", "💡", "TURN SOUND ON"],
     [27500, "slow", "🐢 🔉", "TURN IT DOWN"],
     [33500, "fast", "🚀 🔊", "TURN IT UP"]
   ];
@@ -333,3 +333,4 @@ lessonStage.addEventListener("click", (event) => {
 
   presentationDanceTimers.push(finishTimer);
 });
+
