@@ -5803,3 +5803,78 @@ body[data-presentation-freeze-state="unlocked"]
 .review3-sound-on-reminder strong {
   font-size: 22px;
 }
+
+/* ===== Week 3 Dance Challenge attention/status button ===== */
+
+/* Before starting: bright, large, pulsing */
+.review3-dance-start {
+  min-width: 270px !important;
+  min-height: 72px !important;
+
+  padding: 12px 28px !important;
+
+  border: 4px solid #e4aa26 !important;
+  border-radius: 24px !important;
+
+  background: #fff4b8 !important;
+  color: #17233a !important;
+
+  box-shadow:
+    0 8px 24px rgba(23, 32, 51, 0.18),
+    0 0 0 8px rgba(228, 170, 38, 0.14) !important;
+
+  visibility: visible !important;
+
+  animation:
+    review3-start-button-pulse
+    0.85s ease-in-out infinite alternate !important;
+}
+
+.review3-dance-start span {
+  font-size: 34px !important;
+}
+
+.review3-dance-start strong {
+  font-size: 21px !important;
+}
+
+@keyframes review3-start-button-pulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.07);
+  }
+}
+
+/* While running: RED = this student is still doing it */
+.review3-dance.is-running .review3-dance-start {
+  visibility: visible !important;
+
+  background: #e54848 !important;
+  color: #ffffff !important;
+
+  border-color: #b72f2f !important;
+
+  box-shadow:
+    0 8px 24px rgba(183, 47, 47, 0.32),
+    0 0 0 8px rgba(229, 72, 72, 0.14) !important;
+
+  animation: none !important;
+}
+
+/* Finished/stopped: red disappears */
+.review3-dance.is-finished .review3-dance-start {
+  visibility: visible !important;
+
+  background: #ffffff !important;
+  color: #27364a !important;
+
+  border-color: #d7dee8 !important;
+
+  box-shadow:
+    0 7px 20px rgba(23, 32, 51, 0.14) !important;
+
+  animation: none !important;
+}

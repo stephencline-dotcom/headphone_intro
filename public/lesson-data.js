@@ -887,6 +887,14 @@ window.HEADPHONE_HEROES_LESSONS = {
       },
 
       {
+        id: "review3-sound-buttons",
+        section: "week3-review",
+        shortLabel: "SOUND BUTTONS",
+        visual: "volume-all",
+        spokenInstruction: "Remember these three sound buttons: mute, quieter, and louder.",
+        interactionType: "none"
+      },
+      {
         id: "review3-dance-directions",
         section: "week3-dance",
         shortLabel: "DANCE DIRECTIONS",
@@ -918,4 +926,6 @@ window.HEADPHONE_HEROES_LESSONS = {
 
 window.HEADPHONE_HEROES_LESSON =
   window.HEADPHONE_HEROES_LESSONS.full.lesson;
+
+
 

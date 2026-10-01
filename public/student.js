@@ -882,6 +882,22 @@ async function startReview3Dance(stage) {
   stage.classList.add("is-running");
   stage.classList.remove("is-finished");
 
+  const danceButton =
+    stage.querySelector(".review3-dance-start");
+
+  if (danceButton) {
+    const icon = danceButton.querySelector("span");
+    const label = danceButton.querySelector("strong");
+
+    if (icon) {
+      icon.textContent = "■";
+    }
+
+    if (label) {
+      label.textContent = "STOP DANCE";
+    }
+  }
+
   review3DanceMusic =
     new Audio("/assets/music/happy.mp3");
 
@@ -1022,8 +1038,39 @@ lessonStage.addEventListener(
       return;
     }
 
+    if (stage.classList.contains("is-running")) {
+      stopReview3Dance();
+
+      stage.classList.remove("is-running");
+      stage.classList.add("is-finished");
+
+      setReview3DanceState(
+        stage,
+        "ready",
+        "🎵",
+        "READY?"
+      );
+
+      const icon = button.querySelector("span");
+      const label = button.querySelector("strong");
+
+      if (icon) {
+        icon.textContent = "▶";
+      }
+
+      if (label) {
+        label.textContent = "PLAY AGAIN";
+      }
+
+      return;
+    }
+
     startReview3Dance(stage);
   }
 );
+
+
+
+
 
 
